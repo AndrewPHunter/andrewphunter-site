@@ -1,0 +1,96 @@
+baseURL: https://andrewphunter.com/
+title: "Andrew Hunter — Architecture, Delivery, Engineering Leadership"
+languageCode: en-us
+theme: PaperMod
+
+enableRobotsTXT: true
+
+pagination:
+  pagerSize: 10
+
+taxonomies:
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  ShowShareButtons: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+  author: Andrew Hunter
+  description: "Notes on architecture, delivery systems, and engineering leadership—focused on building reliable, long-lived platforms and the organizations that deliver them."
+
+  images:
+    - "/images/brand-image.png"
+
+  socialIcons:
+    - name: email
+      url: "mailto:me@andrewphunter.com"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/andrewphunter/"
+
+  cover:
+    hidden: true
+    hiddenInList: true
+    hiddenInSingle: true
+
+  assets:
+    disableHLJS: true
+    disableFingerprinting: false
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - name: Writing
+      url: /writing/
+      weight: 10
+    - name: Principles
+      url: /principles/
+      weight: 20
+    - name: About
+      url: /about/
+      weight: 30
+    - name: Contact
+      url: /contact/
+      weight: 40
+    - name: Search
+      url: /search/
+      weight: 50
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
