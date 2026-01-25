@@ -78,15 +78,18 @@ menu:
     - name: Principles
       url: /principles/
       weight: 20
+    - name: Applications
+      url: /applications/
+      weight: 30
     - name: About
       url: /about/
-      weight: 30
+      weight: 40
     - name: Contact
       url: /contact/
-      weight: 40
+      weight: 50
     - name: Search
       url: /search/
-      weight: 50
+      weight: 60
 
 markup:
   goldmark:
