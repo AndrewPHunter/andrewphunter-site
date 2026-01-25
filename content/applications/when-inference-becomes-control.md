@@ -86,4 +86,4 @@ Crucially, this is not a failure of tooling maturity. No amount of additional in
 
 This is why observability expands in parallel with instability in inference-mediated systems. As knowability erodes, explanation layers multiply. But each new layer reinforces the same inversion: instead of designing systems that remain knowable, organizations invest in mechanisms that make unknowability feel managed.
 
-**What remains is not observability, but narration. Control has already been lost.**
+**What remains is not observability, but rationalization. Control has already been lost.**
