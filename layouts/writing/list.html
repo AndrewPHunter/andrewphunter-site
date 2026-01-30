@@ -6,27 +6,5 @@
       <div class="post-content" data-pagefind-body>{{ . }}</div>
     {{ end }}
   </header>
-
-  <section class="archive-list">
-    {{ range .Pages.ByDate.Reverse }}
-      <article class="archive-entry">
-        <div class="archive-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-        </div>
-
-        <h2 class="archive-title">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h2>
-
-        {{ with .Description }}
-          <p class="archive-desc">{{ . }}</p>
-        {{ else }}
-          {{ with .Summary }}
-            <p class="archive-desc">{{ . | plainify | truncate 160 }}</p>
-          {{ end }}
-        {{ end }}
-      </article>
-    {{ end }}
-  </section>
 </main>
 {{ end }}
