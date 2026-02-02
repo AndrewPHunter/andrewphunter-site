@@ -81,6 +81,9 @@ menu:
     - name: Applications
       url: /applications/
       weight: 30
+    - name: Advisory
+      url: /advisory/
+      weight: 35
     - name: About
       url: /about/
       weight: 40
