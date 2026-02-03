@@ -16,9 +16,13 @@ Formalizes intent, reproducibility, and change control as architectural responsi
 
 ## Backfill Essays (Derived from Prior Work)
 
-**Reproducibility Is Not Optional**  
-*(Backfill — in consolidation)*  
+**[Reproducibility](/writing/reproducibility/)**  
+*(Backfill — November 20, 2022)*  
 Formalizes reproducibility as the epistemic floor required for reasoning about system behavior.
+
+**Composition Without Collapse**  
+*(Backfill — mid 2025)*  
+Explores how independently correct systems fail when composed, and why local correctness does not imply global correctness.
 
 ## Core Corpus (Published)
 
@@ -28,12 +32,8 @@ Analyzes how systems become epistemically dishonest when form replaces justifica
 
 ## Planned Essays (Conceptual Continuations)
 
-**Composition Without Collapse**  
-*(Planned)*  
-Explores how independently correct systems fail when composed, and why local correctness does not imply global correctness.
-
 **Distributed Truth**  
-*(Planned)*  
+*(Planned — 2026)*  
 Examines reproducibility, honesty, and knowability in distributed systems under partial failure and eventual consistency.
 
 ## Capstone
