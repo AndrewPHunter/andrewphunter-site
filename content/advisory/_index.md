@@ -10,6 +10,8 @@ I help early-stage and scaling teams turn convincing demos into real, defensible
 
 This work sits at the intersection of architecture, product, delivery, and risk. It’s not feature delivery by default, and it’s not staff augmentation. It’s senior judgment applied early, when decisions are still reversible.
 
+This work is equally effective for established organizations operating in early-stage conditions — new platforms, AI initiatives, or high-uncertainty bets where senior judgment is needed before scale makes mistakes expensive.
+
 I’m also engaged for targeted technical due diligence and forensic review — assessing whether systems, architectures, and claims actually hold up under scrutiny, and surfacing risk before it becomes reputational or financial.
 
 ⸻
