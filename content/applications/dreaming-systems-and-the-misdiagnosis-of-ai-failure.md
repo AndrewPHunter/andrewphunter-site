@@ -10,13 +10,19 @@ Section 1: Hallucination vs. Dreaming
 
 When an AI system produces an incorrect result, the industry almost universally labels the behavior a hallucination. The term has become a catch-all diagnosis for outputs that are wrong, surprising, or misaligned with expectations.
 
-But this framing is often incorrect.
+This essay assumes the failure of reproducibility.
+
+When a system is no longer reproducible, its behavior cannot be grounded in prior executions, stable configurations, or invariant-preserving change. At that point, correctness is no longer something that can be demonstrated at the system level—it is inferred after the fact from observed outcomes. What follows is how that epistemic failure is experienced at the model boundary.
+
+But even within that failure, the industry’s framing is often incorrect.
 
 A hallucinating system violates its own internal consistency. Given the same inputs and constraints, it produces outputs that contradict its learned structure, rules, or prior inferences. This is a failure inside the model.
 
 A dreaming system does the opposite. It is internally coherent. It faithfully executes its learned logic. The failure occurs because the system is operating without sufficient external structure, constraint, or grounding to force correspondence with reality. The output is plausible, consistent, and wrong.
 
-The difference matters because the fixes are categorically different. Hallucinations require model correction. Dreams require system correction. Treating one as the other leads to the wrong investments, the wrong architectures, and the wrong expectations.
+This distinction matters because the fixes are categorically different. Hallucinations require model correction. Dreams require system correction. Treating one as the other leads to the wrong investments, the wrong architectures, and the wrong expectations.
+
+This behavior is often described as predictive convergence. As used here, predictive convergence does not refer to overfitting or training failure. It describes a system-level phenomenon: when inference operates without sufficient external constraint, outputs collapse toward default, low-risk predictions regardless of underlying model capability. This convergence is not a defect in learning. It is the expected behavior of predictive systems deprived of grounding.
 
 ⸻
 
