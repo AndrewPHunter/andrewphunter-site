@@ -4,6 +4,9 @@ title: "Writing"
 
 This archive is a curated body of work on software architecture, system design, and long-term maintainability. Some essays are retrospective consolidations of prior practice; others represent planned abstractions derived from sustained application. The ordering reflects conceptual dependency, not publication chronology.
 
+Note: The corpus is substrate-independent. It describes structural conditions for system knowability, not failures of any specific reasoning mechanism; applied essays examine contemporary violations as examples, not foundations.
+
+
 ## Corpus Spine
 
 1. **[Architecture as Practice](/writing/architecture-as-practice/)**
