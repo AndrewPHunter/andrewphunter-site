@@ -4,6 +4,15 @@ title: "Writing"
 
 This archive is a curated body of work on software architecture, system design, and long-term maintainability. Some essays are retrospective consolidations of prior practice; others represent planned abstractions derived from sustained application. The ordering reflects conceptual dependency, not publication chronology.
 
+## Corpus Spine
+
+1. **[Architecture as Practice](/writing/architecture-as-practice/)**
+2. **Accessible Systems**
+3. **[Reproducibility](/writing/reproducibility/)**
+4. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**
+5. **[Systems That Lie](/writing/systems-that-lie/)**
+6. **[When Inference Becomes Control](/applications/when-inference-becomes-control/)**
+
 ## Published Essays
 
 **[Architecture as Practice](/writing/architecture-as-practice/)**  
@@ -14,11 +23,16 @@ Establishes architecture as lived discipline and constraint, not diagrams or fra
 *(Published — March 2021)*  
 Formalizes intent, reproducibility, and change control as architectural responsibilities.
 
-## Backfill Essays (Derived from Prior Work)
 
 **[Reproducibility](/writing/reproducibility/)**  
 *(Backfill — November 20, 2022)*  
 Formalizes reproducibility as the epistemic floor required for reasoning about system behavior.
+
+**[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**  
+*(Published — July 20, 2023)*  
+Tests exist to give systems a relationship to truth.
+
+## Backfill Essays (Derived from Prior Work)
 
 **Composition Without Collapse**  
 *(Backfill — mid 2025)*  
