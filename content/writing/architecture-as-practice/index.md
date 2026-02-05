@@ -10,11 +10,15 @@ Programming is fundamentally an exercise in problem solving. The act of programm
 
 As systems grow, architecture is introduced not as ceremony, but as a way to define the problem space and provide the creative constraints necessary to balance business requirements with long-term sustainability. Good architecture is not about frameworks or languages. It is about establishing a cohesive set of principles and practices that guide how problems are solved over time.
 
+Over time, I’ve come to understand that what these practices ultimately preserve is not elegance or flexibility in the abstract, but **knowability**. Knowability is the property of a system by which the relationship between its constraints, decisions, and outcomes remains internally representable and externally recoverable over time. A knowable system can justify its behavior without appeal to historical coincidence, intuition, or post-hoc interpretation. Its correctness is not inferred from outcomes, but demonstrated through enforced constraints that preserve causal traceability as the system evolves.
+The architectural properties that follow are best understood as constraints that preserve knowability under different forms of pressure.
+
 Over the years, I’ve found that effective software architecture can be usefully described by five enduring properties. Together, they form a practical, experience-driven model for building systems that survive contact with reality:
 
 **Scalable. Maintainable. Accessible. Reproducible. Testable.**
 
 Not as buzzwords. As operating principles.
+Each addresses a different way systems lose knowability as they grow, change, or come under pressure.
 
 <!--more-->
 
@@ -28,9 +32,9 @@ At its core, scalability is about avoiding unnecessary coupling and blocking. Th
 - Proper use of concurrency and threading  
 - Minimizing data transformation in read paths  
 - Using patterns like CQRS or predefined query models  
-- Introducing messaging, queues, or pub/sub where appropriate for medium and large systems  
+- Introducing messaging, queues, or pub/sub where appropriate for medium and large systems
 
-Scalability is not something you bolt on later. It is a consequence of decisions made early about boundaries, flow, and responsibility.
+Scalability is not something you bolt on later. It is a consequence of early decisions about boundaries, flow, and responsibility. While it is often framed in terms of throughput, its deeper role is epistemic: ensuring that growth does not destroy the system’s ability to explain its behavior in terms of its original constraints.
 
 ## Maintainable
 
@@ -47,6 +51,8 @@ This is usually achieved through:
 - Relentless application of the Single Responsibility Principle  
 
 Every compilation unit should have one business reason to change. When this is not true, complexity accumulates invisibly — until it becomes the dominant cost of the system.
+
+Maintainability preserves knowability over time by keeping reasoning local. When changes propagate non-locally, explanation degrades before behavior does.
 
 ## Accessible
 
@@ -86,7 +92,7 @@ Accessibility is what prevents observability from degrading into post-hoc interp
 
 Reproducibility is not about convenience or determinism for its own sake. It is the condition that allows correctness to be demonstrated rather than assumed.
 
-A system is reproducible if the relationship between its constraints and its outcomes can be re-established. When this relationship holds, behavior can be questioned, explained, and revised. When it does not, correctness can only be inferred from results.
+A system is reproducible if the relationship between its constraints and its outcomes can be re-established. Reproducibility ensures that explanations survive context shifts. Without it, correctness may still exist, but it cannot be reliably re-established when conditions change. When this relationship holds, behavior can be questioned, explained, and revised. When it does not, correctness can only be inferred from results.
 
 In practice, this requires that systems be both build-time and run-time deterministic with respect to their constraints.
 
@@ -102,7 +108,7 @@ These are not operational preferences. They are architectural requirements. With
 
 Testability is often discussed as a development convenience: the ability to verify behavior, catch regressions, and change code safely. These are real benefits, but they are downstream effects, not the core purpose.
 
-The primary role of testability is to make correctness enforceable.
+The primary role of testability is to make correctness enforceable. Testability is the mechanism by which knowability becomes enforceable rather than aspirational.
 
 In any non-trivial system, many behaviors are plausible, coherent, and operationally successful while still being wrong. Architecture exists to constrain that space. Tests are the mechanism by which those constraints are asserted. They define which behaviors are not allowed, not merely which behaviors have been observed.
 
@@ -120,9 +126,9 @@ These five properties are not theoretical. They are not aspirational. They are p
 
 Good architecture is not something you “do” once. It is something you **practice continuously**.
 
-The systems that last are not the ones with the cleverest designs. They are the ones that remain:
+What ultimately distinguishes durable systems is not cleverness, but their ability to remain knowable as reality applies pressure.
 
-- Understandable  
-- Changeable  
-- Operable  
-- And honest about their own complexity
+They remain understandable because intent and constraints stay legible over time. They remain changeable because reasoning is local and proportional to the scope of change. They remain operable because behavior can be explained rather than inferred from outcomes. And they remain honest about their own complexity because limits are enforced rather than obscured.
+
+Good architecture is not something you “do” once. It is something you practice continuously—the ongoing discipline of preserving knowability as systems evolve, scale, and encounter reality.
+
