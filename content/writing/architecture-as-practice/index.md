@@ -50,60 +50,69 @@ Every compilation unit should have one business reason to change. When this is n
 
 ## Accessible
 
-Programming is the act of expressing problem-solving through code. Code is not written for machines. Machines execute it. Humans read it.
+Programming is the act of expressing problem-solving through code.
 
 > Programming is for humans. Binary is for computers.
 
-Modern compilers and runtimes are far better at optimization than we are. We should use that to our advantage.
+Modern compilers and runtimes are far better at optimization than we are. We should use that to our advantage by expressing intent clearly and allowing the machine to handle execution details.
 
-- Prefer clarity over cleverness  
-- Prefer declarative styles over imperative ones where possible  
-- Avoid pre-optimization that obscures intent  
-- Isolate necessary complexity rather than spreading it  
+Accessibility is the condition that preserves intent as systems evolve. It is not about ease of use or surface clarity, but about whether the reasons a system exists, the constraints it encodes, and the decisions it makes remain legible over time.
 
-Functions and methods should be small, cohesive, and decomposed to minimize branching logic. The goal is not brevity. The goal is **readable, intention-revealing structure**.
+That implies:
+- Prefer clarity over cleverness
+- Prefer declarative styles over imperative ones where possible
+- Avoid pre-optimization that obscures intent
+- Isolate necessary complexity rather than spreading it
+
+These are not stylistic preferences. They are architectural constraints on how intent is preserved.
+
+Accessibility manifests structurally in how intent is carried through the system. When intent is preserved, it remains visible at every level of decomposition. When it is lost, understanding requires reconstruction.
+
+In accessible systems:
+- responsibilities are explicit rather than implied,
+- decision points are localized rather than scattered,
+- abstractions communicate why they exist, not just how they behave,
+- complexity is contained rather than diffused across layers.
+
+The goal is not minimal code or stylistic purity. The goal is intention-revealing structure — structure that allows decisions to be explained directly, without reverse-engineering behavior or inferring purpose after the fact.
+
+When intent is preserved, systems remain accessible under change and pressure. When it is not, explanation collapses. Behavior can still be observed, but the reasoning that produced it must be inferred after the fact.
+
+Accessibility is what prevents observability from degrading into post-hoc interpretation. **Without it, correctness may still exist, but it can no longer be reliably explained.**
 
 ## Reproducible
 
 “It works on my machine” is not a success condition.
 
-Programs should be both build-time and run-time deterministic.
+Reproducibility is not about convenience or determinism for its own sake. It is the condition that allows correctness to be demonstrated rather than assumed.
+
+A system is reproducible if the relationship between its constraints and its outcomes can be re-established. When this relationship holds, behavior can be questioned, explained, and revised. When it does not, correctness can only be inferred from results.
+
+In practice, this requires that systems be both build-time and run-time deterministic with respect to their constraints.
 
 That means:
+- Configuration via explicit inputs, not ambient environment state
+- No hidden dependencies on machine setup or deployment context
+- Clear separation between code and environment
+- All environment-specific behavior expressed through well-defined boundaries
 
-- Configuration via explicit inputs, not ambient environment state  
-- No hidden dependencies on machine setup or deployment context  
-- Clear separation between code and environment  
-- All environment-specific behavior expressed through well-defined boundaries  
-
-If a system behaves differently depending on where it runs, that is not an operational problem. It is an architectural one.
+These are not operational preferences. They are architectural requirements. Without them, a system may function reliably, but it cannot explain why it behaves as it does.
 
 ## Testable
 
-Testing is not about coverage metrics. It is about **control and feedback**.
+Testability is often discussed as a development convenience: the ability to verify behavior, catch regressions, and change code safely. These are real benefits, but they are downstream effects, not the core purpose.
 
-At its core, a unit test is just a small program that executes some logic and checks the result.
+The primary role of testability is to make correctness enforceable.
 
-### Test-Aided Development
+In any non-trivial system, many behaviors are plausible, coherent, and operationally successful while still being wrong. Architecture exists to constrain that space. Tests are the mechanism by which those constraints are asserted. They define which behaviors are not allowed, not merely which behaviors have been observed.
 
-The most effective use of tests is not religious TDD, and not “write tests at the end.” It is simpler and more pragmatic:
+This is why testability is an architectural concern rather than a procedural one. If a system cannot express and enforce its constraints in a way that can be mechanically checked, then correctness is left to convention, review, or intuition. Those mechanisms may work for a time, but they do not scale, and they do not survive pressure.
 
-> Any time you feel the urge to press F5 to see if something works, write a test instead.
+Good test design is therefore not about coverage or completeness. It is about encoding invariants. A small number of tests that assert what must never happen provide more architectural value than a large suite that merely confirms that something happened.
 
-A test lets you:
+This framing also explains why testability depends so strongly on other architectural choices. Clear separation of concerns, dependency inversion, and explicit boundaries are not stylistic preferences. They are what make it possible to state constraints precisely and enforce them reliably.
 
-- Bypass the entire application  
-- Execute the logic directly  
-- Control inputs precisely  
-- Observe outputs deterministically  
-
-When code is hard to test, that usually indicates a **design problem**, not a testing problem.
-
-With proper use of dependency inversion, pure functions, and functional decomposition, the majority of a codebase should be trivially testable. In this way, tests become:
-
-- A design feedback mechanism  
-- A safety harness for change  
-- A guardrail for long-term evolution  
+When systems are testable in this sense, change becomes safe not because behavior can be rechecked after the fact, but because invalid behavior is structurally excluded. The system does not need to infer correctness from outcomes; it is constrained to produce correct outcomes by design.
 
 ## Architecture as Practice
 
