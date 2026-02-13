@@ -2,59 +2,55 @@
 title: "Writing"
 ---
 
-This archive is a curated body of work on software architecture, system design, and long-term maintainability. Some essays are retrospective consolidations of prior practice; others represent planned abstractions derived from sustained application. The ordering reflects conceptual dependency, not publication chronology.
+This archive is a structured body of work on software architecture as a constraint discipline.
 
-Note: The corpus is substrate-independent. It describes structural conditions for system knowability, not failures of any specific reasoning mechanism; applied essays examine contemporary violations as examples, not foundations.
+The essays are ordered by conceptual dependency, not publication date.
 
+Together they describe the structural conditions required for systems to remain knowable over time.
 
-## Corpus Spine
+The corpus is substrate-independent. It describes structural conditions for system knowability, not failures of any specific reasoning mechanism. Applied essays examine contemporary violations as examples, not foundations.
 
-1. **[Architecture as Practice](/writing/architecture-as-practice/)**
-2. **Accessible Systems**
-3. **[Reproducibility](/writing/reproducibility/)**
-4. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**
-5. **[Systems That Lie](/writing/systems-that-lie/)**
-6. **[When Inference Becomes Control](/applications/when-inference-becomes-control/)**
+---
 
-## Published Essays
+## Corpus Spine  
+*Read in order.*
 
-**[Architecture as Practice](/writing/architecture-as-practice/)**  
-*(Published — July 2020)*  
-Establishes architecture as lived discipline and constraint, not diagrams or frameworks.
+1. **[Architecture as Practice](/writing/architecture-as-practice/)**  
+   Establishes architecture as lived constraint rather than diagram or framework.
 
-**[Dependency Management as Practice](/writing/dependency-management-as-practice/)**  
-*(Published — March 2021)*  
-Formalizes intent, reproducibility, and change control as architectural responsibilities.
+2. **Knowability**  *(Planned)*
+   Defines the invariant property that architecture exists to preserve.
 
+3. **[Reproducibility](/writing/reproducibility/)**  
+   Formalizes the epistemic floor required to re-establish constraint.
 
-**[Reproducibility](/writing/reproducibility/)**  
-*(Backfill — November 20, 2022)*  
-Formalizes reproducibility as the epistemic floor required for reasoning about system behavior.
+4. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**  
+   Defines how correctness is enforced rather than inferred.
 
-**[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**  
-*(Published — July 20, 2023)*  
-Tests exist to give systems a relationship to truth.
+5. **[Systems That Lie](/writing/systems-that-lie/)**  
+   Examines what happens when systems lose the ability to justify themselves.
 
-## Backfill Essays (Derived from Prior Work)
+6. **[Composition Without Collapse](/writing/composition-without-collapse/)**  
+   Explores why locally correct systems fail when composed without preserving constraint.
 
-**Composition Without Collapse**  
-*(Backfill — mid 2025)*  
-Explores how independently correct systems fail when composed, and why local correctness does not imply global correctness.
+7. **Distributed Truth** *(Planned)*  
+   Extends constraint preservation into distributed systems under partial failure.
 
-## Core Corpus (Published)
+---
 
-**[Systems That Lie](/writing/systems-that-lie/)**  
-*(Published — 2024)*  
-Analyzes how systems become epistemically dishonest when form replaces justification, even while following best practices.
+## Applied Essays
 
-## Planned Essays (Conceptual Continuations)
+Applied essays examine contemporary systems, markets, and emerging tooling through the lens of the corpus. They demonstrate the theory under real conditions rather than establish it.
 
-**Distributed Truth**  
-*(Planned — 2026)*  
-Examines reproducibility, honesty, and knowability in distributed systems under partial failure and eventual consistency.
+Selected examples include:
+
+- Dreaming Systems and the Misdiagnosis of AI Failure 
+- When Inference Becomes Control
+
+---
 
 ## Capstone
 
-**Organizations as Epistemic Systems**  
-*(Planned — Capstone)*  
-Synthesizes the corpus into organizational epistemology: how authority, governance, and structure determine what systems are allowed to know.
+**Organizations as Epistemic Systems** *(Planned)*  
+
+A synthesis of the corpus at organizational scale — examining how authority, governance, and structure determine what systems are allowed to know.
