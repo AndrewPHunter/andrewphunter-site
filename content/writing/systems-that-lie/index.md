@@ -6,8 +6,6 @@ description: "How software systems can appear correct while losing the ability t
 type: "writing"
 ---
 
-## Systems That Lie
-
 
 This essay documents a recurring failure mode in software systems that present themselves as correct, mature, or well-governed, yet cannot reliably justify their behavior in domain terms. These systems are not broken in the traditional sense. They function. They pass checks. They are operated successfully for long periods of time.
 

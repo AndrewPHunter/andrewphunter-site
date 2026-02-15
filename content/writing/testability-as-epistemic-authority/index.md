@@ -5,7 +5,6 @@ type: writing
 series: corpus
 ---
 
-# Testability as Epistemic Authority
 
 0. What Tests Are Commonly Believed to Be
 

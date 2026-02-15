@@ -7,7 +7,6 @@ draft: false
 summary: "Formal vocabulary for the corpus. Defines constraint, invariant space, enforcement, knowability, translation surfaces, composition, and collapse."
 ---
 
-# Taxonomy
 
 ## A Formal Vocabulary for Constraint-Preserving Systems
 
