@@ -11,6 +11,11 @@ Together they describe the structural conditions required for systems to remain 
 The corpus is substrate-independent. It describes structural conditions for system knowability, not failures of any specific reasoning mechanism. Applied essays examine contemporary violations as examples, not foundations.
 
 ---
+## Foundations
+- **[Taxonomy](/writing/taxonomy/)**   
+  Formal vocabulary used throughout the corpus.  
+  Defines constraint, invariant space, enforcement, knowability, translation surfaces, composition, and collapse.
+---
 
 ## Corpus Spine  
 *Read in order.*
