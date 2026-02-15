@@ -15,16 +15,18 @@ The corpus is substrate-independent. It describes structural conditions for syst
 - **[Taxonomy](/writing/taxonomy/)**   
   Formal vocabulary used throughout the corpus.  
   Defines constraint, invariant space, enforcement, knowability, translation surfaces, composition, and collapse.
+- **[Knowability](/writing/knowability)**   
+   Knowability is the preserved ability of a system to justify its behavior through enforceable constraints across time and composition.
 ---
 
 ## Corpus Spine  
 *Read in order.*
 
-1. **[Architecture as Practice](/writing/architecture-as-practice/)**  
-   Establishes architecture as lived constraint rather than diagram or framework.
+1. **[Knowability](/writing/knowability)**   
+   Knowability is the preserved ability of a system to justify its behavior through enforceable constraints across time and composition.
 
-2. **Knowability**  *(Planned)*
-   Defines the invariant property that architecture exists to preserve.
+2. **[Architecture as Practice](/writing/architecture-as-practice/)**  
+   Establishes architecture as lived constraint rather than diagram or framework.
 
 3. **[Reproducibility](/writing/reproducibility/)**  
    Formalizes the epistemic floor required to re-establish constraint.
@@ -35,7 +37,7 @@ The corpus is substrate-independent. It describes structural conditions for syst
 5. **[Systems That Lie](/writing/systems-that-lie/)**  
    Examines what happens when systems lose the ability to justify themselves.
 
-6. **[Composition Without Collapse](/writing/composition-without-collapse/)**  
+6. **[The Additive Fallacy](/writing/the-additive-fallacy/)**  
    Explores why locally correct systems fail when composed without preserving constraint.
 
 7. **Distributed Truth** *(Planned)*  

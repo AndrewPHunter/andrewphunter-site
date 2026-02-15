@@ -5,8 +5,6 @@ type: writing
 series: corpus
 ---
 
-# Composition Without Collapse
-
 ## 0. Composition Is Not Neutral
 
 Modern systems are not monoliths. They are assemblies.
