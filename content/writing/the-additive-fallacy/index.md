@@ -1,5 +1,5 @@
 ---
-title: "Composition Without Collapse"
+title: "The Additive Fallacy"
 date: 2025-11-15
 type: writing
 series: corpus
