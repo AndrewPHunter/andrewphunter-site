@@ -1,6 +1,7 @@
 ---
 title: "Architecture as Practice"
 date: 2020-07-20
+series: corpus
 description: "Good architecture is not about frameworks or diagrams. It is a set of practiced constraints that shape how software systems evolve, scale, and remain changeable over time."
 ---
 

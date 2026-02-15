@@ -2,11 +2,11 @@
 title: "Reproducibility"
 date: 2022-11-20
 draft: false
+series: corpus
 type: writing
 summary: "Reproducibility is the condition that makes correctness knowable."
 ---
 
-Reproducibility
 
 Thesis
 

@@ -1,6 +1,7 @@
 ---
 title: "Dependency Management as Practice"
 date: 2021-03-20
+series: corpus
 description: "Dependency management is not a tooling problem. It is a design discipline concerned with controlling change, risk, and reproducibility in software systems over time."
 ---
 
