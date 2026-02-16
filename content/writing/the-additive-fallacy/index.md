@@ -55,6 +55,17 @@ If that reinterpretation relaxes constraint—even unintentionally—new behavio
 
 Importantly, collapse does not require any component to be wrong. It requires only that the intersection of their guarantees be weaker than the union of their assumptions.
 
+Specifically, the invariant space of the composed system is:
+I_C = (I_A ∩ I_B) ∩ I_interaction
+
+Engineers, however, reason as though:
+I_C = I_A ∩ I_B
+
+implicitly assuming:
+I_interaction = ∅
+
+When interaction constraints are real but unmodeled, the enforced invariant space is narrower than the one engineers believe governs the system.
+
 This is how drift begins.
 
 At small scale, the effects are invisible. Each layer appears correct. Each team remains confident. Each contract is satisfied according to its own terms.
@@ -83,7 +94,7 @@ But compression is not free.
 
 Information theory is unambiguous: whenever structure is summarized, something is discarded. What matters is whether the discarded portion contained constraint.
 
-If an invariant is not carried across a boundary in enforceable form, it does not survive composition. It becomes an assumption.
+If an invariant is not carried across a boundary in enforceable form, it does not survive composition. It becomes an assumption. The same boundary also generates new invariants (I_interaction) that must be modeled and enforced, or they will exist only as coordination debt.
 
 That is the pivot.
 
@@ -109,29 +120,55 @@ If it crossed as an assumption, collapse has already begun.
 
 ---
 
-## 3. The Additive Fallacy
+## 3. The Union Fallacy
 
 Most engineers reason about composition as if guarantees accumulate.
 
-If System A enforces Constraint A,  
-and System B enforces Constraint B,  
-then composing them should enforce Constraint A and Constraint B.
+If System A enforces invariant space I_A,
+and System B enforces invariant space I_B,
+then composing them is assumed to enforce both invariant spaces without interference.
+
+Implicitly, this becomes:  
+
+I_C = I_A ∪ I_B   
 
 This assumption is rarely stated, but it governs how systems are designed. Teams validate each component independently. They certify local invariants. They verify contracts at boundaries. And once those checks pass, composition is treated as a matter of wiring.
 
-The mental model is additive.
+This is the Union Fallacy.
 
-But composition is not additive.
+But invariant spaces do not expand through composition.
+They narrow.
 
-When systems interact, they introduce interaction surfaces. Those surfaces generate new constraints that do not exist in either system alone. Ordering assumptions emerge. Latency begins to shape outcomes. Shared state introduces coupling. Feedback loops amplify small discrepancies. Synchronization boundaries become governing forces.
+At minimum, the composed system must satisfy both invariant spaces:  
 
-These are not implementation details. They are structural constraints.
+I_C ⊆ I_A ∩ I_B
 
-The composed system is therefore governed by more than the sum of its component guarantees. It is governed by the interaction terms between them.
+And in practice, composition introduces interaction constraints that exist in neither system alone:
 
-And those interaction constraints are almost never explicitly encoded.
+I_C = (I_A ∩ I_B) ∩ I_interaction
 
-Each component may still faithfully enforce its local invariants. Each may satisfy its contract in isolation. Yet the composed system may drift because the governing constraint set has changed. The guarantees that engineers believe they are preserving are no longer the constraints that actually determine behavior.
+The second error is Interaction Blindness — reasoning as though:
+
+I_C = I_A ∩ I_B
+
+while implicitly assuming:
+
+I_interaction = ∅
+
+These interaction constraints are not implementation details.
+They are structural.
+
+Ordering assumptions emerge.
+Latency begins to shape outcomes.
+Shared state introduces coupling.
+Feedback loops amplify small discrepancies.
+Synchronization boundaries become governing forces.
+
+Each component may still faithfully enforce its local invariants. Each may satisfy its contract in isolation. Yet the composed system may drift because its effective invariant space is no longer the one engineers believe governs it.
+
+The first error is union reasoning — treating guarantees as cumulative.
+
+The second error is interaction blindness — failing to model and enforce I_interaction.
 
 This is the collapse point.
 
@@ -139,11 +176,13 @@ Engineers assume:
 - System behavior equals the accumulation of component guarantees.
 
 In reality:
-- System behavior is determined by the total constraint set, including those introduced by interaction.
+- System behavior is governed by the effective invariant space of the composed system — including interaction constraints that must be explicitly encoded.
 
-When those interaction constraints remain implicit, composition introduces opacity. The system still functions. It may even appear stable. But its behavior can no longer be justified by the guarantees engineers believe are in force.
+When those interaction constraints remain implicit, composition introduces opacity. The system still functions. It may even appear stable. But its behavior is no longer justified by the invariant space engineers believe they are preserving.
 
-At that moment, knowability begins to erode — not because constraints disappeared, but because the active constraint set is no longer the one the system claims to enforce.
+At that moment, correctness can no longer be derived from the system’s declared invariant space.
+The system continues to run, but its behavior is governed by constraints that exist in fact and not in representation.
+
 
 ---
 
