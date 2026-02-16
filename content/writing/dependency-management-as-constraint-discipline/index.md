@@ -1,5 +1,5 @@
 ---
-title: "Dependency Management as Practice"
+title: "Dependency Management as Constraint Discipline
 date: 2021-03-20
 series: corpus
 draft: false

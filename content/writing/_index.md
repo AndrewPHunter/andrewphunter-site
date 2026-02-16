@@ -28,17 +28,20 @@ The corpus is substrate-independent. It describes structural conditions for syst
 2. **[Architecture as Practice](/writing/architecture-as-practice/)**  
    Establishes architecture as lived constraint rather than diagram or framework.
 
+3. **[Dependency Management as Constraint Discipline](/writing/dependency-management-as-constraint-discipline)**    
+   Dependency management is the preservation of invariant space across time and external constraint surfaces.
+
 3. **[Reproducibility](/writing/reproducibility/)**  
    Formalizes the epistemic floor required to re-establish constraint.
 
 4. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**  
    Defines how correctness is enforced rather than inferred.
 
-5. **[Systems That Lie](/writing/systems-that-lie/)**  
-   Examines what happens when systems lose the ability to justify themselves.
-
-6. **[The Additive Fallacy](/writing/the-additive-fallacy/)**  
+5. **[The Additive Fallacy](/writing/the-additive-fallacy/)**  
    Explores why locally correct systems fail when composed without preserving constraint.
+
+6. **[Systems That Lie](/writing/systems-that-lie/)**  
+   Examines what happens when systems lose the ability to justify themselves.
 
 7. **Distributed Truth** *(Planned)*  
    Extends constraint preservation into distributed systems under partial failure.
