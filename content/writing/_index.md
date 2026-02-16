@@ -25,26 +25,29 @@ The corpus is substrate-independent. It describes structural conditions for syst
 1. **[Knowability](/writing/knowability)**   
    Knowability is the preserved ability of a system to justify its behavior through enforceable constraints across time and composition.
 
-2. **[Architecture as Practice](/writing/architecture-as-practice/)**  
+2. **[Architecture as Practiced Constraint](/writing/architecture-as-practiced-constraint/)**
    Establishes architecture as lived constraint rather than diagram or framework.
 
-3. **[Dependency Management as Constraint Discipline](/writing/dependency-management-as-constraint-discipline)**    
+3. **[Dependency Management as Constraint Discipline](/writing/dependency-management-as-constraint-discipline/)**
    Dependency management is the preservation of invariant space across time and external constraint surfaces.
 
-3. **[Reproducibility](/writing/reproducibility/)**  
+4. **[Reproducibility](/writing/reproducibility/)**
    Formalizes the epistemic floor required to re-establish constraint.
 
-4. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**  
+5. **[Testability as Epistemic Authority](/writing/testability-as-epistemic-authority/)**
    Defines how correctness is enforced rather than inferred.
 
-5. **[The Additive Fallacy](/writing/the-additive-fallacy/)**  
+6. **[The Additive Fallacy](/writing/the-additive-fallacy/)**
    Explores why locally correct systems fail when composed without preserving constraint.
 
-6. **[Systems That Lie](/writing/systems-that-lie/)**  
+7. **[Systems That Lie](/writing/systems-that-lie/)**
    Examines what happens when systems lose the ability to justify themselves.
 
-7. **Distributed Truth** *(Planned)*  
+8. **Distributed Truth** *(Planned)*
    Extends constraint preservation into distributed systems under partial failure.
+
+9. **Inference as Governance** *(Planned)*   
+   Examines the structural shift that occurs when probabilistic systems move from advisory signal to governing constraint surface, and how invariant space must be reasserted to preserve epistemic authority.
 
 ---
 
