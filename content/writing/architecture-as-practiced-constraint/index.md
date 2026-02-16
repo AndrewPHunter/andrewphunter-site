@@ -7,7 +7,6 @@ draft: false
 summary: "Architecture is the disciplined preservation of invariant space under pressure."
 ---
 
-# Architecture as Practiced Constraint
 
 Architecture is not an artifact.
 

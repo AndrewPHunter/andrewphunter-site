@@ -6,7 +6,6 @@ draft: false
 summary: "Dependency management is the preservation of invariant space across time and external constraint surfaces."
 ---
 
-# Dependency Management as Constraint Discipline
 
 Systems do not exist in isolation.
 
