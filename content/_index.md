@@ -9,7 +9,7 @@ Enterprise Architect & Engineering Leader
 
 I write occasionally about architecture, delivery systems, and engineering leadership—focused on building reliable, long-lived platforms and the organizations that deliver them.
 
-Start here: **[Writing](/writing/)** or **[Applications](/applications/)**.
+Start here:  **[Applications](/applications/)** or **[Writing](/writing/)**.
 
 I also take a small number of fractional advisory engagements for system formation and de-risking, and technical due diligence. [Details →](/advisory/)
 
