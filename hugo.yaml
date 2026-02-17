@@ -72,18 +72,18 @@ params:
 
 menu:
   main:
-    - name: Writing
-      url: /writing/
-      weight: 10
-    - name: Principles
-      url: /principles/
-      weight: 20
     - name: Applications
       url: /applications/
-      weight: 30
+      weight: 10
+    - name: Writing
+      url: /writing/
+      weight: 20
+    - name: Principles
+      url: /principles/
+      weight: 25
     - name: Theory
-      url: /theory/law-of-energetic-correction
-      weight: 33
+      url: /theory/
+      weight: 30
     - name: Advisory
       url: /advisory/
       weight: 35

@@ -1,8 +1,10 @@
 ---
 title: "Theory"
-description: "Domain-independent theory notes on cognition, systems, and constraint."
+description: "Domain-independent theory, formal vocabulary, and foundational essays on constraint-preserving systems."
 ---
 
-# Theory
+This section collects domain-independent theoretical work: formal claims, foundational essays, and structural analysis.
 
-Domain-independent theory notes. These are structural claims intended to be falsifiable.
+- **[Corpus](/theory/corpus/)** — Foundational essays on software architecture as a constraint discipline.
+- **[Law of Energetic Correction](/theory/law-of-energetic-correction/)** — A structural law governing when community cognition can emerge.
+- **[Formalization](/theory/formalization/)** — Formal treatment of constraint preservation (in progress).

@@ -3,6 +3,8 @@ title: "The Additive Fallacy"
 date: 2025-11-15
 type: writing
 series: corpus
+aliases:
+  - /writing/the-additive-fallacy/
 ---
 
 ## 0. Composition Is Not Neutral

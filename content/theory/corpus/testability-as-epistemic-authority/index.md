@@ -3,6 +3,8 @@ title: "Testability as Epistemic Authority"
 date: 2023-07-20
 type: writing
 series: corpus
+aliases:
+  - /writing/testability-as-epistemic-authority/
 ---
 
 

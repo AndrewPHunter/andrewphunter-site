@@ -5,6 +5,8 @@ type: writing
 series: corpus
 draft: false
 summary: "Knowability is the preserved ability of a system to justify its behavior through enforceable constraints across time and composition."
+aliases:
+  - /writing/knowability/
 ---
 
 

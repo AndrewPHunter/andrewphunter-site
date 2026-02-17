@@ -5,6 +5,8 @@ type: writing
 series: corpus
 draft: false
 summary: "Formal vocabulary for the corpus. Defines constraint, invariant space, enforcement, knowability, translation surfaces, composition, and collapse."
+aliases:
+  - /writing/taxonomy/
 ---
 
 

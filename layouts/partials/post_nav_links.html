@@ -1,17 +1,22 @@
 {{- if eq .Params.series "corpus" }}
   {{- /* Canonical corpus spine order */ -}}
   {{- $spine := slice
-    "/writing/knowability/"
-    "/writing/architecture-as-practiced-constraint/"
-    "/writing/dependency-management-as-constraint-discipline/"
-    "/writing/reproducibility/"
-    "/writing/testability-as-epistemic-authority/"
-    "/writing/the-additive-fallacy/"
-    "/writing/systems-that-lie/"
-    "/writing/distributed-truth/"
+    "/theory/corpus/knowability/"
+    "/theory/corpus/architecture-as-practiced-constraint/"
+    "/theory/corpus/dependency-management-as-constraint-discipline/"
+    "/theory/corpus/reproducibility/"
+    "/theory/corpus/testability-as-epistemic-authority/"
+    "/theory/corpus/the-additive-fallacy/"
+    "/theory/corpus/systems-that-lie/"
+    "/theory/corpus/distributed-truth/"
   -}}
 
+  {{- /* Normalize alias paths to canonical */ -}}
   {{- $current := .RelPermalink -}}
+  {{- if hasPrefix $current "/writing/" -}}
+    {{- $current = printf "/theory/corpus/%s" (strings.TrimPrefix "/writing/" $current) -}}
+  {{- end -}}
+
   {{- $idx := -1 -}}
   {{- range $i, $url := $spine -}}
     {{- if eq $url $current -}}
@@ -51,7 +56,7 @@
 </nav>
     {{- end -}}
 
-  {{- else if eq $current "/writing/taxonomy/" -}}
+  {{- else if eq $current "/theory/corpus/taxonomy/" -}}
     {{- /* Taxonomy: one-way link into the spine (no prev from Knowability back) */ -}}
     {{- with site.GetPage (index $spine 0) }}
 <nav class="paginav">

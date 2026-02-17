@@ -4,6 +4,8 @@ date: 2021-03-20
 series: corpus
 draft: false
 summary: "Dependency management is the preservation of invariant space across time and external constraint surfaces."
+aliases:
+  - /writing/dependency-management-as-constraint-discipline/
 ---
 
 
