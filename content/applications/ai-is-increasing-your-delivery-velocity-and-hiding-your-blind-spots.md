@@ -7,6 +7,9 @@ category: applications
 tags: ["Architecture", "AI Governance", "Delivery", "Engineering Leadership"]
 ---
 
+**AI didn’t remove your architecture problems.**  
+**It moved them.** 
+
 AI has increased how quickly most teams can produce working software.
 
 Features move from idea to demo in days instead of weeks. Test files appear instantly. Refactors that used to take an afternoon now take fifteen minutes.
@@ -97,24 +100,14 @@ That is when they become expensive.
 
 ---
 
-AI does not create these conditions.
-
-It reduces the time between decisions and their consequences.
-
-If your enforcement mechanisms are strong — clear ownership, explicit validation layers, deterministic CI checks, well-defined service boundaries — higher throughput increases leverage.
-
-If enforcement relies on convention, review comments, or “we all know how this works,” higher throughput increases coordination cost.
-
-The warning sign is not broken builds.
-
-It is longer integration meetings.
-
-It is repeated Slack threads asking, “Where does this rule actually live?”
-
-It is the engineer who says, “I thought that was handled upstream.”
-
 AI makes it easier to produce working code.
 
 It does not make it easier to decide where responsibility belongs.
 
-And if that decision is not made deliberately, it will be made implicitly — usually at the worst possible moment.
+When that decision is deferred, it resurfaces during integration, audit, or diligence — when the system has to explain itself under pressure.
+
+That is when speed stops helping.
+
+Unresolved ownership and implicit rules are cheap during implementation.
+
+They are expensive during scrutiny.
