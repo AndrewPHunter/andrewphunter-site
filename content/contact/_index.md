@@ -1,6 +1,6 @@
 ---
 title: "Contact"
+description: "Get in touch with Andrew Hunter."
+layout: "single"
+type: "contact"
 ---
-
-Email: me@andrewphunter.com
-LinkedIn: https://www.linkedin.com/in/andrewphunter/

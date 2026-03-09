@@ -1,0 +1,67 @@
+{{ define "main" }}
+{{- if eq .RelPermalink "/theory/" }}
+{{- /* Theory root — show subsection navigation cards */ -}}
+<div class="theory-index">
+  <header class="section-page-header">
+    <span class="section-page-kicker">Longer-horizon</span>
+    <h1 class="section-page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
+    {{ end }}
+  </header>
+
+  <div class="theory-subsections">
+    <a href="/theory/corpus/" class="theory-subsection">
+      <span class="theory-subsection-label">Foundational Corpus</span>
+      <div class="theory-subsection-title">Architecture as Constraint Discipline</div>
+      <div class="theory-subsection-desc">A structured body of work on the structural conditions required for systems to remain knowable over time. Read in order.</div>
+    </a>
+    <a href="/theory/law-of-energetic-correction/" class="theory-subsection">
+      <span class="theory-subsection-label">Essay</span>
+      <div class="theory-subsection-title">Law of Energetic Correction</div>
+      <div class="theory-subsection-desc">On the systemic forces that enforce constraint alignment even when organizations resist.</div>
+    </a>
+    <a href="/theory/formalization/" class="theory-subsection">
+      <span class="theory-subsection-label">Working Notes</span>
+      <div class="theory-subsection-title">Formalization Notes</div>
+      <div class="theory-subsection-desc">Intermediate mathematical formalization of corpus concepts. Research-in-progress.</div>
+    </a>
+  </div>
+</div>
+{{- else }}
+{{- /* Theory subsection — list its pages */ -}}
+<div class="section-index">
+  <header class="section-page-header">
+    <span class="section-page-kicker">Theory</span>
+    <h1 class="section-page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
+    {{ end }}
+  </header>
+
+  <div class="section-header">
+    <span class="section-header-title">Notes</span>
+    <div class="section-header-rule"></div>
+    <span class="section-header-count">{{ len .Pages }}</span>
+  </div>
+
+  <ul class="archive-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <li class="archive-entry">
+      <div class="archive-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      </div>
+      <div class="archive-body">
+        <h2 class="archive-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}
+        <p class="archive-desc">{{ . }}</p>
+        {{ else }}{{ with .Summary }}
+        <p class="archive-desc">{{ . | plainify | truncate 160 }}</p>
+        {{ end }}{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{- end }}
+{{ end }}

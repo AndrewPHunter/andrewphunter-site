@@ -1,0 +1,500 @@
+/* ================================================================
+   PRINCIPLES PAGE
+   Layout: single column, centered, max 780px
+   Structure: kicker → title → intro → [pillar × 5] → closing
+   ================================================================ */
+
+.principles-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px var(--page-gutter) 100px;
+  position: relative; /* establishes stacking context for TOC positioning */
+}
+
+/* ---- Kicker ---- */
+.principles-page .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+  display: block;
+}
+
+/* ---- Title ---- */
+.principles-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-10);
+  color: var(--ink);
+}
+
+/* ---- Intro block ---- */
+.principles-intro {
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: var(--border-light);
+}
+
+.principles-intro p {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: var(--leading-loose);
+  color: var(--ink);
+  margin-bottom: 0.75em;
+}
+
+.principles-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.principles-intro strong {
+  font-weight: 600;
+}
+
+.principles-intro-note {
+  color: var(--muted) !important;
+  font-style: italic;
+  font-size: 0.95rem !important;
+}
+
+/* ================================================================
+   PILLAR
+   ================================================================ */
+
+.pillar {
+  margin-bottom: 0;
+  padding: 48px 0;
+  border-bottom: var(--border-light);
+}
+
+.pillar:last-of-type {
+  border-bottom: none;
+}
+
+/* ---- Pillar header ---- */
+.pillar-header {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--space-5);
+  align-items: baseline;
+  margin-bottom: 28px;
+}
+
+.pillar-header-rule {
+  display: none;
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  letter-spacing: var(--tracking-wide);
+  font-weight: 500;
+  padding-top: 6px;
+  text-transform: uppercase;
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: var(--leading-snug);
+  color: var(--ink);
+}
+
+/* ---- Rules list ---- */
+.pillar-rules {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pillar-rules li {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: var(--leading-body);
+  color: var(--ink);
+  padding: 11px 0 11px 24px;
+  border-bottom: 1px solid rgba(212, 208, 200, 0.5);
+  position: relative;
+}
+
+.pillar-rules li:last-child {
+  border-bottom: none;
+}
+
+.pillar-rules li::before {
+  content: '—';
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--rule);
+  position: absolute;
+  left: 0;
+  top: 16px;
+}
+
+.pillar-rules li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pillar-rules li em {
+  font-style: italic;
+}
+
+/* ---- Coda ---- */
+.pillar-coda {
+  margin-top: 24px;
+  margin-left: 48px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: var(--leading-body);
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--rule);
+}
+
+/* ================================================================
+   CLOSING STATEMENT
+   ================================================================ */
+
+.principles-closing {
+  padding-top: 40px;
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: var(--leading-body);
+}
+
+.principles-closing strong {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--ink);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+/* ================================================================
+   ADVISORY PAGE
+   ================================================================ */
+
+.advisory-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px var(--page-gutter) 100px;
+}
+
+.advisory-page .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+  display: block;
+}
+
+.advisory-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-10);
+  color: var(--ink);
+}
+
+.advisory-body {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: var(--border-light);
+}
+
+.advisory-body p {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: var(--leading-loose);
+  color: var(--ink);
+  margin-bottom: 1em;
+}
+
+.advisory-body p:last-child { margin-bottom: 0; }
+
+/* ---- CTA link block ---- */
+.advisory-cta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  text-decoration: none;
+  margin-bottom: var(--space-8);
+  transition: opacity var(--transition-fast);
+}
+
+.advisory-cta:hover { opacity: 0.6; }
+
+.advisory-cta-label {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.advisory-cta-arrow {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+/* ---- Contact line ---- */
+.advisory-contact {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.advisory-contact a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.advisory-contact a:hover { text-decoration-color: var(--ink); }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .advisory-page {
+    padding: var(--space-10) var(--space-5) 80px;
+  }
+
+  .advisory-title { font-size: 2.1rem; }
+  .advisory-cta-label { font-size: 1.25rem; }
+}
+
+@media (max-width: 768px) {
+  .principles-page {
+    padding: var(--space-10) var(--space-5) 80px;
+  }
+
+  .principles-title {
+    font-size: 2.1rem;
+  }
+
+  .pillar-header {
+    grid-template-columns: 36px 1fr;
+  }
+
+  .pillar-rules {
+    margin-left: 36px;
+  }
+
+  .pillar-coda {
+    margin-left: 36px;
+  }
+
+  .pillar-title {
+    font-size: 1.45rem;
+  }
+
+  .pillar-rules li {
+    padding-left: 18px;
+  }
+}
+
+/* ================================================================
+   ABOUT PAGE
+   ================================================================ */
+
+.about-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px var(--page-gutter) 100px;
+}
+
+.about-page .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+  display: block;
+}
+
+.about-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-10);
+  color: var(--ink);
+}
+
+.about-body {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: var(--border-light);
+}
+
+.about-body p {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: var(--leading-loose);
+  color: var(--ink);
+  font-style: normal;
+  margin-bottom: 1em;
+}
+
+.about-body p:last-child { margin-bottom: 0; }
+
+.about-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.about-body a:hover { text-decoration-color: var(--ink); }
+
+.about-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.about-contact a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.about-contact a:hover { color: var(--ink); }
+
+.about-contact-sep {
+  color: var(--rule);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: var(--space-10) var(--space-5) 80px;
+  }
+
+  .about-title { font-size: 2.1rem; }
+}
+
+/* ================================================================
+   CONTACT PAGE
+   ================================================================ */
+
+.contact-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px var(--page-gutter) 100px;
+}
+
+.contact-page .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+  display: block;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+  color: var(--ink);
+}
+
+/* ---- Contact items ---- */
+.contact-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: var(--border-light);
+  text-decoration: none;
+  color: var(--ink);
+  transition: opacity var(--transition-fast);
+}
+
+.contact-item:first-child { border-top: var(--border-light); }
+
+.contact-item:hover { opacity: 0.55; }
+
+.contact-item-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-item-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.contact-item-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: var(--space-10) var(--space-5) 80px;
+  }
+
+  .contact-title { font-size: 2.1rem; }
+
+  .contact-item {
+    grid-template-columns: 64px 1fr auto;
+    gap: var(--space-4);
+  }
+
+  .contact-item-value { font-size: 1.05rem; }
+}

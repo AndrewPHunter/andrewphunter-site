@@ -1,0 +1,189 @@
+/* Generic list / section index page */
+.section-index {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+.section-page-header {
+  padding: var(--space-16) 0 var(--space-10);
+  border-bottom: var(--border-heavy);
+  margin-bottom: 0;
+}
+
+.section-page-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.section-page-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-5);
+}
+
+.section-page-desc {
+  font-size: var(--text-body-lg);
+  color: var(--muted);
+  font-style: italic;
+  line-height: var(--leading-body);
+  max-width: 600px;
+}
+
+/* Archive-style entry list */
+.archive-list {
+  list-style: none;
+}
+
+.archive-entry {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-8);
+  align-items: baseline;
+  padding: var(--space-7) 0;
+  border-bottom: var(--border-light);
+}
+
+.archive-meta {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+.archive-body { flex: 1; }
+
+.archive-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-2);
+}
+
+.archive-title a {
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.archive-title a:hover { color: var(--accent); }
+
+.archive-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: var(--leading-normal);
+}
+
+/* Writing index — links to sub-sections */
+.writing-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-12) 0;
+}
+
+.writing-section-card {
+  padding: var(--space-8);
+  border: var(--border-light);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--transition-fast);
+}
+
+.writing-section-card:hover {
+  border-color: var(--ink);
+}
+
+.writing-section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.writing-section-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.writing-section-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: var(--leading-normal);
+}
+
+/* Simple page (advisory, about, contact) */
+.simple-page {
+  max-width: var(--max-width-body);
+  margin: var(--space-16) auto var(--space-20);
+  padding: 0 var(--page-gutter);
+}
+
+.simple-page h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-article-title);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-8);
+}
+
+.simple-page-body p {
+  margin-bottom: 1.4em;
+}
+
+.simple-page-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.simple-page-body a:hover { text-decoration-color: var(--ink); }
+
+.simple-page-body h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-section-title);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 2.5em 0 0.8em;
+  line-height: var(--leading-snug);
+}
+
+.simple-page-body ul,
+.simple-page-body ol {
+  list-style: revert;
+  padding-left: 1.5em;
+  margin-bottom: 1.4em;
+}
+
+.simple-page-body li { margin-bottom: 0.4em; }
+
+@media (max-width: 768px) {
+  .section-index { padding: 0 var(--space-5); }
+  .section-page-header { padding: var(--space-10) 0; }
+  .section-page-title { font-size: 1.8rem; }
+  .archive-entry { grid-template-columns: 1fr; gap: var(--space-2); }
+  .writing-sections { grid-template-columns: 1fr; }
+  .simple-page { padding: 0 var(--space-5); }
+  .principles-intro { padding: 0 var(--space-5); }
+}

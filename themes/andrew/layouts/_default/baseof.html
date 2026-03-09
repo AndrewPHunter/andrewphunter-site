@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="{{ .Section }}{{ if .IsHome }} is-home{{ end }}">
+  {{ partial "masthead.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>

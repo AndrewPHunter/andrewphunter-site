@@ -1,0 +1,90 @@
+{{ define "main" }}
+<article class="article-outer" data-pagefind-body>
+
+  {{/* ── Header ── */}}
+  <header class="article-header">
+    <div class="article-kicker">
+      {{ .Section | title }}
+      {{- with .Params.tags }} &nbsp;·&nbsp; {{ index . 0 }}{{ end }}
+      &nbsp;·&nbsp; {{ .Date.Format "January 2, 2006" }}
+    </div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="article-subtitle">{{ . }}</p>
+    {{ end }}
+    <div class="article-meta">
+      <span>Andrew Hunter</span>
+      <span class="article-meta-dot"></span>
+      <span>{{ .Date.Format "January 2, 2006" }}</span>
+      <span class="article-meta-dot"></span>
+      <span>{{ .ReadingTime }} min read</span>
+      {{ with .Params.tags }}
+      <span class="article-meta-dot"></span>
+      <span class="article-meta-tags">{{ delimit . " · " }}</span>
+      {{ end }}
+    </div>
+  </header>
+
+  {{/* ── TOC — desktop only, injected via CSS into right margin ── */}}
+  {{ if ne .Params.toc false }}
+  {{ $headings := .TableOfContents }}
+  {{ if $headings }}
+  <aside class="article-toc" aria-label="On this page">
+    <div class="toc-inner">
+      <div class="toc-label">On this page</div>
+      {{ $headings | safeHTML }}
+    </div>
+  </aside>
+  {{ end }}
+  {{ end }}
+
+  {{/* ── Body ── */}}
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+
+  {{/* ── Post nav ── */}}
+  {{ partial "post_nav_links.html" . }}
+
+</article>
+
+{{/* ── TOC scroll spy ── */}}
+<script>
+(function() {
+  var toc = document.querySelector('.article-toc');
+  if (!toc) return;
+
+  var tocLinks = toc.querySelectorAll('a');
+  var headings = Array.from(
+    document.querySelectorAll('.article-body h2, .article-body h3')
+  );
+
+  if (!headings.length || !tocLinks.length) return;
+
+  var linkMap = {};
+  tocLinks.forEach(function(a) {
+    linkMap[decodeURIComponent(a.getAttribute('href'))] = a;
+  });
+
+  var current = null;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var id = '#' + entry.target.id;
+      if (entry.isIntersecting) {
+        if (current) current.classList.remove('toc-active');
+        current = linkMap[id];
+        if (current) current.classList.add('toc-active');
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0
+  });
+
+  headings.forEach(function(h) {
+    if (h.id) observer.observe(h);
+  });
+})();
+</script>
+{{ end }}

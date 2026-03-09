@@ -1,0 +1,6 @@
+name = "Andrew"
+license = "Proprietary"
+licenselink = ""
+description = "Custom theme for andrewphunter.com"
+homepage = "https://andrewphunter.com"
+min_version = "0.120.0"

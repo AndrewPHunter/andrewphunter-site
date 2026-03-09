@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<div class="issue-bar">
+  <span>andrewphunter.com</span>
+  <span>Systems, Architecture, and Engineering Governance</span>
+  <span>Est. 2021</span>
+</div>
+
+<section class="home-hero">
+  <div class="home-hero-lede">
+    <span class="kicker">Enterprise Architect — Systems, Governance, and Engineering Organizations</span>
+    <h1 class="home-headline">Architecture is a practice, <em>not a diagram.</em></h1>
+    <div class="home-body">{{ .Content }}</div>
+  </div>
+  <nav class="home-nav" aria-label="Section navigation">
+    <a href="/applications/" class="home-nav-item">
+      <span class="home-nav-num">01</span>
+      <span class="home-nav-label">Applications</span>
+      <span class="home-nav-desc">Practitioner essays</span>
+    </a>
+    <a href="/theory/corpus/" class="home-nav-item">
+      <span class="home-nav-num">02</span>
+      <span class="home-nav-label">Theory / Corpus</span>
+      <span class="home-nav-desc">Foundational architecture</span>
+    </a>
+    <a href="/doctrine/" class="home-nav-item">
+      <span class="home-nav-num">03</span>
+      <span class="home-nav-label">Doctrine</span>
+      <span class="home-nav-desc">How I operate</span>
+    </a>
+    <a href="/advisory/" class="home-nav-item">
+      <span class="home-nav-num">04</span>
+      <span class="home-nav-label">Advisory</span>
+      <span class="home-nav-desc">Fractional engagements</span>
+    </a>
+  </nav>
+</section>
+
+{{ $essays := where site.RegularPages "Section" "applications" }}
+{{ $essays = sort $essays "Date" "desc" }}
+{{ $lead := index $essays 0 }}
+{{ $rest := after 1 $essays }}
+
+<div class="content-area">
+  <div class="section-header">
+    <span class="section-header-title">Latest</span>
+    <div class="section-header-rule"></div>
+  </div>
+
+  {{ with $lead }}
+  <a href="{{ .Permalink }}" class="essay-lead">
+    <div>
+      <div class="essay-lead-number">{{ printf "%02d" (len $essays) }}</div>
+      <span class="essay-lead-date">{{ .Date.Format "January 2, 2006" }} — Applications</span>
+      <div class="essay-lead-title">{{ .Title }}</div>
+    </div>
+    <div>
+      <div class="essay-lead-body">{{ .Summary | safeHTML }}</div>
+      <span class="read-more">Read essay</span>
+    </div>
+  </a>
+  {{ end }}
+
+  <div class="section-header">
+    <span class="section-header-title">Applied Architecture</span>
+    <div class="section-header-rule"></div>
+    <span class="section-header-count">{{ len $essays }} essays</span>
+  </div>
+
+  <div class="essay-grid">
+    {{ range $rest }}
+    <a href="{{ .Permalink }}" class="essay-card">
+      <span class="essay-date">{{ .Date.Format "January 2, 2006" }}</span>
+      <div class="essay-title">{{ .Title }}</div>
+      <div class="essay-excerpt">{{ .Summary | plainify | truncate 180 }}</div>
+      {{ with .Params.tags }}
+      <div class="essay-tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

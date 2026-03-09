@@ -1,0 +1,82 @@
+.masthead {
+  border-bottom: var(--border-heavy);
+}
+
+.masthead-inner {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.site-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: var(--space-6) 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-name .site-name-tagline {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.site-nav {
+  display: flex;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: var(--space-7) var(--space-4) var(--space-7) var(--space-4);
+  border-left: 1px solid var(--rule);
+  transition: color var(--transition-fast);
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+.site-nav a.active {
+  color: var(--ink);
+  border-bottom: var(--border-accent);
+  margin-bottom: -2px;
+}
+
+/* Issue bar — appears below masthead on home and section indexes */
+.issue-bar {
+  border-bottom: var(--border-light);
+  padding: 10px var(--page-gutter);
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .masthead-inner {
+    grid-template-columns: 1fr;
+    padding: 0 var(--space-5);
+  }
+  .site-nav { display: none; }
+  .issue-bar { display: none; }
+}

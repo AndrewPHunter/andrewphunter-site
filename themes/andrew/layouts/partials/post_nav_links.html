@@ -1,0 +1,118 @@
+{{- if eq .Params.series "corpus" }}
+  {{- /* Canonical corpus spine order — must match reading order exactly */ -}}
+  {{- $spine := slice
+    "/theory/corpus/knowability/"
+    "/theory/corpus/architecture-as-practiced-constraint/"
+    "/theory/corpus/dependency-management-as-constraint-discipline/"
+    "/theory/corpus/reproducibility/"
+    "/theory/corpus/testability-as-epistemic-authority/"
+    "/theory/corpus/the-additive-fallacy/"
+    "/theory/corpus/systems-that-lie/"
+    "/theory/corpus/distributed-truth/"
+    "/theory/corpus/inference-as-governance/"
+    "/theory/corpus/the-economics-of-correction/"
+  -}}
+
+  {{- /* Normalize alias paths (/writing/...) to canonical (/theory/corpus/...) */ -}}
+  {{- $current := .RelPermalink -}}
+  {{- if hasPrefix $current "/writing/" -}}
+    {{- $current = printf "/theory/corpus/%s" (strings.TrimPrefix "/writing/" $current) -}}
+  {{- end -}}
+
+  {{- $idx := -1 -}}
+  {{- range $i, $url := $spine -}}
+    {{- if eq $url $current -}}
+      {{- $idx = $i -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if ge $idx 0 -}}
+    {{- $prevPage := false -}}
+    {{- $nextPage := false -}}
+
+    {{- if gt $idx 0 -}}
+      {{- $p := site.GetPage (index $spine (sub $idx 1)) -}}
+      {{- if and $p (not $p.Draft) }}{{- $prevPage = $p -}}{{- end -}}
+    {{- end -}}
+
+    {{- if lt $idx (sub (len $spine) 1) -}}
+      {{- $p := site.GetPage (index $spine (add $idx 1)) -}}
+      {{- if and $p (not $p.Draft) }}{{- $nextPage = $p -}}{{- end -}}
+    {{- end -}}
+
+    {{- if or $prevPage $nextPage }}
+<nav class="post-nav">
+      {{- with $prevPage }}
+  <a class="post-nav-prev" href="{{ .Permalink }}">
+    <span class="post-nav-label">← Previous</span>
+    <span class="post-nav-title">{{ .Title }}</span>
+  </a>
+      {{- else }}
+  <span></span>
+      {{- end }}
+      {{- with $nextPage }}
+  <a class="post-nav-next" href="{{ .Permalink }}">
+    <span class="post-nav-label">Next →</span>
+    <span class="post-nav-title">{{ .Title }}</span>
+  </a>
+      {{- end }}
+</nav>
+    {{- end -}}
+
+  {{- else if eq $current "/theory/corpus/taxonomy/" -}}
+    {{- /* Taxonomy: entry point into spine — one-way forward link */ -}}
+    {{- with site.GetPage (index $spine 0) }}
+<nav class="post-nav">
+  <span></span>
+  <a class="post-nav-next" href="{{ .Permalink }}">
+    <span class="post-nav-label">Next →</span>
+    <span class="post-nav-title">{{ .Title }}</span>
+  </a>
+</nav>
+    {{- end -}}
+
+  {{- else -}}
+    {{- /* Corpus page not in spine — fallback to chronological nav */ -}}
+    {{- $pages := where site.RegularPages "Section" "in" site.Params.mainSections -}}
+    {{- if and (gt (len $pages) 1) (in $pages . ) }}
+<nav class="post-nav">
+      {{- with $pages.Next . }}
+  <a class="post-nav-prev" href="{{ .Permalink }}">
+    <span class="post-nav-label">← Previous</span>
+    <span class="post-nav-title">{{ .Name }}</span>
+  </a>
+      {{- else }}
+  <span></span>
+      {{- end }}
+      {{- with $pages.Prev . }}
+  <a class="post-nav-next" href="{{ .Permalink }}">
+    <span class="post-nav-label">Next →</span>
+    <span class="post-nav-title">{{ .Name }}</span>
+  </a>
+      {{- end }}
+</nav>
+    {{- end -}}
+  {{- end -}}
+
+{{- else -}}
+  {{- /* Non-corpus pages: chronological nav across mainSections */ -}}
+  {{- $pages := where site.RegularPages "Section" "in" site.Params.mainSections -}}
+  {{- if and (gt (len $pages) 1) (in $pages . ) }}
+<nav class="post-nav">
+      {{- with $pages.Next . }}
+  <a class="post-nav-prev" href="{{ .Permalink }}">
+    <span class="post-nav-label">← Previous</span>
+    <span class="post-nav-title">{{ .Name }}</span>
+  </a>
+      {{- else }}
+  <span></span>
+      {{- end }}
+      {{- with $pages.Prev . }}
+  <a class="post-nav-next" href="{{ .Permalink }}">
+    <span class="post-nav-label">Next →</span>
+    <span class="post-nav-title">{{ .Name }}</span>
+  </a>
+      {{- end }}
+</nav>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,92 @@
+/* Theory section index */
+.theory-index {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+.theory-subsections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: var(--space-8) 0;
+}
+
+.theory-subsection {
+  padding: var(--space-10);
+  border: var(--border-light);
+  margin: -1px 0 0 -1px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background var(--transition-fast);
+}
+
+.theory-subsection:hover {
+  background: rgba(212, 208, 200, 0.25);
+}
+
+.theory-subsection-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.theory-subsection-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-3);
+}
+
+.theory-subsection-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: var(--leading-normal);
+}
+
+/* Formalization notes list */
+.formalization-list {
+  list-style: none;
+  padding: 0;
+}
+
+.formalization-entry {
+  padding: var(--space-7) 0;
+  border-bottom: var(--border-light);
+}
+
+.formalization-entry a {
+  text-decoration: none;
+  color: var(--ink);
+  transition: color var(--transition-fast);
+}
+
+.formalization-entry a:hover { color: var(--accent); }
+
+.formalization-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-2);
+}
+
+.formalization-meta {
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  color: var(--muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .theory-index { padding: 0 var(--space-5); }
+  .theory-subsections { grid-template-columns: 1fr; }
+}

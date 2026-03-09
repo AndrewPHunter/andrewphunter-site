@@ -1,8 +1,8 @@
 baseURL: https://andrewphunter.com/
-title: "Andrew Hunter — Architecture, Delivery, Engineering Leadership"
+title: "Andrew Hunter — Systems, Architecture, and Engineering Governance"
 languageCode: en-us
-theme: PaperMod
-
+theme: andrew
+tableOfContents.startLevel: 2
 enableRobotsTXT: true
 
 pagination:
@@ -22,64 +22,18 @@ minify:
   minifyOutput: true
 
 params:
-  env: production
-  defaultTheme: auto
-  disableThemeToggle: false
-  ShowReadingTime: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: false
-  ShowCodeCopyButtons: true
-  ShowWordCount: false
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  ShowShareButtons: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
   author: Andrew Hunter
   description: "Notes on architecture, delivery systems, and engineering leadership—focused on building reliable, long-lived platforms and the organizations that deliver them."
-
-  images:
-    - "/images/brand-image.png"
-
-  socialIcons:
-    - name: email
-      url: "mailto:me@andrewphunter.com"
-    - name: linkedin
-      url: "https://www.linkedin.com/in/andrewphunter/"
-
-  cover:
-    hidden: true
-    hiddenInList: true
-    hiddenInSingle: true
-
-  assets:
-    disableHLJS: true
-    disableFingerprinting: false
-
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+  mainSections:
+    - applications
 
 menu:
   main:
     - name: Applications
       url: /applications/
       weight: 10
-    - name: Writing
-      url: /writing/
-      weight: 20
-    - name: Principles
-      url: /principles/
+    - name: Doctrine
+      url: /Doctrine/
       weight: 25
     - name: Theory
       url: /theory/
@@ -101,5 +55,9 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false
   highlight:
     noClasses: false

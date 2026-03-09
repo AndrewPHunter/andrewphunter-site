@@ -1,0 +1,185 @@
+{{ define "main" }}
+<div class="principles-page">
+
+<aside class="article-toc" aria-label="On this page">
+  <div class="toc-inner">
+    <div class="toc-label">On this page</div>
+    <nav>
+      <ul>
+        <li><a href="#pillar-i">Constraint Discipline</a></li>
+        <li><a href="#pillar-ii">Knowability</a></li>
+        <li><a href="#pillar-iii">Composition</a></li>
+        <li><a href="#pillar-iv">Authority and Governance</a></li>
+        <li><a href="#pillar-v">Reasoned Systems</a></li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<span class="kicker">Doctrine</span>
+<h1 class="principles-title">Engineering Doctrine</h1>
+
+<div class="principles-intro">
+<p>These statements describe the doctrine that guides my approach to architecture, systems, and engineering leadership.</p>
+
+<p>They are not preferences or best practices.</p> 
+
+<p>They are <strong>constraints</strong> — rules intended to preserve correctness, maintain knowability, and keep complex systems governable as they evolve.</p>
+
+<p class="principles-intro-note">They are grouped into five pillars.</p>
+</div>
+
+
+{{/* ───────── PILLAR I ───────── */}}
+
+<div class="pillar" id="pillar-i">
+<div class="pillar-header">
+<span class="pillar-num">I</span>
+<div class="pillar-header-rule"></div>
+<h2 class="pillar-title">Constraint Discipline</h2>
+</div>
+
+<ul class="pillar-rules">
+<li>Architecture exists to <strong>preserve invariant space</strong> as systems evolve.</li>
+<li>Complexity is inevitable. <strong>Unconstrained complexity is optional.</strong></li>
+<li>If a system becomes difficult to change, constraint discipline has already failed.</li>
+<li>Boundaries are the primary tool of architecture.</li>
+<li>Frameworks, languages, and platforms are implementation details. <strong>Constraints define the system.</strong></li>
+<li>Correctness must be enforced structurally, not inferred from behavior.</li>
+<li>Dependency surfaces are constraint surfaces and must be treated as such.</li>
+<li>Architecture is not a phase. It is a continuous practice of constraint preservation.</li>
+</ul>
+
+<p class="pillar-coda">
+Architecture is the discipline that keeps systems understandable and governable as they grow.
+</p>
+</div>
+
+
+{{/* ───────── PILLAR II ───────── */}}
+
+<div class="pillar" id="pillar-ii">
+<div class="pillar-header">
+<span class="pillar-num">II</span>
+<div class="pillar-header-rule"></div>
+<h2 class="pillar-title">Knowability</h2>
+</div>
+
+<ul class="pillar-rules">
+<li>A system must remain <strong>explainable through its constraints</strong>.</li>
+<li>If behavior cannot be justified structurally, the system is no longer knowable.</li>
+<li>Representation is not authority. <strong>Only enforcement is.</strong></li>
+<li>Monitoring does not create correctness. It only observes outcomes.</li>
+<li>Systems that appear healthy while hiding uncertainty accumulate invisible risk.</li>
+<li>If the system cannot explain its behavior, it does not control its behavior.</li>
+</ul>
+
+<p class="pillar-coda">
+Knowability is the foundation of trust in complex systems.
+</p>
+</div>
+
+
+{{/* ───────── PILLAR III ───────── */}}
+
+<div class="pillar" id="pillar-iii">
+<div class="pillar-header">
+<span class="pillar-num">III</span>
+<div class="pillar-header-rule"></div>
+<h2 class="pillar-title">Composition</h2>
+</div>
+
+<ul class="pillar-rules">
+<li>Correct components do not guarantee a correct system.</li>
+<li>Invariant space intersects under composition.</li>
+<li>Interaction introduces constraints whether they are modeled or not.</li>
+<li>Unmodeled interaction is the primary source of systemic failure.</li>
+<li>Distributed systems add a second pressure: <strong>divergent evaluation contexts.</strong></li>
+<li>Local correctness does not ensure global coherence.</li>
+</ul>
+
+<p class="pillar-coda">
+System behavior emerges from composition, not intention.
+</p>
+</div>
+
+
+{{/* ───────── PILLAR IV ───────── */}}
+
+<div class="pillar" id="pillar-iv">
+<div class="pillar-header">
+<span class="pillar-num">IV</span>
+<div class="pillar-header-rule"></div>
+<h2 class="pillar-title">Authority and Governance</h2>
+</div>
+
+<ul class="pillar-rules">
+<li>Delegated authority must remain <strong>bounded and revocable</strong>.</li>
+<li>Monitoring is evidence. <strong>Revocation is enforcement.</strong></li>
+<li>If authority cannot be retracted, governance does not exist.</li>
+<li>Propagation is cheap; correction is expensive.</li>
+<li>Systems must be able to halt unsafe authority propagation without reconstruction.</li>
+<li>Governance is an architectural property, not an organizational one.</li>
+</ul>
+
+<p class="pillar-coda">
+Governance preserves constraint under pressure.
+</p>
+</div>
+
+
+{{/* ───────── PILLAR V ───────── */}}
+
+<div class="pillar" id="pillar-v">
+<div class="pillar-header">
+<span class="pillar-num">V</span>
+<div class="pillar-header-rule"></div>
+<h2 class="pillar-title">Reasoned Systems</h2>
+</div>
+
+<ul class="pillar-rules">
+<li>Correct systems depend on <strong>correct reasoning</strong>.</li>
+<li>Tools amplify reasoning; they do not replace it.</li>
+<li>Automation without structural understanding accelerates failure.</li>
+<li>Clear reasoning is a safety mechanism.</li>
+<li>Ambiguous ownership produces ambiguous outcomes.</li>
+<li>Decisions must remain inspectable so intent can be reconstructed.</li>
+</ul>
+
+<p class="pillar-coda">
+Systems reflect the reasoning of the people who design them.
+</p>
+</div>
+
+
+<div class="principles-closing">
+Doctrine exists to be <strong>applied.</strong>
+When it feels restrictive, it is usually doing its job.
+</div>
+
+</div>
+
+<script>
+(function() {
+  var toc = document.querySelector('.principles-page .article-toc');
+  if (!toc) return;
+  var tocLinks = toc.querySelectorAll('a');
+  var pillars = Array.from(document.querySelectorAll('.pillar[id]'));
+  if (!pillars.length || !tocLinks.length) return;
+  var linkMap = {};
+  tocLinks.forEach(function(a) { linkMap[a.getAttribute('href')] = a; });
+  var current = null;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var id = '#' + entry.target.id;
+      if (entry.isIntersecting) {
+        if (current) current.classList.remove('toc-active');
+        current = linkMap[id];
+        if (current) current.classList.add('toc-active');
+      }
+    });
+  }, { rootMargin: '0px 0px -60% 0px', threshold: 0 });
+  pillars.forEach(function(p) { observer.observe(p); });
+})();
+</script>
+{{ end }}

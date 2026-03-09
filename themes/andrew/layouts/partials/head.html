@@ -1,0 +1,66 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Self-hosted fonts via preload */}}
+<link rel="preload" href="/fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-display-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+{{/* Bundle all CSS files in order, then minify and fingerprint */}}
+{{ $css := slice
+  (resources.Get "css/fonts.css")
+  (resources.Get "css/tokens.css")
+  (resources.Get "css/reset.css")
+  (resources.Get "css/masthead.css")
+  (resources.Get "css/home.css")
+  (resources.Get "css/essay.css")
+  (resources.Get "css/list.css")
+  (resources.Get "css/corpus.css")
+  (resources.Get "css/theory.css")
+  (resources.Get "css/doctrine.css")
+  (resources.Get "css/footer.css")
+  (resources.Get "css/search.css")
+}}
+{{ $style := $css | resources.Concat "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+
+{{/* RSS */}}
+{{ range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{ end }}
+
+{{/* Math — only on pages that opt in via front matter: math: true */}}
+{{ if .Params.math }}
+<link rel="stylesheet" href="{{ "/katex/katex.min.css" | absURL }}">
+<script defer src="{{ "/katex/katex.min.js" | absURL }}"></script>
+<script defer src="{{ "/katex/contrib/auto-render.min.js" | absURL }}"></script>
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement !== "function") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+    });
+  });
+</script>
+{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">

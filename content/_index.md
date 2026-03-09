@@ -1,18 +1,13 @@
 ---
 title: "Andrew Hunter"
-description: "Architecture, AI-accelerated delivery, and engineering leadership. Writing about building reliable, long-lived platforms and the organizations that deliver them."
-images:
-  - "/images/brand-image.png"
+description: "Writing on the discipline of building systems that remain knowable and changeable as they grow."
+headline: "Architecture is a practice, <em>not a diagram.</em>"
 ---
 
-Enterprise Architect & Engineering Leader
+Most architectural failure isn't dramatic. It accumulates quietly — in deferred decisions, implicit assumptions, and systems that work until they have to explain themselves.
 
-I write occasionally about architecture, AI-accelerated delivery, and engineering leadership—focused on building reliable, long-lived systems under real-world constraints.
+I focus on the discipline of building systems that remain knowable and changeable as they grow. The writing here examines where that discipline holds, where it breaks, and what it costs when it doesn't.
 
-Start here: **[Applications](/applications/)** (practitioner essays) or **[Writing](/writing/)** (index).
+[Applications](/applications/) — practitioner diagnostics. [Theory](/theory/) — foundational work, longer horizon.
 
-For deeper, longer-horizon work: **[Theory](/theory/)**.
-
-I also take a small number of fractional advisory engagements for system formation and de-risking, and technical due diligence. [Details →](/advisory/)
-
-Reach me at [me@andrewphunter.com](mailto:me@andrewphunter.com) or on [LinkedIn](https://www.linkedin.com/in/andrewphunter/).
+I take a small number of fractional advisory engagements. [Advisory →](/advisory/)

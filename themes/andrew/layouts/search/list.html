@@ -1,0 +1,82 @@
+{{ define "main" }}
+<div class="search-page">
+  <header class="search-header">
+    <h1>{{ .Title }}</h1>
+    <div class="search-input-wrap">
+      <span class="search-input-label">Search</span>
+      <input type="text" id="searchInput" placeholder="Type to search…" autofocus autocomplete="off">
+    </div>
+  </header>
+
+  {{ with .Content }}
+  <div data-pagefind-body>{{ . }}</div>
+  {{ end }}
+
+  <ul id="searchResults"></ul>
+  <p id="noResults" class="search-no-results" style="display: none;">No results found.</p>
+</div>
+
+<script>
+(function () {
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const noResults = document.getElementById('noResults');
+
+  {{ $searchJSON := resources.Get "search.json" }}
+  {{ if not $searchJSON }}
+  {{- /* Fallback: build index from all pages */ -}}
+  {{ end }}
+
+  let index = null;
+  let pages = [];
+
+  // Load the JSON search index Hugo generates at /index.json
+  fetch('{{ .Site.BaseURL }}index.json')
+    .then(r => r.json())
+    .then(data => {
+      pages = data;
+    })
+    .catch(() => {
+      // Pagefind is the primary search mechanism — this JS is a fallback
+      console.warn('Search index not available');
+    });
+
+  function search(query) {
+    if (!query || query.length < 2) {
+      results.innerHTML = '';
+      noResults.style.display = 'none';
+      return;
+    }
+
+    query = query.toLowerCase();
+    const matches = pages.filter(p =>
+      (p.title && p.title.toLowerCase().includes(query)) ||
+      (p.summary && p.summary.toLowerCase().includes(query)) ||
+      (p.content && p.content.toLowerCase().includes(query))
+    ).slice(0, 20);
+
+    if (matches.length === 0) {
+      results.innerHTML = '';
+      noResults.style.display = '';
+      return;
+    }
+
+    noResults.style.display = 'none';
+    results.innerHTML = matches.map(p => `
+      <li>
+        <a href="${p.permalink}">
+          <span class="search-result-meta">${p.section || ''}</span>
+          <span class="search-result-title">${p.title}</span>
+        </a>
+      </li>
+    `).join('');
+  }
+
+  let timer;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => search(input.value.trim()), 200);
+  });
+})();
+</script>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="section-index">
+  <header class="section-page-header">
+    <h1 class="section-page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
+    {{ end }}
+  </header>
+
+  <div class="writing-sections">
+    <a href="/applications/" class="writing-section-card">
+      <span class="writing-section-label">01 — Practitioner</span>
+      <div class="writing-section-title">Applied Architecture</div>
+      <div class="writing-section-desc">Essays on architecture, AI-accelerated delivery, and engineering leadership — focused on real-world systems under pressure.</div>
+    </a>
+    <a href="/theory/" class="writing-section-card">
+      <span class="writing-section-label">02 — Theory</span>
+      <div class="writing-section-title">Theory &amp; Formalization</div>
+      <div class="writing-section-desc">Foundational corpus and formalization notes. Architecture as constraint discipline, knowability, and the structural conditions for reliable systems.</div>
+    </a>
+  </div>
+</div>
+{{ end }}

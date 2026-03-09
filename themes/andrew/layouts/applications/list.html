@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ $essays := sort .Pages "Date" "desc" }}
+
+<div class="section-index">
+  <header class="section-page-header">
+    <span class="section-page-kicker">Writing</span>
+    <h1 class="section-page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
+    {{ end }}
+  </header>
+
+  {{ with index $essays 0 }}
+  {{ $lead := . }}
+  <a href="{{ $lead.Permalink }}" class="essay-lead" style="display: grid;">
+    <div>
+      <div class="essay-lead-number">{{ printf "%02d" (len $essays) }}</div>
+      <span class="essay-lead-date">{{ $lead.Date.Format "January 2, 2006" }}</span>
+      <div class="essay-lead-title">{{ $lead.Title }}</div>
+    </div>
+    <div>
+      <div class="essay-lead-body">{{ $lead.Summary | safeHTML }}</div>
+      <span class="read-more">Read essay</span>
+    </div>
+  </a>
+
+  <div class="section-header">
+    <span class="section-header-title">All Essays</span>
+    <div class="section-header-rule"></div>
+    <span class="section-header-count">{{ len $essays }} essays</span>
+  </div>
+
+  <div class="essay-grid">
+    {{ range after 1 $essays }}
+    <a href="{{ .Permalink }}" class="essay-card">
+      <span class="essay-date">{{ .Date.Format "January 2, 2006" }}</span>
+      <div class="essay-title">{{ .Title }}</div>
+      <div class="essay-excerpt">{{ .Summary | plainify | truncate 180 }}</div>
+      {{ with .Params.tags }}
+      <div class="essay-tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}
