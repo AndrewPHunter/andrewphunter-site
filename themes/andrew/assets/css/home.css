@@ -283,6 +283,7 @@
     padding: var(--space-10) var(--space-5);
     gap: var(--space-10);
   }
+  .home-nav { display: none; }
   .home-headline { font-size: 2.2rem; }
   .essay-grid { grid-template-columns: 1fr; }
   .essay-card:nth-child(odd) { padding-right: 0; border-right: none; }

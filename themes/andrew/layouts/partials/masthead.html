@@ -3,6 +3,7 @@
     <a href="{{ .Site.BaseURL }}" class="site-name">
       Andrew Hunter<span class="site-name-tagline"> — Systems, Architecture, and Engineering Governance</span>
     </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
     <nav class="site-nav" aria-label="Main navigation">
       {{ range .Site.Menus.main }}
       <a href="{{ .URL }}"
@@ -13,3 +14,16 @@
     </nav>
   </div>
 </header>
+
+<script>
+(function() {
+  var btn = document.querySelector('.nav-toggle');
+  var header = document.querySelector('.masthead');
+  if (!btn || !header) return;
+  btn.addEventListener('click', function() {
+    var open = header.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Close' : 'Menu';
+  });
+})();
+</script>
