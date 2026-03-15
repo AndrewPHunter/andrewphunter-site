@@ -60,6 +60,15 @@ Knowability therefore does not ask:
 It asks:
 "Can the system demonstrate why this outcome was valid under its governing constraints?"
 
+A system’s ability to provide that explanation depends on representation.
+
+Systems operate over a representation of their own structure and environment.  
+From that representation they derive a set of believed invariants.
+
+But representation capacity is always finite while the underlying constraint structure may not be.
+
+The invariants a system can articulate therefore form only a partial approximation of the invariants that actually govern its behavior.
+
 ---
 
 ## 2. Knowability Is Structural, Not Procedural
@@ -73,7 +82,7 @@ It must be encoded in structure.
 From the taxonomy:
 
 - A system has an invariant space.
-- Constraints exclude invalid states.
+- Constraint structure excludes invalid states.
 - Enforcement makes those exclusions unavoidable.
 - Epistemic authority exists where invalid behavior is structurally impossible.
 
@@ -122,7 +131,9 @@ Without it, correctness survives only as memory.
 
 Composition is the second adversary.
 
-When systems are joined, the governing constraint set changes.
+When systems interact, their constraint structures interact as well.
+
+This interaction introduces additional constraints that neither system enforces independently.
 
 The additive fallacy assumes:
 
@@ -156,7 +167,8 @@ The system still operates.
 The parts still pass their tests.
 But the whole is governed by a constraint set no one has explicitly represented.
 
-At that point, the system’s behavior is governed by an effective invariant space that no one has encoded.
+At that point the system is governed by an invariant structure that no one has explicitly represented.
+
 The system may continue to operate, but it is no longer knowable.
 
 ---

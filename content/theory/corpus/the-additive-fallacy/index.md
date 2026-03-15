@@ -51,14 +51,25 @@ Why?
 
 Because invariants do not merely need to exist. They must survive translation.
 
-When two components interact, each brings its own representation of validity. The boundary between them becomes a negotiation surface. One system’s guarantees must be interpreted by the other. One system’s exclusions must remain exclusions after reinterpretation.
+When two components interact, each operates over its own representation of valid system behavior. The boundary between them becomes a negotiation surface. One system’s guarantees must be interpreted by the other. One system’s exclusions must remain exclusions after reinterpretation.
+
+In practice, systems do not operate directly over invariant space.
+
+They operate over representations of it.
+
+The invariants a system enforces therefore belong to its represented invariant space (I_rep) — the subset of constraints its representation can articulate and enforce.
+
+When systems are composed, what must survive the boundary is not merely the conceptual invariant space (I), but the enforceable portion that exists within representation. The boundary between them becomes a negotiation surface. One system’s guarantees must be interpreted by the other. One system’s exclusions must remain exclusions after reinterpretation.
 
 If that reinterpretation relaxes constraint—even unintentionally—new behavior becomes possible.
 
 Importantly, collapse does not require any component to be wrong. It requires only that the intersection of their guarantees be weaker than the union of their assumptions.
 
 Specifically, the invariant space of the composed system is:
+
 I_C = (I_A ∩ I_B) ∩ I_interaction
+
+where I_interaction represents the constraints introduced by the interaction itself — ordering, timing, coupling, and translation effects that exist only when the components operate together.
 
 Engineers, however, reason as though:
 I_C = I_A ∩ I_B
@@ -72,7 +83,7 @@ This is how drift begins.
 
 At small scale, the effects are invisible. Each layer appears correct. Each team remains confident. Each contract is satisfied according to its own terms.
 
-But correctness at the boundary has shifted from enforced constraint to interpreted compatibility.
+But correctness at the boundary has shifted from enforced constraint to interpreted compatibility between representations.
 
 And compatibility is a weaker condition than preservation.
 
@@ -87,6 +98,15 @@ They decay.
 ## 2. Boundaries Are Not Neutral
 
 Every boundary compresses.
+
+A boundary also separates representations.
+
+Inside a subsystem, invariant enforcement operates over its internal representation (R_A).  
+Across the boundary, other systems interact through a reduced representation exposed by the interface (R_interface).
+
+The invariants that survive composition are therefore limited to the portion of invariant space that can be expressed across that representation boundary.
+
+A subsystem contains internal structure: invariants, guarantees, assumptions, and causal relationships. When it exposes an interface, that structure must be translated into a smaller representation. Details are hidden. Guarantees are summarized. Constraints are implied.
 
 A subsystem contains internal structure: assumptions, guarantees, invariants, causal relationships. When it exposes an interface, that structure must be translated into a smaller representation. Details are hidden. Guarantees are summarized. Constraints are implied.
 
@@ -138,10 +158,11 @@ This assumption is rarely stated, but it governs how systems are designed. Teams
 
 This is the Union Fallacy.
 
-But invariant spaces do not expand through composition.
-They narrow.
+Invariant spaces do not accumulate through composition.
 
-At minimum, the composed system must satisfy both invariant spaces:  
+The effective invariant space of the composed system is determined by the intersection of component invariant spaces together with the additional constraints introduced by their interaction.
+
+At minimum, the composed system must satisfy both invariant spaces:
 
 I_C ⊆ I_A ∩ I_B
 
@@ -174,7 +195,7 @@ The second error is interaction blindness — failing to model and enforce I_int
 
 This is the collapse point.
 
-Engineers assume:
+System design often assumes:
 - System behavior equals the accumulation of component guarantees.
 
 In reality:
@@ -238,7 +259,9 @@ If those interaction constraints are not made explicit, they still exist. But th
 
 This is the root error in additive reasoning.
 
-System behavior is not the sum of component guarantees. It is the product of component guarantees and the constraints introduced by their interaction.
+System behavior is not the sum of component guarantees. It is governed by the constraints that emerge when those components interact.
+
+Composition does not yield the simple conjunction of component guarantees. It yields a new invariant space.
 
 A + B does not yield A ∧ B.
 

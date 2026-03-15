@@ -42,7 +42,21 @@ that govern permissible states and transitions.
 
 ------------------------------------------------------------------------
 
-## 2. State
+## 2. Representation
+
+A **Representation (R)** is the structure through which a system models
+its environment, its internal structure, and the constraints governing
+valid behavior.
+
+Systems do not operate directly over invariant space.  
+They operate over representations of it.
+
+Representation determines which constraints can be articulated,
+enforced, and reasoned about.
+
+------------------------------------------------------------------------
+
+## 3. State
 
 A **State** is a complete representation of the system at a point in
 time.
@@ -51,7 +65,7 @@ The set of all possible states is the system's state space.
 
 ------------------------------------------------------------------------
 
-## 3. Transition
+## 4. Transition
 
 A **Transition** is a transformation from one valid state to another.
 
@@ -59,7 +73,7 @@ Transitions define how the system evolves.
 
 ------------------------------------------------------------------------
 
-## 4. Constraint
+## 5. Constraint
 
 A **Constraint** is a rule that excludes states or transitions from the
 system's possibility space.
@@ -71,7 +85,7 @@ It is an assumption.
 
 ------------------------------------------------------------------------
 
-## 5. Invariant
+## 6. Invariant
 
 An **Invariant** is a constraint that must hold across all valid states
 of a system.
@@ -80,7 +94,7 @@ Invariants define structural correctness.
 
 ------------------------------------------------------------------------
 
-## 6. Invariant Space
+## 7. Invariant Space
 
 The **Invariant Space** is the complete set of enforced impossibilities
 governing a system.
@@ -92,7 +106,29 @@ incomplete.
 
 ------------------------------------------------------------------------
 
-## 7. Enforcement
+## 8. Represented Invariant Space
+
+The **Represented Invariant Space (I_rep)** is the subset of invariant
+space that a system's representation can express and enforce.
+
+Formally:
+
+    I_rep ⊆ I
+
+Where:
+
+- I is the full invariant space governing the system.
+- I_rep is the enforceable portion available through the system's
+  representation.
+
+Correctness depends on enforcement over I_rep.
+
+Drift and epistemic degradation occur when behavior is governed by
+constraints outside the represented invariant space.
+
+------------------------------------------------------------------------
+
+## 9. Enforcement
 
 **Enforcement** is the mechanism by which constraints are made
 structurally unavoidable.
@@ -106,7 +142,7 @@ Correctness requires enforcement.
 
 ------------------------------------------------------------------------
 
-## 8. Epistemic Authority
+## 10. Epistemic Authority
 
 **Epistemic Authority** is the locus within a system where correctness
 is asserted independently of observed outcomes.
@@ -122,7 +158,7 @@ knowability degrades.
 
 ------------------------------------------------------------------------
 
-## 9. Knowability
+## 11. Knowability
 
 **Knowability** is the preserved ability of a system to justify its
 outcomes through enforceable constraints.
@@ -138,7 +174,7 @@ Knowability precedes reliability, performance, and scale.
 
 ------------------------------------------------------------------------
 
-## 10. Reproducibility
+## 12. Reproducibility
 
 **Reproducibility** is the condition that allows the relationship
 between constraints and outcomes to be re-established across time.
@@ -150,17 +186,40 @@ demonstrated.
 
 ------------------------------------------------------------------------
 
-## 11. Translation Surface
+## 13. Translation Surface
 
-A **Translation Surface** is any boundary across which constraints must
-survive reinterpretation.
+A **Translation Surface** is any boundary across which representations
+must be interpreted.
 
-At a translation surface, constraints either remain enforceable or
-degrade into assumptions.
+At a translation surface:
+
+- representations change,
+- invariants must be re-expressed,
+- enforcement must be preserved.
+
+Constraint preservation requires that invariants remain enforceable
+after translation.
+
+If enforcement is lost, constraint becomes assumption.
 
 ------------------------------------------------------------------------
 
-## 12. Constraint Dilution
+## 14. Representation Compression
+
+**Representation Compression** occurs when a subsystem exposes a reduced
+representation of its internal structure at a boundary.
+
+Internal representations may encode invariants explicitly.
+
+Interfaces typically expose a smaller representation in which some
+constraints are summarized, implied, or omitted.
+
+When compression removes enforceable constraint, the invariant does not
+survive composition.
+
+------------------------------------------------------------------------
+
+## 15. Constraint Dilution
 
 **Constraint Dilution** occurs when an invariant crosses a translation
 surface and loses enforceability.
@@ -175,33 +234,44 @@ Constraint dilution is a primary precursor to drift.
 
 ------------------------------------------------------------------------
 
-## 13. Composition
+## 16. Composition
 
 **Composition** is the integration of multiple systems into a larger
 structure.
 
-Composition introduces new constraints that do not exist in any
-component alone.
+Composition introduces interaction constraints that do not exist within
+any component in isolation.
 
-Correctness does not compose additively.
+The invariant space of a composed system is therefore:
+
+    I_C = (I_A ∩ I_B) ∩ I_interaction
+
+where:
+
+- I_A and I_B are component invariant spaces
+- I_interaction represents constraints introduced by interaction.
+
+Correctness requires that interaction constraints be modeled and
+enforced.
 
 ------------------------------------------------------------------------
 
-## 14. The Additive Fallacy
+## 17. The Additive Fallacy
 
 The **Additive Fallacy** is the mistaken belief that the invariant space
-of a composed system equals the union of the invariant spaces of its
+of a composed system is determined solely by the invariant spaces of its
 components.
 
-In reality, composition produces a new constraint set that includes
-interaction constraints.
+In reality, composition produces a new invariant space governed by the
+intersection of component constraints together with additional
+constraints introduced by interaction.
 
-If interaction constraints are not explicitly modeled and enforced,
-collapse begins.
+Failure to model and enforce interaction constraints leads to drift and
+structural instability.
 
 ------------------------------------------------------------------------
 
-## 15. Plausibility Substitution
+## 18. Plausibility Substitution
 
 **Plausibility Substitution** occurs when observed coherence replaces
 enforced constraint as the basis for correctness.
@@ -210,7 +280,7 @@ Plausibility substitution marks the erosion of epistemic authority.
 
 ------------------------------------------------------------------------
 
-## 16. Drift
+## 19. Drift
 
 **Drift** is the gradual divergence between a system's stated
 constraints and its effective constraint set.
@@ -219,7 +289,24 @@ Drift does not require failure.
 
 ------------------------------------------------------------------------
 
-## 17. Epistemic Collapse
+## 20. Representation Drift
+
+**Representation Drift** occurs when the system's representation no
+longer captures the effective constraint structure governing behavior.
+
+Formally:
+
+    I_effective ⊄ I_rep
+
+In this condition the system may still operate correctly, but its
+behavior can no longer be justified through its represented invariant
+space.
+
+Representation drift precedes epistemic collapse.
+
+------------------------------------------------------------------------
+
+## 21. Epistemic Collapse
 
 **Epistemic Collapse** is the condition in which correctness is inferred
 rather than demonstrated.
@@ -229,7 +316,7 @@ but cannot justify its behavior through enforceable constraints.
 
 ------------------------------------------------------------------------
 
-## 18. Collapse
+## 22. Collapse
 
 **Collapse** occurs when the effective constraint set governing system
 behavior no longer matches the stated invariant space.
@@ -277,7 +364,23 @@ Correctness requires:
 
 ------------------------------------------------------------------------
 
-## A.3 Enforcement vs Validation
+## A.3 Represented Invariant Space
+
+Let:
+
+    I_rep ⊆ I
+
+Where I_rep represents the subset of invariant space expressible within
+the system's representation.
+
+Correctness enforcement operates over I_rep.
+
+When I_rep fails to capture constraints governing behavior,
+knowability degrades.
+
+------------------------------------------------------------------------
+
+## A.4 Enforcement vs Validation
 
 Enforcement:
 
@@ -289,7 +392,7 @@ Observation that s2 ∈ I after transition.
 
 ------------------------------------------------------------------------
 
-## A.4 Translation Surfaces
+## A.5 Translation Surfaces
 
 Let:
 
@@ -309,7 +412,7 @@ Then invariant preservation fails.
 
 ------------------------------------------------------------------------
 
-## A.5 Composition
+## A.6 Composition
 
 Naïve additive assumption:
 
@@ -325,7 +428,7 @@ The Additive Fallacy assumes:
 
 ------------------------------------------------------------------------
 
-## A.6 Drift
+## A.7 Drift
 
 Let:
 
