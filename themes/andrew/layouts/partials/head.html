@@ -55,10 +55,25 @@
 {{ end }}
 
 {{/* Open Graph */}}
-<meta property="og:title" content="{{ .Title }}">
+{{ $ogDesc := or .Description .Summary .Site.Params.description }}
+{{ $ogTitle := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) }}
+{{ $ogImage := absURL "/images/social-card.png" }}
+{{ with .Params.image }}{{ $ogImage = absURL . }}{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $ogTitle }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+<meta property="og:description" content="{{ $ogDesc }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:image:alt" content="{{ $ogTitle }}">
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDesc }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+<meta name="twitter:image:alt" content="{{ $ogTitle }}">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
