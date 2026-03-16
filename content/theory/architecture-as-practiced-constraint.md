@@ -6,6 +6,7 @@ series: corpus
 draft: false
 summary: "Architecture is the disciplined preservation of invariant space under pressure."
 aliases:
+  - /theory/corpus/architecture-as-practiced-constraint/
   - /writing/architecture-as-practiced-constraint/
 ---
 

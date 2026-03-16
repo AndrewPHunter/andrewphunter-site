@@ -1,67 +1,117 @@
 {{ define "main" }}
-{{- if eq .RelPermalink "/theory/" }}
-{{- /* Theory root — show subsection navigation cards */ -}}
-<div class="theory-index">
+{{- /* Systems Theory spine — canonical reading order, not date order */ -}}
+{{- $spine := slice
+  (dict "url" "/theory/knowability/" "title" "")
+  (dict "url" "/theory/architecture-as-practiced-constraint/" "title" "")
+  (dict "url" "/theory/dependency-management-as-constraint-discipline/" "title" "")
+  (dict "url" "/theory/reproducibility/" "title" "")
+  (dict "url" "/theory/testability-as-epistemic-authority/" "title" "")
+  (dict "url" "/theory/the-additive-fallacy/" "title" "")
+  (dict "url" "/theory/systems-that-lie/" "title" "")
+  (dict "url" "/theory/distributed-truth/" "title" "Distributed Truth")
+  (dict "url" "/theory/inference-as-governance/" "title" "Inference as Governance")
+  (dict "url" "/theory/the-economics-of-correction/" "title" "The Economics of Correction")
+-}}
+
+<div class="corpus-index">
   <header class="section-page-header">
-    <span class="section-page-kicker">Longer-horizon</span>
+    <span class="section-page-kicker">Systems Theory</span>
     <h1 class="section-page-title">{{ .Title }}</h1>
-    {{ with .Content }}
-    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
-    {{ end }}
   </header>
 
-  <div class="theory-subsections">
-    <a href="/theory/corpus/" class="theory-subsection">
-      <span class="theory-subsection-label">Foundational Corpus</span>
-      <div class="theory-subsection-title">Architecture as Constraint Discipline</div>
-      <div class="theory-subsection-desc">A structured body of work on the structural conditions required for systems to remain knowable over time. Read in order.</div>
-    </a>
-    <a href="/theory/law-of-energetic-correction/" class="theory-subsection">
-      <span class="theory-subsection-label">Essay</span>
-      <div class="theory-subsection-title">Law of Energetic Correction</div>
-      <div class="theory-subsection-desc">On the systemic forces that enforce constraint alignment even when organizations resist.</div>
-    </a>
-    <a href="/theory/formalization/" class="theory-subsection">
-      <span class="theory-subsection-label">Working Notes</span>
-      <div class="theory-subsection-title">Formalization Notes</div>
-      <div class="theory-subsection-desc">Intermediate mathematical formalization of corpus concepts. Research-in-progress.</div>
-    </a>
-  </div>
-</div>
-{{- else }}
-{{- /* Theory subsection — list its pages */ -}}
-<div class="section-index">
-  <header class="section-page-header">
-    <span class="section-page-kicker">Theory</span>
-    <h1 class="section-page-title">{{ .Title }}</h1>
-    {{ with .Content }}
-    <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
-    {{ end }}
-  </header>
+  {{ with .Content }}
+  <div class="corpus-intro" data-pagefind-body>{{ . }}</div>
+  {{ end }}
 
-  <div class="section-header">
-    <span class="section-header-title">Notes</span>
+  <div class="section-header" style="margin-top: var(--space-10);">
+    <span class="section-header-title">Reading Spine</span>
     <div class="section-header-rule"></div>
-    <span class="section-header-count">{{ len .Pages }}</span>
+    <span class="section-header-count">Read in order</span>
   </div>
 
-  <ul class="archive-list">
-    {{ range .Pages.ByDate.Reverse }}
-    <li class="archive-entry">
-      <div class="archive-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      </div>
-      <div class="archive-body">
-        <h2 class="archive-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ with .Description }}
-        <p class="archive-desc">{{ . }}</p>
-        {{ else }}{{ with .Summary }}
-        <p class="archive-desc">{{ . | plainify | truncate 160 }}</p>
-        {{ end }}{{ end }}
+  <ol class="corpus-spine" style="list-style: none; padding: 0;">
+    {{- range $i, $entry := $spine }}
+    {{- $page := site.GetPage $entry.url }}
+    {{- if and $page (not $page.Draft) }}
+    <li>
+      <a href="{{ $page.Permalink }}" class="corpus-spine-entry">
+        <span class="corpus-spine-num">{{ printf "%02d" (add $i 1) }}</span>
+        <div class="corpus-spine-body">
+          <div class="corpus-spine-title">{{ $page.Title }}</div>
+          {{ with $page.Description }}
+          <div class="corpus-spine-desc">{{ . }}</div>
+          {{ else }}{{ with $page.Summary }}
+          <div class="corpus-spine-desc">{{ . | plainify | truncate 140 }}</div>
+          {{ end }}{{ end }}
+        </div>
+        <span class="corpus-spine-arrow">→</span>
+      </a>
+    </li>
+    {{- else }}
+    {{- $displayTitle := or $entry.title "Planned" }}
+    <li>
+      <div class="corpus-spine-entry" style="opacity: 0.4; cursor: default;">
+        <span class="corpus-spine-num">{{ printf "%02d" (add $i 1) }}</span>
+        <div class="corpus-spine-body">
+          <div class="corpus-spine-title">
+            {{ $displayTitle }}{{ if ne $displayTitle "Planned" }} <span style="font-style: italic; font-size: 0.85em;">— Planned</span>{{ end }}
+          </div>
+        </div>
+        <span class="corpus-spine-arrow"></span>
       </div>
     </li>
-    {{ end }}
-  </ul>
+    {{- end }}
+    {{- end }}
+  </ol>
+
+  {{/* Taxonomy — outside the numbered spine */}}
+  {{- $taxonomy := site.GetPage "/theory/taxonomy/" }}
+  {{- if $taxonomy }}
+  <div class="section-header" style="margin-top: var(--space-12);">
+    <span class="section-header-title">Reference</span>
+    <div class="section-header-rule"></div>
+  </div>
+  <ol class="corpus-spine" style="list-style: none; padding: 0;">
+    <li>
+      <a href="{{ $taxonomy.Permalink }}" class="corpus-spine-entry">
+        <span class="corpus-spine-num">—</span>
+        <div class="corpus-spine-body">
+          <div class="corpus-spine-title">{{ $taxonomy.Title }}</div>
+          {{ with $taxonomy.Description }}
+          <div class="corpus-spine-desc">{{ . }}</div>
+          {{ else }}{{ with $taxonomy.Summary }}
+          <div class="corpus-spine-desc">{{ . | plainify | truncate 140 }}</div>
+          {{ end }}{{ end }}
+        </div>
+        <span class="corpus-spine-arrow">→</span>
+      </a>
+    </li>
+  </ol>
+  {{- end }}
+
+  {{/* Law of Energetic Correction — standalone essay */}}
+  {{- $law := site.GetPage "/theory/law-of-energetic-correction/" }}
+  {{- if $law }}
+  <div class="section-header" style="margin-top: var(--space-12);">
+    <span class="section-header-title">Related Essay</span>
+    <div class="section-header-rule"></div>
+  </div>
+  <ol class="corpus-spine" style="list-style: none; padding: 0;">
+    <li>
+      <a href="{{ $law.Permalink }}" class="corpus-spine-entry">
+        <span class="corpus-spine-num">—</span>
+        <div class="corpus-spine-body">
+          <div class="corpus-spine-title">{{ $law.Title }}</div>
+          {{ with $law.Description }}
+          <div class="corpus-spine-desc">{{ . }}</div>
+          {{ else }}{{ with $law.Summary }}
+          <div class="corpus-spine-desc">{{ . | plainify | truncate 140 }}</div>
+          {{ end }}{{ end }}
+        </div>
+        <span class="corpus-spine-arrow">→</span>
+      </a>
+    </li>
+  </ol>
+  {{- end }}
 </div>
-{{- end }}
 {{ end }}

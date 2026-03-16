@@ -4,6 +4,7 @@ date: 2023-07-20
 type: writing
 series: corpus
 aliases:
+  - /theory/corpus/testability-as-epistemic-authority/
   - /writing/testability-as-epistemic-authority/
 ---
 

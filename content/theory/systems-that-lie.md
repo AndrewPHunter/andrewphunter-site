@@ -6,6 +6,7 @@ series: corpus
 description: "How software systems can appear correct while losing the ability to justify their behavior in domain terms."
 type: "writing"
 aliases:
+  - /theory/corpus/systems-that-lie/
   - /writing/systems-that-lie/
 ---
 

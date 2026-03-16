@@ -6,6 +6,7 @@ series: corpus
 draft: false
 summary: "Distributed systems permit multiple evaluation contexts to exist simultaneously. Each context may enforce the same invariant space yet operate over a different representation of system behavior. Under these conditions, locally correct transitions can produce globally inconsistent outcomes. Distributed truth arises not from weakened constraints but from constraint evaluation across divergent contexts, requiring reconciliation to restore coherent system behavior."
 aliases:
+  - /theory/corpus/distributed-truth/
   - /writing/distributed-truth/
 ---
 

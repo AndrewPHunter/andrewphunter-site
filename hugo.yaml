@@ -35,15 +35,18 @@ menu:
     - name: Doctrine
       url: /Doctrine/
       weight: 25
-    - name: Theory
+    - name: Systems Theory
       url: /theory/
       weight: 30
+    - name: Research
+      url: /research/
+      weight: 35
     - name: Advisory
       url: /advisory/
-      weight: 35
+      weight: 40
     - name: About
       url: /about/
-      weight: 40
+      weight: 45
     - name: Contact
       url: /contact/
       weight: 50

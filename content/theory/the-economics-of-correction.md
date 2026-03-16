@@ -5,4 +5,6 @@ type: writing
 series: corpus
 draft: true
 summary: ""
+aliases:
+  - /theory/corpus/the-economics-of-correction/
 ---

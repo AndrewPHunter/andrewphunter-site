@@ -4,6 +4,7 @@ date: 2025-11-15
 type: writing
 series: corpus
 aliases:
+  - /theory/corpus/the-additive-fallacy/
   - /writing/the-additive-fallacy/
 ---
 

@@ -6,6 +6,7 @@ type: writing
 series: corpus
 summary: "Reproducibility preserves the relationship between invariant space and outcome across time."
 aliases:
+  - /theory/corpus/reproducibility/
   - /writing/reproducibility/
 ---
 

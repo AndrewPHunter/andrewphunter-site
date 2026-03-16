@@ -4,6 +4,8 @@ date: 2026-02-28
 type: theory-note
 math: true
 description: "Capturing the set-theoretic foundations of the Knowability framework and outlining the transition toward a geometric interpretation of constraint and invariant space."
+aliases:
+  - /theory/formalization/geometric-theory-of-knowability/
 ---
 
 This note records the current state of the **Knowability / Constraint–Invariant Framework**.

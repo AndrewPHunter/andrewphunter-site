@@ -4,6 +4,8 @@ date: 2026-02-22
 type: theory-note
 math: true
 description: "Formalizing the composition of systems and the requirement for subsystem distinguishability."
+aliases:
+  - /theory/formalization/composition-and-distinguishability/
 ---
 
 Building on the definition of knowability, we must now account for how knowability is preserved when systems are combined. In the *Corpus*, composition is not merely the union of sets, but the creation of a new system structure that must maintain the identity of its constituents.

@@ -4,6 +4,8 @@ date: 2026-02-19
 type: theory-note
 math: true
 description: "Initial formalization of knowability as a preserved mapping across time and composition."
+aliases:
+  - /theory/formalization/first-definition-of-knowability/
 ---
 
 The first step in formalizing the corpus is to move **knowability** from a descriptive property to a formal requirement.

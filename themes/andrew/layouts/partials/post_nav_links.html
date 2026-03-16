@@ -1,22 +1,24 @@
 {{- if eq .Params.series "corpus" }}
   {{- /* Canonical corpus spine order — must match reading order exactly */ -}}
   {{- $spine := slice
-    "/theory/corpus/knowability/"
-    "/theory/corpus/architecture-as-practiced-constraint/"
-    "/theory/corpus/dependency-management-as-constraint-discipline/"
-    "/theory/corpus/reproducibility/"
-    "/theory/corpus/testability-as-epistemic-authority/"
-    "/theory/corpus/the-additive-fallacy/"
-    "/theory/corpus/systems-that-lie/"
-    "/theory/corpus/distributed-truth/"
-    "/theory/corpus/inference-as-governance/"
-    "/theory/corpus/the-economics-of-correction/"
+    "/theory/knowability/"
+    "/theory/architecture-as-practiced-constraint/"
+    "/theory/dependency-management-as-constraint-discipline/"
+    "/theory/reproducibility/"
+    "/theory/testability-as-epistemic-authority/"
+    "/theory/the-additive-fallacy/"
+    "/theory/systems-that-lie/"
+    "/theory/distributed-truth/"
+    "/theory/inference-as-governance/"
+    "/theory/the-economics-of-correction/"
   -}}
 
-  {{- /* Normalize alias paths (/writing/...) to canonical (/theory/corpus/...) */ -}}
+  {{- /* Normalize legacy alias paths to canonical /theory/... */ -}}
   {{- $current := .RelPermalink -}}
   {{- if hasPrefix $current "/writing/" -}}
-    {{- $current = printf "/theory/corpus/%s" (strings.TrimPrefix "/writing/" $current) -}}
+    {{- $current = printf "/theory/%s" (strings.TrimPrefix "/writing/" $current) -}}
+  {{- else if hasPrefix $current "/theory/corpus/" -}}
+    {{- $current = printf "/theory/%s" (strings.TrimPrefix "/theory/corpus/" $current) -}}
   {{- end -}}
 
   {{- $idx := -1 -}}
@@ -59,7 +61,7 @@
 </nav>
     {{- end -}}
 
-  {{- else if eq $current "/theory/corpus/taxonomy/" -}}
+  {{- else if eq $current "/theory/taxonomy/" -}}
     {{- /* Taxonomy: entry point into spine — one-way forward link */ -}}
     {{- with site.GetPage (index $spine 0) }}
 <nav class="post-nav">
