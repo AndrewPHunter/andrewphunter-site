@@ -1,275 +1,145 @@
 ---
 title: "Distributed Truth"
-date: 2026-02-20
+date: 2026-03-15
 type: writing
 series: corpus
-draft: true
-summary: "Distributed systems introduce the possibility that locally enforced invariants produce globally inconsistent truth. Preserving invariant space under partition requires reconciliation, not merely boundary discipline."
+draft: false
+summary: "Distributed systems permit multiple evaluation contexts to exist simultaneously. Each context may enforce the same invariant space yet operate over a different representation of system behavior. Under these conditions, locally correct transitions can produce globally inconsistent outcomes. Distributed truth arises not from weakened constraints but from constraint evaluation across divergent contexts, requiring reconciliation to restore coherent system behavior."
+aliases:
+  - /writing/distributed-truth/
 ---
 
-## 0. From Composition to Distribution
+## 0. Shared Representation Surfaces
 
-In composition, invariant space does not accumulate. It intersects — and interaction narrows it further.
-Components bring their own constraints. Interaction introduces new ones.
+Systems can only evaluate behavior relative to what they can represent.
 
-This is the Additive Fallacy.
+When two systems interact, they do so across a shared representation surface — the portion of system structure both sides can observe, interpret, and evaluate.
 
-But composition assumes something else.
+This surface defines the portion of system structure across which constraints can be applied and invariants enforced.
 
-Even when interaction constraints are incomplete or misrepresented, invariant evaluation occurs within a coherent evaluation context. All transitions are evaluated against that same context. The system progresses as a single structure.
+In tightly composed systems this shared surface is wide. Transitions are evaluated against nearly the same representation of system behavior. Interaction constraints may still exist, and engineers may misunderstand the invariant space, but evaluation remains largely coherent.
 
-Distributed systems remove this coherence.
+Distributed systems change this condition.
 
-When components evaluate constraints over non-identical transition histories, invariant evaluation occurs against divergent evaluation contexts. Enforcement becomes local.
+Distance — whether physical, architectural, or arising from the propagation of system transitions — reduces the shared representation surface through which systems observe one another. Each system continues to enforce its constraints, but it does so relative to a representation that may no longer match the representations held elsewhere.
 
-Locally valid transitions can therefore produce globally inconsistent truth.
+As the shared representation surface narrows, evaluation contexts diverge.
 
-This is not the Additive Fallacy.
+Distributed systems do not weaken constraint.
 
-It is a distinct and harder problem.
-
----
-
-## 1. Divergent Evaluation
-
-### 1.1 Coherent Evaluation Under Composition
-
-In composed systems, invariant evaluation occurs within a single coherent evaluation context.
-
-Even when interaction constraints are incomplete or misrepresented, all transitions are evaluated against the same effective context. Components reason within a shared frame of reference.
-
-The invariant space of the whole may be narrower than represented. Interaction constraints may remain implicit. But evaluation remains coherent.
-
-The system may be wrong about its invariant space.
-
-But it is wrong coherently.
+They reduce the shared representation surface through which constraints can be enforced.
 
 ---
 
-### 1.2 Divergent Evaluation Contexts
+## 1. Evaluation Context
 
-Distributed systems remove coherent evaluation context.
+Constraint enforcement occurs relative to a representation.
 
-When components do not evaluate over identical transition histories, their evaluation contexts diverge. Transitions that are visible in one context may be absent in another. Enforcement remains relative to what is locally observable.
+An **evaluation context** is the representation of system structure against which constraints are interpreted and transitions are validated.
 
-Invariant enforcement does not disappear.
+Within an evaluation context:
 
-It becomes local.
+- invariants define the states that are permitted,
+- constraints exclude transitions that would violate those invariants,
+- and only the structure visible within that representation can participate in enforcement.
 
-This introduces a new condition:
+Evaluation contexts are therefore not merely data stores or memory locations. They are the effective representations through which a system determines whether behavior is permitted.
 
-Locally enforced invariants no longer guarantee globally coherent truth.
+In tightly composed systems, the shared representation surface between interacting structures is wide. Each system evaluates behavior relative to its own representation, but those representations overlap substantially. Transitions therefore propagate through nearly the same structural view of the system.
 
-No constraint has been diluted.  
-No boundary has been weakened.  
-No interaction constraint is necessarily missing.
+In distributed systems, the shared representation surface narrows.
 
-Yet the system may admit combinations of transitions that would not arise under coherent evaluation.
-
-This is not interaction drift.
-
-It is divergence of evaluation context.
+Each system continues to enforce its constraints within its own evaluation context, but the representations through which those constraints operate may diverge. Systems remain locally correct relative to what they can observe. Yet the overlap between those observations may no longer be sufficient to preserve the invariants engineers assume govern the whole.
 
 ---
 
-## 2. Local Correctness and Global Inconsistency
+## 2. Divergent Evaluation Contexts
 
-Distributed systems admit a distinct failure pattern.
+When evaluation contexts diverge, constraint enforcement remains local to each representation.
 
-Invariant enforcement may hold within each evaluation context.  
-No local constraint is violated.  
-No interaction boundary is weakened.
+Each context interprets transitions relative to the structure visible within it. Invariants may still be enforced correctly within that context. No constraint may be violated locally.
 
-Yet globally coherent truth may fail to emerge.
+Yet the representations themselves may no longer overlap sufficiently to preserve the invariants engineers assume govern the composed system.
 
-When evaluation contexts diverge, each context evaluates transitions against a different reachable history. A transition that is valid relative to one history may be incompatible with transitions validated relative to another. Each context remains internally coherent. The system as a whole does not.
+This divergence does not require failure.
 
-This is the critical distinction.
+It arises when interacting contexts do not share enough representation to preserve the same invariant surface.
 
-In the Additive Fallacy, invariant space narrows because interaction constraints are unmodeled. The failure arises from incomplete representation.
+A transition may be fully valid within one representation while remaining outside what another representation can incorporate into enforcement.
 
-Here, invariant space may be fully modeled and correctly enforced locally. The failure arises because invariant evaluation depends on transition history, and that history is no longer shared.
+Each context therefore remains internally coherent.
 
-Local correctness no longer composes.
+The system itself also remains coherent — but only relative to the invariant surface supported by the shared representation between those contexts.
 
-This is not interaction drift.  
-It is not constraint dilution.  
+This is the defining condition of distributed systems: multiple locally valid interpretations of system behavior can coexist simultaneously.
 
-It is divergence under local enforcement.
+Truth does not fracture because constraint has weakened.
 
-Under composition, invariant preservation depends on modeling interaction constraints within a coherent evaluation context.
-
-Under distribution, invariant preservation additionally depends on restoring coherence across divergent evaluation contexts.
-
-This is strictly harder.
+It becomes contextual because enforcement occurs relative to representations that no longer fully overlap.
 
 ---
 
-## 3. Incomplete Transition Visibility
+## 3. Local Correctness and Global Structure
 
-Divergence does not require collapse.
+Under divergent evaluation contexts, a new structural condition appears.
 
-It arises whenever transition visibility is incomplete.
+A transition may enter one context while remaining outside the structure visible to another.
 
-A transition may be validated within one evaluation context and remain absent from another. Enforcement continues relative to what is locally observable. Invariant space remains defined. Constraint discipline does not disappear.
+Each context continues to enforce constraints relative to the representation through which it operates. No invariant is relaxed. No boundary has necessarily failed.
 
-What disappears is coherence.
+Yet transitions incorporated independently across contexts may combine into configurations that would not arise if enforcement occurred across a larger shared representation.
 
-Under incomplete transition visibility, the system may admit combinations of locally valid transitions that would not arise within a coherent evaluation context.
+The system continues to operate.
 
-This is not constraint dilution.  
-It is not boundary failure.
-
-It is the structural consequence of independent evaluation over non-identical transition histories.
-
-Convergence after divergence does not imply continuous invariant preservation.
-
-Restoring coherence after divergence is not equivalent to preserving coherence throughout.
+But the invariant surface actually governing behavior is smaller than the one engineers believe they designed.
 
 ---
 
 ## 4. Reconciliation
 
-When invariant evaluation becomes local, preservation requires reconciliation.
+Because evaluation contexts can diverge, distributed systems require mechanisms that re-establish shared representation.
 
-Reconciliation is the mechanism by which divergent state is brought back into alignment with invariant space.
+These mechanisms are not primarily about communication reliability or performance optimization. Their structural role is to increase the overlap between representations so that constraint enforcement can again operate across a larger shared surface.
 
-It includes:
+When contexts diverge, transitions may be incorporated independently within different representations. Reconciliation determines how those independently incorporated transitions become part of the shared structure that participating systems recognize.
 
-- Conflict resolution rules.
-- Authority ordering.
-- Versioning.
-- Causality tracking.
-- Deterministic merge strategies.
+Reconciliation does not prevent divergence. It manages its consequences.
 
-Reconciliation is not documentation.
-It is structural enforcement across time.
+Consensus algorithms, conflict resolution strategies, and synchronization protocols are all responses to this requirement. Each attempts to expand the shared representation surface across which invariants can be enforced.
 
-Composition required modeling interaction constraints.
+Reconciliation itself is not outside the system.  
+It is another structure introduced into the composition.
 
-Distribution requires modeling interaction constraints *and* modeling reconciliation under divergence.
+Which means reconciliation also participates in the same compositional pressures it attempts to manage.
 
-Without reconciliation, invariant preservation becomes probabilistic.
+The deeper structural requirement is therefore not distribution itself.
 
-With reconciliation, invariant preservation becomes eventual.
-
-The distinction matters.
+It is the preservation of constraint when representation diverges.
 
 ---
 
-## 5. Distributed Truth in Inference Systems
+## Conclusion: Distributed Truth
 
-Multi-agent inference systems are distributed systems.
+Composition assumes that interacting systems evaluate behavior across a sufficiently shared representation.
 
-An agent invocation is a node.
-A context window is a partition.
-Tool calls are remote invocations.
-Memory stores are replicated state.
-Retrieval is asynchronous state access.
+Distributed systems weaken that assumption.
 
-Each agent evaluates constraints against its local state representation.
+As the shared representation surface narrows, evaluation contexts diverge. Each system continues to enforce its constraints relative to what it can represent. No rule must be violated for divergence to appear.
 
-Context windows are bounded.
+The system therefore remains coherent.
 
-They truncate history.
-They omit causality.
-They collapse prior constraint encoding.
+But only relative to the invariant surface supported by the representations actually shared across it.
 
-Each invocation reasons over S_local, not S_global.
+Distributed truth emerges from this condition.
 
-Invariant enforcement is local.
+Not because constraint has weakened, and not because systems disagree about correctness, but because constraint enforcement occurs across representations that no longer fully overlap.
 
----
+Reconciliation can expand that overlap. It can restore larger surfaces across which invariants are enforced.
 
-### 5.1 Hallucination Propagation
+But the structural challenge remains.
 
-Consider the following pattern:
+Distributed systems do not merely distribute computation.
 
-1. Agent A produces an output based on incomplete context.
-2. Agent B consumes that output as authoritative state.
-3. Agent C retrieves memory influenced by B.
-4. The system converges on a globally inconsistent belief.
+They distribute representation.
 
-Each agent:
-
-- Produced coherent output.
-- Respected its local constraints.
-- Passed validation.
-
-No explicit invariant was weakened.
-
-Yet global truth drifted.
-
-This is distributed truth failure.
-
-Hallucination propagation is not merely model weakness.
-
-It is local inference evaluated over incomplete state and then propagated without reconciliation.
-
----
-
-### 5.2 Context Windows as Partition Boundaries
-
-Context windows are structural partitions.
-
-They limit:
-
-- Available history.
-- Accessible constraints.
-- Causal visibility.
-
-An agent may produce output that is locally valid under its context window but globally inconsistent when evaluated against full system state.
-
-Without reconciliation mechanisms, such inconsistencies accumulate.
-
-The system remains plausible.
-
-But it ceases to be globally coherent.
-
----
-
-## 6. The Escalation
-
-Constraint preservation under distribution is strictly harder than under composition.
-
-Under composition:
-
-- Interaction constraints must be modeled.
-
-Under distribution:
-
-- Interaction constraints must be modeled.
-- Divergent state must be reconciled.
-- Authority ordering must be defined.
-- Temporal instability must be constrained.
-
-When inference participates in state mutation under distribution, architectural questions become authority questions.
-
-Who defines truth?
-Which node is authoritative?
-How are conflicts resolved?
-Where is invariant space reasserted?
-
-These are not organizational concerns.
-
-They are structural requirements.
-
----
-
-## Conclusion — Truth Under Partition
-
-Distributed systems introduce the possibility that truth becomes locally coherent and globally inconsistent without explicit invariant violation.
-
-Invariant preservation is no longer a matter of boundary discipline alone.
-
-It requires reconciliation.
-
-Inference systems inherit this property.
-
-When agents reason over partitioned context and propagate state across asynchronous boundaries, distributed truth becomes unavoidable.
-
-Without structural reconciliation, plausibility propagates faster than constraint.
-
-Truth under partition is not self-stabilizing.
-
-It must be governed.
+And when representation is distributed, preserving constraint becomes a problem of geometry rather than logic.
