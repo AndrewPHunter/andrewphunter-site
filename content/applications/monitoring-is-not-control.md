@@ -1,6 +1,6 @@
 ---
 title: "Governance Under Scale — Part II: Monitoring Is Not Control"
-date: 2026-03-XX
+date: 2026-03-19
 description: "Monitoring provides visibility into system behavior. Governance requires the ability to constrain it."
 type: application
 category: applications
