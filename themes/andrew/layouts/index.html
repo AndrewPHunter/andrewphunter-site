@@ -55,7 +55,7 @@
       <div class="essay-lead-title">{{ .Title }}</div>
     </div>
     <div>
-      <div class="essay-lead-body">{{ .Summary | safeHTML }}</div>
+      <div class="essay-lead-body">{{ .Summary | plainify | truncate 180 }}</div>
       <span class="read-more">Read essay</span>
     </div>
   </a>

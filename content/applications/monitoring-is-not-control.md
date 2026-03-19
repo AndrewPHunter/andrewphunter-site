@@ -21,8 +21,6 @@ A system may be fully observableâ€”its behavior rendered legible at every layerâ
 
 ---
 
-<!--more-->
-
 ## Visibility Without Constraint
 
 Enterprise AI deployments have, with good reason, invested heavily in observability. Model performance is tracked across multiple dimensions, outputs evaluated against curated datasets, and decision pathways logged and surfaced for review. Exceptions are recorded, categorized, and analyzed over time, while governance forums are supplied with increasingly detailed representations of system behavior.
