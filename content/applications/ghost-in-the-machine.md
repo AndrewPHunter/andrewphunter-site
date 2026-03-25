@@ -1,5 +1,5 @@
 ---
-title: "Ghost in the Machine"
+title: "Ghost in the Machine: Adversarial Priors in AI Systems"
 subtitle: "Why large language models inherit the adversarial priors of the written corpus"
 date: 2026-03-10
 description: "Large language models learn the statistical structure of the text they are trained on. Because written language overrepresents conflict, persuasion, and strategic reasoning, the prior embedded in modern AI systems is not neutral."

@@ -1,6 +1,5 @@
 ---
-title: "When AI Systems Don’t Hallucinate — They Dream"
-subtitle: "Most production failures are not model defects. They are missing structure."
+title: "When AI Systems “Dream”: A Failure of Architecture, Not Models"
 date: 2026-03-24
 description: "Many AI failures labeled as hallucinations are actually coherent systems operating without sufficient grounding or constraint. The fix is architectural, not model-based."
 type: application

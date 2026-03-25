@@ -1,5 +1,5 @@
 ---
-title: "AI in Regulated Systems: The Real Risk Isn’t Hallucination — It’s Execution Authority"
+title: "AI in Regulated Systems: Where Architecture Becomes Governance"
 date: 2026-02-24
 description: "In regulated systems, the primary AI risk is not hallucination — it is allowing probabilistic inference to directly mutate deterministic state."
 type: application
