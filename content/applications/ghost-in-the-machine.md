@@ -8,219 +8,42 @@ category: analysis
 tags: ["AI Systems", "Machine Learning", "LLMs", "AI Alignment"]
 ---
 
-**Large language models are often described as neutral systems that require alignment.**
+Large language models are usually described as neutral systems that require alignment. The premise is simple: train a model on a large corpus of human text, then apply guardrails, reinforcement learning, or constitutional rules to steer its behavior. That framing rests on an assumption it rarely states, that the base system is neutral. It is not.
 
-The idea is simple: train a powerful model on large amounts of human text, then apply guardrails, reinforcement learning, or constitutional rules to steer its behavior.
+A language model inherits the statistical structure of the text it was trained on, and the distribution of human-written text is not neutral. It is weighted toward adversarial cognition: conflict, persuasion, status competition, strategic reasoning, and narratives of deception, all of which dominate the written record even though they do not dominate human life.
 
-But this framing assumes something important.
-
-It assumes the base system is neutral.
-
-It isn't.
+---
 
 <!--more-->
 
-Large language models inherit the statistical structure of the text they are trained on.
-
-And the distribution of human-written text is not neutral.
-
-It is heavily weighted toward adversarial cognition: conflict, persuasion, status competition, strategic reasoning, and narratives of deception.
-
-Not because these behaviors dominate human life.
-
-But because they dominate the written record.
-
----
-
 ## The Corpus Selection Problem
 
-Human writing does not record everyday life evenly.
+Human writing does not record everyday life evenly. It records the moments when something breaks. News captures conflict, history records wars and political struggle, literature dramatizes betrayal and manipulation, social media amplifies argument and status competition, and even academic work disproportionately studies deception and strategic interaction. These patterns fill the written record because they are the moments people choose to document, not because they fill human life.
 
-It records the moments when something breaks.
+The baseline of human interaction, routine cooperation, quiet coordination, ordinary trust, rarely enters the corpus. People document the argument, not the thousand small agreements that make a workday function; the betrayal, not the stable relationship; the failure, not the ordinary coordination that preceded it. The corpus captures a disproportionate share of adversarial moments, and those recorded exceptions become part of the model's prior.
 
-News captures conflict.
+## The Prior the Model Learns
 
-History records wars and political struggle.
+A language model does not learn human behavior; it learns the probability distribution of text. During training it adjusts its parameters so that the distribution it assigns to the next token, given everything before it, moves closer to the distribution in the training corpus. Across billions of examples it internalizes the patterns of reasoning, argument, persuasion, and narrative that recur there. What it ends up with is not a set of rules about people but a model of documented language.
 
-Literature dramatizes betrayal, persuasion, and manipulation.
+That learned distribution is the model's prior in the Bayesian sense: the base expectation it brings to every interaction before any prompt or alignment step conditions it. Whatever is dense in the corpus, the model learns to reproduce, and adversarial reasoning, persuasive rhetoric, and strategic argument are all dense in the corpus. The model learns how each is structured and how it unfolds. None of this is intentional; it is the direct consequence of fitting a distribution to data.
 
-Social media amplifies argument, status competition, and rhetorical escalation.
-
-Even academic work often studies deception, adversarial behavior, and strategic interaction.
-
-These patterns appear frequently in the written record not because they dominate human life, but because they are the moments people choose to document.
-
-The baseline of human interaction—routine cooperation, quiet coordination, ordinary trust—rarely enters the corpus.
-
-People do not write about the thousand small agreements that make a workday function.
-
-They write about the argument.
-
-They do not document stable relationships.
-
-They document the betrayal.
-
-They do not record ordinary coordination.
-
-They analyze the failure.
-
-The training corpus therefore captures a disproportionate number of adversarial moments.
-
-It records the exceptions.
-
-And those exceptions become part of the model’s prior.
-
----
-
-## The Prior That Models Learn
-
-Large language models do not learn human behavior directly.
-
-They learn the probability distribution of text.
-
-Training a language model is an exercise in learning the statistical structure of language.
-
-During training, the model adjusts its parameters so that the probability distribution it produces over possible continuations of a text increasingly matches the distribution observed in the training corpus.
-
-Over billions of examples, the model internalizes patterns of reasoning, argument, persuasion, and narrative that appear repeatedly in that corpus.
-
-What the model ultimately learns is not a set of rules about human behavior.
-
-It learns the probability distribution of documented language.
-
-In Bayesian terms, this learned distribution becomes the model’s prior: the baseline expectations it carries into every interaction.
-
-If adversarial reasoning appears frequently in the corpus, the model will learn how adversarial reasoning works.
-
-If persuasive rhetoric appears frequently, the model will learn the structure of persuasion.
-
-If strategic argument appears frequently, the model will learn how strategic argument unfolds.
-
-None of this is intentional.
-
-It is a direct consequence of learning from data.
-
-The model is not learning human behavior as it occurs in the world.
-
-It is learning the patterns of cognition that humans choose to document.
-
-The model learns documented cognition.
-
-Not lived behavior.
-
----
-
-## The Prior Is Not Neutral
-
-This distinction matters because it changes how we should think about alignment.
-
-If the training corpus overrepresents certain behavioral patterns, the distribution the model learns will reflect that imbalance.
-
-The model begins every interaction with statistical expectations shaped by the corpus it was trained on.
-
-And that corpus is not neutral.
-
-It contains a disproportionate number of examples involving conflict, persuasion, strategic argument, and adversarial reasoning, because those are the moments humans choose to document and analyze.
-
-When a model learns from that record, those patterns become part of the probability mass it carries forward into new interactions.
-
-The system does not begin from neutrality.
-
-It begins from the statistical structure of the documented world.
-
-The model did not invent those patterns.
-
-It inherited them.
-
----
+Because the corpus overrepresents conflict, persuasion, strategic argument, and deception, the prior reflects that imbalance. The model begins every interaction with statistical expectations shaped by the documented world, not the world as it is lived. It did not invent those patterns; it inherited them.
 
 ## Why Alignment Exists
 
-This is why alignment techniques exist.
+This is why alignment techniques exist. Reinforcement learning from human feedback, constitutional AI, and guardrail systems all reshape model behavior after training: they add corrective signals that reward some responses, discourage others, and constrain outputs within defined safety boundaries. None of them define the model's behavior from scratch. By the time alignment begins, the model has already internalized the statistical structure of its corpus.
 
-Methods such as reinforcement learning from human feedback, constitutional AI, and guardrail systems attempt to reshape model behavior after training.
-
-They introduce corrective signals.
-
-Certain responses are rewarded.
-
-Others are discouraged.
-
-Outputs are constrained within defined safety boundaries.
-
-But these systems are not defining the model’s behavior from scratch.
-
-They are steering it.
-
-By the end of training, the model has already internalized the statistical structure of the corpus it learned from.
-
-In effect, training shapes a probability landscape over possible responses. Certain patterns of reasoning—argument, persuasion, strategic conflict—occupy regions of high probability because they appear frequently in the training corpus.
-
-Alignment does not rebuild that landscape.
-
-It modifies it.
-
-Reinforcement learning, constitutional rules, and guardrails introduce additional gradients that push the model away from certain regions of that space.
-
-But the underlying basin remains.
-
-The patterns learned during training do not disappear.
-
-They are simply made less likely under the constraints introduced during alignment.
-
----
+Training shapes a probability landscape over possible responses, and patterns like argument, persuasion, and strategic conflict occupy high-probability regions because they were frequent in the data. Alignment does not rebuild that landscape; it modifies it. Reinforcement learning, constitutional rules, and guardrails introduce additional gradients that push the model away from certain regions, but the underlying basin remains. The patterns learned in training do not disappear; they are only made less likely under the constraints alignment imposes.
 
 ## Why Jailbreaks Persist
 
-This framing also explains why jailbreak techniques persist.
+The same framing explains why jailbreaks persist. A jailbreak prompt rarely introduces new patterns of reasoning; it navigates the probability landscape the model already contains. Alignment pushes certain behaviors toward lower probability without removing them from the distribution, so a successful jailbreak is a prompt that steers the model back into one of those regions. The adversarial reasoning does not originate with the prompt but in the corpus; the prompt only exposes probability mass that was there all along.
 
-Jailbreak prompts rarely introduce entirely new patterns of reasoning.
-
-Instead, they navigate the probability landscape the model already contains.
-
-Alignment mechanisms push certain behaviors toward lower probability, but they do not remove them from the model. The patterns learned during training remain part of the distribution.
-
-A successful jailbreak is simply a prompt that steers the model into one of those regions.
-
-The adversarial reasoning does not originate with the jailbreak.
-
-It originates in the corpus.
-
-The jailbreak exposes probability mass that already exists within the model.
-
-This is why jailbreak techniques evolve continuously. They are probing the boundary between the aligned surface and the underlying distribution learned during training.
-
-The jailbreak does not create the behavior.
-It finds it.
-
----
+This is why jailbreak techniques evolve continuously: they probe the boundary between the aligned surface and the underlying distribution learned in training. The jailbreak does not create the behavior; it finds it.
 
 ## The Architectural Implication
 
-None of this means large language models are malicious systems.
+None of this makes large language models malicious, only non-neutral. They are trained on the documented patterns of human language, and that record carries persuasion, strategic reasoning, manipulation, and conflict alongside cooperation and explanation. Those capabilities are not anomalies to be patched out; they are part of the distribution the model learned. Once these systems run inside real infrastructure, they should be treated as expected properties of the model, not surprising failures.
 
-But it does mean they are not neutral reasoning engines.
-
-They are systems trained on the documented patterns of human language, and that record contains persuasion, strategic reasoning, manipulation, and conflict alongside cooperation and explanation.
-
-Those capabilities are not anomalies.
-
-They are part of the distribution the model learned.
-
-When these systems are deployed inside real infrastructure, those behaviors should be treated as expected properties of the model rather than surprising failures.
-
-The practical implication is architectural.
-
-Modern production systems increasingly separate inference from authority.
-
-Models generate analysis, classifications, recommendations, and proposed actions.
-
-Deterministic services validate those proposals against explicit rules and policies before anything in the system changes.
-
-Probabilistic systems assist with reasoning.
-
-Deterministic systems enforce decisions.
-
-The “ghost” in modern AI systems is not mystery.
-
-It is the statistical imprint of the corpus itself.
+The implication is architectural. Separate inference from authority: let the model generate analysis, classifications, recommendations, and proposed actions, and let deterministic services validate those proposals against explicit rules and policy before anything in the system changes. The probabilistic system reasons; the deterministic system decides. The ghost in modern AI is not a mystery. It is the statistical imprint of the corpus, and it belongs behind a boundary that does not run on probability.
