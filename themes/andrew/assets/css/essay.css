@@ -164,6 +164,54 @@
   line-height: var(--leading-body);
 }
 
+/* Tables — wrapped by layouts/_default/_markup/render-table.html in .table-wrap.
+   The wrapper scrolls horizontally so wide comparison tables (the crosswalk)
+   never overflow the page on narrow screens. */
+.article-body .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2.2em 0;
+  border: 1px solid var(--rule);
+}
+
+.article-body table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px;                 /* below this, the wrapper scrolls */
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.article-body thead th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(212, 208, 200, 0.28);
+  border-bottom: 2px solid var(--ink);
+  padding: 9px 13px;
+  white-space: nowrap;
+}
+
+.article-body tbody td {
+  padding: 9px 13px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-body tbody tr:last-child td { border-bottom: none; }
+
+/* First column carries the row label — emphasize and divide it from the data. */
+.article-body thead th:first-child,
+.article-body tbody td:first-child {
+  font-weight: 600;
+  color: var(--ink);
+  border-right: 1px solid var(--rule);
+}
+
+.article-body tbody tr:nth-child(even) td {
+  background: rgba(212, 208, 200, 0.14);
+}
+
 /* Pull quote — inverted block, bleeds to full .article-outer width */
 .article-body .pullquote {
   margin: 2.5em calc(-1 * var(--page-gutter));
