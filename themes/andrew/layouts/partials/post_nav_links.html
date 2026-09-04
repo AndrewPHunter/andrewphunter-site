@@ -78,7 +78,7 @@
     {{- $pages := where site.RegularPages "Section" "in" site.Params.mainSections -}}
     {{- if and (gt (len $pages) 1) (in $pages . ) }}
 <nav class="post-nav">
-      {{- with $pages.Next . }}
+      {{- with $pages.Prev . }}
   <a class="post-nav-prev" href="{{ .Permalink }}">
     <span class="post-nav-label">← Previous</span>
     <span class="post-nav-title">{{ .Name }}</span>
@@ -86,7 +86,7 @@
       {{- else }}
   <span></span>
       {{- end }}
-      {{- with $pages.Prev . }}
+      {{- with $pages.Next . }}
   <a class="post-nav-next" href="{{ .Permalink }}">
     <span class="post-nav-label">Next →</span>
     <span class="post-nav-title">{{ .Name }}</span>
@@ -101,7 +101,7 @@
   {{- $pages := where site.RegularPages "Section" "in" site.Params.mainSections -}}
   {{- if and (gt (len $pages) 1) (in $pages . ) }}
 <nav class="post-nav">
-      {{- with $pages.Next . }}
+      {{- with $pages.Prev . }}
   <a class="post-nav-prev" href="{{ .Permalink }}">
     <span class="post-nav-label">← Previous</span>
     <span class="post-nav-title">{{ .Name }}</span>
@@ -109,7 +109,7 @@
       {{- else }}
   <span></span>
       {{- end }}
-      {{- with $pages.Prev . }}
+      {{- with $pages.Next . }}
   <a class="post-nav-next" href="{{ .Permalink }}">
     <span class="post-nav-label">Next →</span>
     <span class="post-nav-title">{{ .Name }}</span>
