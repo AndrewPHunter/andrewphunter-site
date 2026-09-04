@@ -1,6 +1,6 @@
 ---
 title: "Transformation Under Scale — Part I: Constrain the Possible, Not the Ideal"
-date: 2026-08-24
+date: 2026-09-02
 draft: false
 description: "A transformation does not begin by designing the ideal system. It begins by turning the company's objectives into constraints and holding them over the estate you already have."
 type: application
