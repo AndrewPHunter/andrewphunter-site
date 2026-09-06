@@ -2,250 +2,42 @@
 title: "Agents Are Actors With Intent, Not Guarantees"
 subtitle: "The actor model still applies. The assumptions about behavior do not."
 date: 2026-03-17
-description: "AI agents are not a new category of system. They are actors with intent operating inside existing architectures—reintroducing familiar distributed systems constraints under probabilistic behavior."
+description: "AI agents are not a new category of system. They are actors with inference where the decision used to be, which reintroduces familiar distributed systems problems under probabilistic behavior."
 type: application
 category: applications
 tags: ["AI Systems", "Agents", "Distributed Systems", "Software Architecture"]
 ---
 
-**“Agent” has become the default term for a new class of AI systems.**
+I was at dinner with one of the people who wrote the book on the actor model, over Chinese food, one of his favorites, when he asked me what an agent was.
 
-Agentic workflows. Autonomous tools. Systems that can “think” and “act.”
-
-The language suggests something fundamentally new.
-
-But the more useful question is simpler:
-
-**What actually changes when a system becomes an agent?**
+I had been turning the question over for a while, and the honest answer came out plainly: it is an actor, with inference where the decision used to be. The answer stayed with me, because the more I looked at it, the more precise it turned out to be.
 
 <!--more-->
 
----
+## The answer holds
 
-## The Boundary
+The actor model has described this shape for decades. An actor observes its environment, decides what to do, acts within a boundary, and coordinates with other actors doing the same. That is also what everyone now means by an agent. We have built systems of interacting decision-makers for years without calling them new: a payment service evaluates a transaction and decides whether to authorize it, a retry worker observes failure state and decides whether to reprocess a job, a fraud system reads activity and triggers downstream work. Each operates on partial information, affects shared state, and interacts with others doing the same.
 
-A system becomes an agent when it can:
+We have the vocabulary for these systems and the patterns to build them: idempotency, message boundaries, retry strategies, coordination, observability. So an agent is not a new category of system. It is a familiar one that already has a name in the literature. It is an actor.
 
-- observe  
-- infer a course of action  
-- act within a permitted boundary  
+## The one thing that changed
 
-That is the transition.
+A classic actor is deterministic. Given the same input and state it produces the same outcome, which is what lets you test it and rely on it while it coordinates with everything around it. Put inference inside the actor and that stops being true. The decision is now probabilistic: sensitive to context you cannot fully see, capable of different outcomes under similar conditions, and hard to explain after the fact.
 
-Before that point, a system is a tool.
+Nothing else about the system changed. The structure is the same, the coordination model is the same, the actor still observes and decides and acts. Only the core of the actor moved, from a fixed function to an inferred one. That is the whole of what "agentic" adds, and it is enough to matter, because the thing you used to be able to rely on is the thing that is now variable.
 
-It takes input and produces output.  
-It does not initiate behavior.  
-It does not act beyond what it is explicitly invoked to do.  
+## What that breaks
 
-Once a system can observe its environment, infer what to do next, and act within a defined boundary, it stops being a passive component.
+The change propagates outward into problems that are not new but are now harder to contain. An agent retries an action and produces a different result. A workflow runs twice because the system cannot tell whether the previous step finished. Two components make conflicting decisions from slightly different views of state. A downstream system cannot explain why a decision was made, because the reasoning lived in a model rather than in code.
 
-It becomes an **actor inside a system**.
+These are the classic distributed-systems failures: coordination under partial information, idempotency and safe retries, consistency across boundaries, observability of decision paths, ownership of authority. What changed is not the category of problem. It is that retries no longer converge and identical inputs no longer guarantee identical outcomes. The old patterns still apply; they simply have less to hold onto, because they were designed around actors whose behavior was stable.
 
-That shift matters more than the term “agent.”
+## Where the work is
 
-Because it changes the problem space entirely.
+Most effort goes into the agent itself: prompt design, model selection, tool integration, chaining. That work matters, but it is not where production failures come from. They come from the boundary, and the boundary now has to supply the determinism the actor gave up.
 
----
+Constrain what the agent is permitted to do, and enforce it outside the agent, at a deterministic boundary it cannot talk its way past. Validate every action before it executes rather than trusting the decision that produced it. Keep authority over state changes outside the agent, so a probabilistic component never holds an irreversible permission on its own. Record each decision in a form you can reconstruct later, because you cannot replay the model to explain it. And make failure detectable and reversible, so a bad action is caught and its authority withdrawn before it compounds. The difficulty was never making the agent capable. It is building a system that can safely contain a capable actor whose behavior you can no longer predict.
 
-## We Already Know This System
+## Back to the question
 
-Systems composed of interacting actors are not new.
-
-They exist throughout production environments.
-
-A payment service evaluates a transaction and decides whether to authorize it.
-
-A retry worker observes failure state and determines whether to reprocess a job.
-
-A fraud system analyzes activity and triggers downstream workflows.
-
-Each of these systems:
-
-- operates on partial information  
-- makes decisions under constraints  
-- takes actions that affect shared state  
-- interacts with other components doing the same  
-
-They encounter familiar challenges:
-
-- duplicate execution due to retries  
-- race conditions between services  
-- inconsistent state during partial failure  
-- difficulty tracing why a decision occurred  
-- unclear ownership of authority  
-
-This is a known problem space.
-
-We have established patterns for it:
-
-- idempotency  
-- message boundaries  
-- retry strategies  
-- coordination mechanisms  
-- observability and tracing  
-
-These are the patterns used to build systems of independent components that evaluate state and act.
-
-These components are actors.
-
-The structure is well understood.
-
----
-
-## The Actual Difference
-
-What changes with AI agents is not that the system now has actors.
-
-It is that the actor’s decision function is no longer stable.
-
-Traditional actors are deterministic.
-
-Given the same input and state, they produce the same outcome.
-
-Their behavior can be reasoned about directly, tested, and relied upon in coordination with other components.
-
-AI agents are not deterministic.
-
-They are:
-
-- probabilistic  
-- sensitive to context that may not be fully visible  
-- capable of producing different outcomes under similar conditions  
-- difficult to fully explain after the fact  
-
-In traditional actor systems, behavior is defined and repeatable.
-
-In agentic systems, behavior is inferred and variable.
-
-The coordination model remains, but the assumptions about consistency do not.
-
-The structure of the system remains familiar.
-
-But the decision-making inside the actor is no longer fixed.
-
-And that change propagates outward.
-
-Retries may not produce the same result.  
-Identical requests may diverge.  
-Coordination assumptions begin to weaken.
-
-The system is now built from actors whose behavior cannot be treated as stable.
-
-That is the difference.
-
----
-
-## Familiar Problems, New Conditions
-
-As these systems move into production, the same issues begin to surface.
-
-An agent retries an action and produces a different result.
-
-A workflow executes twice because the system cannot determine whether the previous step completed.
-
-Two components make conflicting decisions based on slightly different views of state.
-
-A downstream system cannot explain why a decision was made because the reasoning is embedded in model behavior rather than explicit logic.
-
-These are not new categories of failure.
-
-They are recognizable.
-
-They are the same classes of problems that appear in distributed systems:
-
-- coordination under partial information  
-- idempotency and safe retries  
-- consistency across boundaries  
-- observability of decision paths  
-- ownership of authority  
-
-The difference is not the type of problem.
-
-It is the behavior of the actor inside it.
-
-Retries no longer converge.  
-Identical inputs do not guarantee identical outcomes.  
-Decision paths cannot always be reconstructed from deterministic logic.
-
-The system is now coordinating actors whose behavior is not strictly repeatable.
-
-That makes familiar problems harder to contain.
-
----
-
-## Where the Work Actually Is
-
-Many implementations focus on the agent itself:
-
-- prompt design  
-- model selection  
-- tool integration  
-- chaining behaviors  
-
-These matter.
-
-But they are not where most production failures originate.
-
-Failures emerge at the system boundaries:
-
-- what the agent is permitted to do  
-- how its actions are validated before execution  
-- where authority actually resides  
-- how decisions are recorded and reconstructed  
-- how failures are detected and corrected  
-
-An agent operating without clear constraints will eventually produce actions the system cannot safely absorb.
-
-An agent allowed to modify state without independent validation will eventually create outcomes that cannot be explained, reproduced, or defended.
-
-The difficulty is not making the agent capable.
-
-It is designing a system that can safely contain that capability.
-
----
-
-## Implication
-
-These are not new concerns.
-
-They are the same problems that exist in any system composed of interacting actors:
-
-- defining boundaries of action  
-- controlling authority over state changes  
-- validating behavior before execution  
-- coordinating across components  
-- observing and reconstructing decisions  
-- recovering when things go wrong  
-
-The difference is the nature of the actor.
-
-When the actor is probabilistic, the system cannot rely on behavior alone.
-
-The boundaries have to carry more of the responsibility.
-
----
-
-## Closing
-
-AI does not remove the need for engineering discipline.
-
-It makes the consequences of missing it harder to ignore.
-
-Once a system can observe, decide, and act, it becomes an actor inside a larger system.
-
-And systems of interacting actors require structure:
-
-- defined authority  
-- enforced constraints  
-- clear coordination  
-
-The more capable the actor becomes, the less the system can rely on its behavior alone.
-
-Responsibility shifts to the system that contains it.
-
-The problems are not new.
-
-What is new is the nature of the actor.
-
-And that changes how those problems must be solved.
+The word "agent" suggests something without precedent. The more useful answer is older and less exciting: it is an actor, with inference where the decision used to be. Name it that way and you inherit forty years of knowledge about systems of interacting actors, and you see exactly what is new and what is not. What is new is that you can no longer trust the actor to behave the same way twice, so the responsibility for its behavior moves to the system that contains it. That is not a limitation of today's models, it is their nature.
