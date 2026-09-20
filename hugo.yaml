@@ -1,5 +1,5 @@
 baseURL: https://andrewphunter.com/
-title: "Andrew Hunter — Systems, Architecture, and Engineering Governance"
+title: "Andrew Hunter — Systems Architect & Builder"
 languageCode: en-us
 theme: andrew
 tableOfContents.startLevel: 2
@@ -10,6 +10,7 @@ pagination:
 
 taxonomies:
   tag: tags
+  series: series
 
 outputs:
   home:
@@ -23,27 +24,18 @@ minify:
 
 params:
   author: Andrew Hunter
-  description: "Notes on architecture, delivery systems, and engineering leadership—focused on building reliable, long-lived platforms and the organizations that deliver them."
+  description: "Andrew Hunter — systems architect and builder. Writing on architecture, delivery, AI, and transformation, from the work itself."
   mainSections:
-    - applications
+    - writing
 
 menu:
   main:
-    - name: Applications
-      url: /applications/
+    - name: Writing
+      url: /writing/
       weight: 10
-    - name: Doctrine
-      url: /Doctrine/
-      weight: 25
-    - name: Systems Theory
-      url: /theory/
-      weight: 30
-    - name: Research
-      url: /research/
-      weight: 35
-    - name: Advisory
-      url: /advisory/
-      weight: 40
+    - name: Series
+      url: /series/
+      weight: 20
     - name: About
       url: /about/
       weight: 45

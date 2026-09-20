@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/you-cannot-automate-accountability/"
 title: "You Cannot Automate Accountability"
 date: 2026-09-02
 draft: true

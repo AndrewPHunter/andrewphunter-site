@@ -1,23 +1,40 @@
 {{ define "main" }}
+{{ $essays := sort .Pages "Date" "desc" }}
+
 <div class="section-index">
   <header class="section-page-header">
+    <span class="section-page-kicker">Writing</span>
     <h1 class="section-page-title">{{ .Title }}</h1>
     {{ with .Content }}
     <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
     {{ end }}
   </header>
 
-  <div class="writing-sections">
-    <a href="/applications/" class="writing-section-card">
-      <span class="writing-section-label">01 — Practitioner</span>
-      <div class="writing-section-title">Applied Architecture</div>
-      <div class="writing-section-desc">Essays on architecture, AI-accelerated delivery, and engineering leadership — focused on real-world systems under pressure.</div>
-    </a>
-    <a href="/theory/" class="writing-section-card">
-      <span class="writing-section-label">02 — Theory</span>
-      <div class="writing-section-title">Theory &amp; Formalization</div>
-      <div class="writing-section-desc">Foundational corpus and formalization notes. Architecture as constraint discipline, knowability, and the structural conditions for reliable systems.</div>
-    </a>
+  {{ with index $essays 0 }}
+  {{ $lead := . }}
+  <a href="{{ $lead.RelPermalink }}" class="essay-lead" style="display: grid;">
+    <div>
+      <div class="essay-lead-number">{{ printf "%02d" (len $essays) }}</div>
+      <span class="essay-lead-date">{{ $lead.Date.Format "January 2, 2006" }}</span>
+      <div class="essay-lead-title">{{ $lead.Title }}</div>
+    </div>
+    <div>
+      <div class="essay-lead-body">{{ $lead.Summary | plainify | truncate 180 }}</div>
+      <span class="read-more">Read essay</span>
+    </div>
+  </a>
+
+  <div class="section-header">
+    <span class="section-header-title">All Essays</span>
+    <div class="section-header-rule"></div>
+    <span class="section-header-count">{{ len $essays }} essays</span>
   </div>
+
+  <div class="essay-grid">
+    {{ range after 1 $essays }}
+      {{ partial "essay-card.html" . }}
+    {{ end }}
+  </div>
+  {{ end }}
 </div>
 {{ end }}

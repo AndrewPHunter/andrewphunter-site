@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/ai-is-a-delivery-tool-not-a-strategy/"
 title: "AI Is a Delivery Tool, Not a Strategy"
 date: 2026-01-06
 description: "AI accelerates delivery when governed; without standards it creates fragility."

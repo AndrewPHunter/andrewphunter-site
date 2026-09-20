@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $pages := sort .Pages "Date" "desc" }}
+
+<div class="section-index">
+  <header class="section-page-header">
+    <span class="section-page-kicker">Tag</span>
+    <h1 class="section-page-title">{{ .Title }}</h1>
+    <div class="section-page-desc">{{ len $pages }} {{ cond (eq (len $pages) 1) "essay" "essays" }} tagged &ldquo;{{ .Title }}&rdquo;.</div>
+  </header>
+
+  <div class="essay-grid">
+    {{ range $pages }}
+      {{ partial "essay-card.html" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

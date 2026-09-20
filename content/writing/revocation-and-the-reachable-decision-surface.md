@@ -1,4 +1,9 @@
 ---
+series:
+  - "Governance Under Scale"
+part: 3
+aliases:
+  - "/applications/revocation-and-the-reachable-decision-surface/"
 title: "Governance Under Scale — Part III: Revocation and the Reachable Decision Surface"
 date: 2026-04-24
 description: "If governance requires the ability to constrain authority, then the critical question is not how a system behaves, but what it remains permitted to do."
@@ -7,7 +12,7 @@ category: applications
 tags: ["AI Governance", "Enterprise Risk", "Authority Design", "Control Surfaces"]
 ---
 
-[Part II](https://andrewphunter.com/applications/monitoring-is-not-control/) separated visibility from control. A system can observe its own drift, make its behavior legible, and surface deviation across time and risk class, and still not be governed, because it cannot change its authority in response. It is instrumented, not controlled.
+[Part II](https://andrewphunter.com/writing/monitoring-is-not-control/) separated visibility from control. A system can observe its own drift, make its behavior legible, and surface deviation across time and risk class, and still not be governed, because it cannot change its authority in response. It is instrumented, not controlled.
 
 That leaves one place for governance to live: the capacity to change what the system is permitted to do.
 
@@ -31,7 +36,7 @@ Most governance approaches try to embed policy into model behavior. Datasets are
 
 Embedding policy in behavior moves governance closer to where behavior is produced. That is progress over governance as external documentation, but proximity is not authority. A policy embedded in behavior is still mediated through the model’s learned distribution: it lowers the probability of an unwanted output without removing the possibility.
 
-The model does not start from a neutral baseline. As discussed in [Ghost in the Machine: Adversarial Priors in AI Systems](https://andrewphunter.com/applications/ghost-in-the-machine/), large language models inherit the statistical structure of the written corpus, where conflict, persuasion, strategic reasoning, and adversarial patterns are overrepresented. Alignment and reinforcement steer those priors but do not erase the probability space training produced.
+The model does not start from a neutral baseline. As discussed in [Ghost in the Machine: Adversarial Priors in AI Systems](https://andrewphunter.com/writing/ghost-in-the-machine/), large language models inherit the statistical structure of the written corpus, where conflict, persuasion, strategic reasoning, and adversarial patterns are overrepresented. Alignment and reinforcement steer those priors but do not erase the probability space training produced.
 
 The governance consequence is direct. Shaping, feedback, and retraining reduce the frequency of unwanted behavior while leaving the authority surface untouched: the model still holds access to the workflows, tools, decision classes, and execution paths that should be unavailable under certain conditions. It becomes better behaved without becoming bounded.
 

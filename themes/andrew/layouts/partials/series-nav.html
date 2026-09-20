@@ -1,0 +1,20 @@
+{{/* In-post series box. Renders when the page has `series` + `part`. Context (.) is the Page. */}}
+{{ with .Params.series }}
+{{ $name := index . 0 }}
+{{ $part := $.Params.part }}
+{{ $inSeries := where (where site.RegularPages "Section" "writing") "Params.series" "intersect" (slice $name) }}
+{{ $ordered := sort $inSeries "Params.part" }}
+<nav class="series-box" aria-label="Series navigation">
+  <div class="series-box-head">
+    <a class="series-box-name" href="/series/{{ $name | urlize }}/">{{ $name }}</a>
+    <span class="series-box-count">Part {{ $part }} of {{ len $ordered }}</span>
+  </div>
+  <ol class="series-box-list">
+    {{ range $ordered }}
+    <li class="series-box-item{{ if eq .Params.part $part }} is-current{{ end }}">
+      {{ if eq .Params.part $part }}<span>{{ .Title }}</span>{{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    </li>
+    {{ end }}
+  </ol>
+</nav>
+{{ end }}

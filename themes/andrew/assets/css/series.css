@@ -1,0 +1,98 @@
+/* ── Series: card badge (on essay cards in the feed / list / series pages) ── */
+.essay-series {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: var(--space-2);
+}
+
+/* ── Series: grouped links on the Writing list ── */
+.series-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+.series-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+}
+.series-list-item:hover { border-color: var(--accent); }
+.series-list-name {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  color: var(--ink);
+}
+.series-list-item:hover .series-list-name { color: var(--accent); }
+.series-list-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .series-list { grid-template-columns: 1fr; }
+}
+
+/* ── Series: in-post box (after the article body) ── */
+.series-box {
+  max-width: var(--max-width-body);
+  margin: var(--space-16) auto var(--space-6);
+  padding: var(--space-6) var(--space-7);
+  border: 1px solid var(--rule);
+}
+.series-box-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--rule);
+}
+.series-box-name {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  color: var(--ink);
+  text-decoration: none;
+}
+.series-box-name:hover { color: var(--accent); }
+.series-box-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.series-box-list {
+  list-style: decimal;
+  margin: 0;
+  padding-left: var(--space-6);
+  font-family: var(--font-serif);
+}
+.series-box-item {
+  margin: var(--space-2) 0;
+  line-height: var(--leading-snug);
+  color: var(--muted);
+}
+.series-box-item a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.series-box-item a:hover { color: var(--accent); border-color: var(--accent); }
+.series-box-item.is-current > span {
+  color: var(--accent);
+  font-weight: 600;
+}

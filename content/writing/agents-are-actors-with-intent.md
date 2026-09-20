@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/agents-are-actors-with-intent/"
 title: "Agents Are Actors With Intent, Not Guarantees"
 subtitle: "The actor model still applies. The assumptions about behavior do not."
 date: 2026-03-17

@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/ai-is-increasing-your-delivery-velocity-and-hiding-your-blind-spots/"
 title: "AI Is Increasing Your Delivery Velocity While Moving Your Problems Downstream"
 date: 2026-02-17
 description: "AI speeds up delivery. In many teams, it also delays the moment where real structural problems surface."

@@ -1,4 +1,9 @@
 ---
+series:
+  - "Transformation Under Scale"
+part: 3
+aliases:
+  - "/applications/read-the-estate/"
 title: "Transformation Under Scale — Part III: Read the Estate"
 date: 2026-09-17
 draft: false

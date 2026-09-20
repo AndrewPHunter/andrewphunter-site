@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/ghost-in-the-machine/"
 title: "Ghost in the Machine: Adversarial Priors in AI Systems"
 subtitle: "Why large language models inherit the adversarial priors of the written corpus"
 date: 2026-03-10

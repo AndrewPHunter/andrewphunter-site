@@ -1,4 +1,9 @@
 ---
+series:
+  - "Governance Under Scale"
+part: 1
+aliases:
+  - "/applications/human-override-is-not-governance/"
 title: "Governance Under Scale — Part I: Human Override Is Not Governance"
 date: 2026-03-02
 description: "Human-in-the-loop is commonly treated as a safety guarantee. Under scale, it becomes a delegation surface, and one of the primary vectors of governance drift."

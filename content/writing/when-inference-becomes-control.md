@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/when-inference-becomes-control/"
 title: "When Inference Becomes Control"
 subtitle: "Why Observability Becomes Rationalization"
 date: 2026-01-24

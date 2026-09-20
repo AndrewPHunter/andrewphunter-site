@@ -1,4 +1,9 @@
 ---
+series:
+  - "Transformation Under Scale"
+part: 2
+aliases:
+  - "/applications/transform-the-company-not-the-technology/"
 title: "Transformation Under Scale — Part II: Transform the Company, Not the Technology"
 date: 2026-09-09
 draft: false

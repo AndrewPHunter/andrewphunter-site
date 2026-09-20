@@ -1,4 +1,9 @@
 ---
+series:
+  - "Governance Under Scale"
+part: 4
+aliases:
+  - "/applications/naic-and-the-crosswalk/"
 title: "Governance Under Scale — Part IV: Model Selection, NAIC, and the Crosswalk"
 date: 2026-08-24
 draft: false
@@ -18,7 +23,7 @@ This is the argument the first three parts made from first principles, now arriv
 
 ## The Model Is a Black Box
 
-You cannot make a large language model compliant. It is a statistical system that produces likely continuations, and as [Ghost in the Machine](https://andrewphunter.com/applications/ghost-in-the-machine/) argued, the distribution it learned is not neutral and does not vanish under alignment. You can lower the probability of a bad output. You cannot certify that it will never occur, and no regulator accepts a probability as a control.
+You cannot make a large language model compliant. It is a statistical system that produces likely continuations, and as [Ghost in the Machine](https://andrewphunter.com/writing/ghost-in-the-machine/) argued, the distribution it learned is not neutral and does not vanish under alignment. You can lower the probability of a bad output. You cannot certify that it will never occur, and no regulator accepts a probability as a control.
 
 So every control that can actually be enforced is a property of the system around the model, not the model itself: what data it may see, what tools and actions it may invoke, and what its output may change before a deterministic check has run. That surface is the authority boundary from Part III, and it is the only place compliance can live. The regulations, read closely, never ask you to open the box. They ask what you built around it.
 

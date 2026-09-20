@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="section-index">
+  <header class="section-page-header">
+    <span class="section-page-kicker">Series</span>
+    <h1 class="section-page-title">Series</h1>
+    <div class="section-page-desc">Multi-part essays, meant to be read in order.</div>
+  </header>
+
+  <div class="series-list series-list--index">
+    {{ range .Site.Taxonomies.series.ByCount }}
+    <a class="series-list-item" href="{{ .Page.RelPermalink }}">
+      <span class="series-list-name">{{ .Page.Title }}</span>
+      <span class="series-list-count">{{ .Count }} parts &rarr;</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

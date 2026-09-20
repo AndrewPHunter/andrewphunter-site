@@ -1,4 +1,9 @@
 ---
+series:
+  - "Governance Under Scale"
+part: 2
+aliases:
+  - "/applications/monitoring-is-not-control/"
 title: "Governance Under Scale — Part II: Monitoring Is Not Control"
 date: 2026-03-19
 description: "Monitoring provides visibility into system behavior. Governance requires the ability to constrain it."
@@ -7,7 +12,7 @@ category: applications
 tags: ["AI Governance", "Enterprise Risk", "Control Systems", "Operating Models"]
 ---
 
-[Part I](https://andrewphunter.com/applications/human-override-is-not-governance/) established that human override is not an external safeguard. It operates inside the system, as a delegation surface through which authority expands when it is not explicitly constrained. Correction at the level of the instance becomes, over time, a mechanism by which authority grows.
+[Part I](https://andrewphunter.com/writing/human-override-is-not-governance/) established that human override is not an external safeguard. It operates inside the system, as a delegation surface through which authority expands when it is not explicitly constrained. Correction at the level of the instance becomes, over time, a mechanism by which authority grows.
 
 The institution that discovers this reaches for the obvious fix: make the system legible. Instrument decisions, surface deviations, trace patterns across time and risk class. Monitoring frameworks, evaluation pipelines, audit trails, and reporting layers go in, and they quietly take on a second role. They stop being instruments of visibility and start standing in for governance.
 

@@ -1,4 +1,9 @@
 ---
+series:
+  - "Transformation Under Scale"
+part: 1
+aliases:
+  - "/applications/constrain-the-possible-not-the-ideal/"
 title: "Transformation Under Scale — Part I: Constrain the Possible, Not the Ideal"
 date: 2026-09-02
 draft: false

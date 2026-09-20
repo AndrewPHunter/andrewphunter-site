@@ -6,6 +6,7 @@ type: application
 category: applications
 tags: ["AI Systems", "LLM Reliability", "Software Architecture", "AI Governance"]
 aliases:
+  - "/applications/when-ai-systems-dont-hallucinate-they-dream/"
   - "/applications/dreaming-systems-and-the-misdiagnosis-of-ai-failure/"
 ---
 

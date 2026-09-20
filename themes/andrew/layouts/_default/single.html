@@ -18,9 +18,9 @@
       <span>{{ .Date.Format "January 2, 2006" }}</span>
       <span class="article-meta-dot"></span>
       <span>{{ .ReadingTime }} min read</span>
-      {{ with .Params.tags }}
+      {{ with .GetTerms "tags" }}
       <span class="article-meta-dot"></span>
-      <span class="article-meta-tags">{{ delimit . " · " }}</span>
+      <span class="article-meta-tags">{{ range $i, $t := . }}{{ if $i }} · {{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</span>
       {{ end }}
     </div>
   </header>
@@ -42,6 +42,9 @@
   <div class="article-body">
     {{ .Content }}
   </div>
+
+  {{/* ── Series box (only on multi-part series posts) ── */}}
+  {{ partial "series-nav.html" . }}
 
   {{/* ── Post nav ── */}}
   {{ partial "post_nav_links.html" . }}

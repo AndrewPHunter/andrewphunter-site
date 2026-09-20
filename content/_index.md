@@ -1,13 +1,11 @@
 ---
 title: "Andrew Hunter"
-description: "Writing on the discipline of building systems that remain knowable and changeable as they grow."
+description: "Systems architect and builder. Writing on architecture, delivery, AI, and transformation, from the work."
 headline: "Architecture is a practice, <em>not a diagram.</em>"
 ---
 
-Most architectural failure isn't dramatic. It accumulates quietly — in deferred decisions, implicit assumptions, and systems that work until they have to explain themselves.
+This is where I think in public: essays on building and architecting systems, written from the work rather than above it. Architecture, delivery, AI, and transformation — where the discipline holds, where it breaks, and what it costs. The longer arguments run as multi-part series.
 
-I focus on the discipline of building systems that remain knowable and changeable as they grow. The writing here examines where that discipline holds, where it breaks, and what it costs when it doesn't.
+Start with the [writing](/writing/), or follow a [series](/series/) end to end.
 
-[Applications](/applications/) — practitioner diagnostics. [Theory](/theory/) — foundational work, longer horizon.
-
-I take a small number of fractional advisory engagements. [Advisory →](/advisory/)
+Advisory work with private equity firms and the companies they hold lives at [consulting.andrewphunter.com](https://consulting.andrewphunter.com).

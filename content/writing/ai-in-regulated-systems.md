@@ -1,4 +1,6 @@
 ---
+aliases:
+  - "/applications/ai-in-regulated-systems/"
 title: "AI in Regulated Systems: Where Architecture Becomes Governance"
 date: 2026-02-24
 description: "In regulated systems, the primary AI risk is not hallucination. It is allowing probabilistic inference to directly mutate deterministic state."
@@ -63,4 +65,4 @@ The architectural decision is not whether to use AI. It is where to draw the bou
 
 Drawing that boundary once, in one system, is where this starts. The real work is everything after: deciding what each system is allowed to do, keeping that authority where it can be examined and revoked, and holding the line as the organization scales and every incentive pushes to relax it. That is governance, and it is a larger subject than any single architecture. Human sign-off is not governance, and neither is monitoring after the fact. Governance is the ability to bound what a system may do, and to withdraw it the moment the risk shows up.
 
-*This essay was the start of that thread. It became the [Governance Under Scale](/applications/human-override-is-not-governance/) series.*
+*This essay was the start of that thread. It became the [Governance Under Scale](/writing/human-override-is-not-governance/) series.*
