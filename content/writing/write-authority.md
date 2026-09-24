@@ -4,7 +4,7 @@ series:
 part: 4
 title: "Transformation Under Scale — Part IV: Write Authority"
 date: 2026-09-24
-draft: true
+draft: false
 description: "A capability's boundary is the set of facts it alone writes. Draw the line by write authority, then move the pen from the legacy system to the target one, one boundary at a time, without stopping the business."
 type: application
 category: applications
