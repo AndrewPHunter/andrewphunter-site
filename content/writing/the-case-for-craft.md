@@ -15,7 +15,7 @@ Markus Hartikainen runs a team at AMD that scales LLM inference on vLLM, and las
 
 In the comments he put the fear more sharply: "I am not sure I can still see the critical issues in that path if I am less hands-on."
 
-It is a real fear, and it is aimed at the wrong thing. He is protecting the keyboard, and the keyboard was never the craft. I learned that on a ladder that took my hands off the equipment one rung at a time, in a place where losing the craft is a plant problem, not a career problem.
+It is a real fear, and it is aimed at the wrong thing. Reaching for the keyboard is natural, and the keyboard was never the craft. I learned that on a ladder that took my hands off the equipment one rung at a time, in a place where losing the craft is a plant problem, not a career problem.
 
 <!--more-->
 
@@ -39,7 +39,7 @@ Then engineering officer of the watch, and the plant disappears.
 
 The EOOW sits in the control room. You cannot look around and see the plant or walk over to it while you decide. You direct every operation from a level above it: run this evolution by this operating procedure, answer this casualty with that response, take the reports and decide what they mean. Everything you know about the state of the plant arrives through procedures, indications, and the people standing in it.
 
-This is the rung Markus is afraid of. From the outside it looks like the end of the craft, because the person with the most authority over the plant is the one furthest from it.
+This is the rung the fear is about. From the outside it looks like the end of the craft, because the person with the most authority over the plant is the one furthest from it.
 
 ## Walking the plant
 
@@ -69,8 +69,8 @@ Operating the valves was never the craft, and writing the patch is not either. T
 
 ## Back to the kernels
 
-KV layout, traces, and HBM traffic are the steam plant of LLM serving. Decode is bound by memory bandwidth, a trace shows the transfers and the waits, and somewhere in the serving stack a knob has to exist to move them. None of that knowledge lives in the patches he writes this month.
+KV layout, traces, and HBM traffic are the steam plant of LLM serving. Decode is bound by memory bandwidth, a trace shows the transfers and the waits, and somewhere in the serving stack a knob has to exist to move them. None of that knowledge lives in this month's patches.
 
-The roadmap issues, RFCs, and reviews he plans to spend more time on are the control room. They are not a retreat from the technical work but the place where the whole plant becomes visible, and they keep the craft as long as he walks the plant: reasons the critical path through out loud with the engineers writing it, teaches the new ones why it behaves the way it does, and lets their questions test his picture.
+The roadmap issues, RFCs, and reviews that fill a senior engineer's week are the control room. They are not a retreat from the technical work but the place where the whole plant becomes visible, and they keep the craft as long as you walk the plant: reason the critical path through out loud with the engineers writing it, teach the new ones why it behaves the way it does, and let their questions test your picture.
 
 That is also the answer to seeing the critical issues. You see them not because your hands are on the patch but because you are still reasoning about the path with the people whose hands are. A trace comes back with decode stalled on transfers, and you know there must be a valve: something in this stack decides how much moves and when, and it can be throttled. You may not know which one it is in this build, so you ask the engineer who does. Knowing it must be there, and why, is the craft.
