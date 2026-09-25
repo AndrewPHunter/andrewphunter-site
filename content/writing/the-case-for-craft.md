@@ -2,6 +2,7 @@
 title: "The Case for Craft"
 date: 2026-09-24
 draft: false
+image: "/images/the-case-for-craft.png"
 description: "Moving from writing the code to directing the people who write it does not cost you the craft. The craft was never the keyboard. It is the model you reason with, and it only decays when you stop reasoning through problems with the team."
 type: application
 category: applications
