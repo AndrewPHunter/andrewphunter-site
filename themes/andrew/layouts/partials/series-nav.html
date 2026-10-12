@@ -7,7 +7,7 @@
 <nav class="series-box" aria-label="Series navigation">
   <div class="series-box-head">
     <a class="series-box-name" href="/series/{{ $name | urlize }}/">{{ $name }}</a>
-    <span class="series-box-count">Part {{ $part }} of {{ len $ordered }}</span>
+    <span class="series-box-count">{{ if eq (int $part) 0 }}Prologue{{ else }}Part {{ $part }} of {{ len (where $ordered "Params.part" "gt" 0) }}{{ end }}</span>
   </div>
   <ol class="series-box-list">
     {{ range $ordered }}
