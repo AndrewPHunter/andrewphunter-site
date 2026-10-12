@@ -3,79 +3,69 @@
   <header class="search-header">
     <h1>{{ .Title }}</h1>
     <div class="search-input-wrap">
-      <span class="search-input-label">Search</span>
-      <input type="text" id="searchInput" placeholder="Type to search…" autofocus autocomplete="off">
+      <label class="search-input-label" for="searchInput">Search</label>
+      <input type="search" id="searchInput" placeholder="Type to search…" autocomplete="off" aria-describedby="searchStatus">
     </div>
   </header>
-
-  {{ with .Content }}
-  <div data-pagefind-body>{{ . }}</div>
-  {{ end }}
-
+  {{ with .Content }}<div data-pagefind-body>{{ . }}</div>{{ end }}
+  <p id="searchStatus" class="search-status" role="status">Type at least two characters to search the writing.</p>
   <ul id="searchResults"></ul>
-  <p id="noResults" class="search-no-results" style="display: none;">No results found.</p>
+  <noscript><p>Search needs JavaScript. You can browse the <a href="{{ "writing/" | relURL }}">writing archive</a> or <a href="{{ "series/" | relURL }}">series</a>.</p></noscript>
 </div>
-
 <script>
 (function () {
   const input = document.getElementById('searchInput');
   const results = document.getElementById('searchResults');
-  const noResults = document.getElementById('noResults');
+  const status = document.getElementById('searchStatus');
+  let pages = null;
+  let failed = false;
 
-  {{ $searchJSON := resources.Get "search.json" }}
-  {{ if not $searchJSON }}
-  {{- /* Fallback: build index from all pages */ -}}
-  {{ end }}
-
-  let index = null;
-  let pages = [];
-
-  // Load the JSON search index Hugo generates at /index.json
-  fetch('{{ .Site.BaseURL }}index.json')
-    .then(r => r.json())
-    .then(data => {
-      pages = data;
-    })
-    .catch(() => {
-      // Pagefind is the primary search mechanism — this JS is a fallback
-      console.warn('Search index not available');
-    });
-
-  function search(query) {
-    if (!query || query.length < 2) {
-      results.innerHTML = '';
-      noResults.style.display = 'none';
+  function search() {
+    const query = input.value.trim().toLowerCase();
+    results.replaceChildren();
+    if (failed) {
+      status.textContent = 'Search is unavailable. Please reload or use the Writing link to browse the archive.';
       return;
     }
-
-    query = query.toLowerCase();
-    const matches = pages.filter(p =>
-      (p.title && p.title.toLowerCase().includes(query)) ||
-      (p.summary && p.summary.toLowerCase().includes(query)) ||
-      (p.content && p.content.toLowerCase().includes(query))
-    ).slice(0, 20);
-
-    if (matches.length === 0) {
-      results.innerHTML = '';
-      noResults.style.display = '';
+    if (query.length < 2) {
+      status.textContent = 'Type at least two characters to search the writing.';
       return;
     }
-
-    noResults.style.display = 'none';
-    results.innerHTML = matches.map(p => `
-      <li>
-        <a href="${p.permalink}">
-          <span class="search-result-meta">${p.section || ''}</span>
-          <span class="search-result-title">${p.title}</span>
-        </a>
-      </li>
-    `).join('');
+    if (!pages) {
+      status.textContent = 'Loading the writing index…';
+      return;
+    }
+    const matches = pages.filter(page =>
+      [page.title, page.summary, page.content].some(value => value && value.toLowerCase().includes(query))
+    );
+    const visible = matches.slice(0, 20);
+    status.textContent = matches.length === 0 ? 'No results found. Try another word.' :
+      matches.length > 20 ? 'Showing the first 20 of ' + matches.length + ' results. Refine your search to narrow them down.' :
+      matches.length + (matches.length === 1 ? ' result' : ' results');
+    for (const page of visible) {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      const meta = document.createElement('span');
+      const title = document.createElement('span');
+      link.href = page.permalink;
+      meta.className = 'search-result-meta';
+      meta.textContent = page.section || '';
+      title.className = 'search-result-title';
+      title.textContent = page.title;
+      link.append(meta, title);
+      item.append(link);
+      results.append(item);
+    }
   }
 
+  fetch('{{ "index.json" | relURL }}')
+    .then(response => { if (!response.ok) throw new Error('Index unavailable'); return response.json(); })
+    .then(data => { pages = data; search(); })
+    .catch(() => { failed = true; search(); });
   let timer;
   input.addEventListener('input', () => {
     clearTimeout(timer);
-    timer = setTimeout(() => search(input.value.trim()), 200);
+    timer = setTimeout(search, 150);
   });
 })();
 </script>

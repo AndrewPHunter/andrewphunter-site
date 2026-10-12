@@ -27,7 +27,7 @@
   {{/* TOC — same as default single */}}
   {{ if ne .Params.toc false }}
   {{ $headings := .TableOfContents }}
-  {{ if $headings }}
+  {{ if findRE "<li>" $headings }}
   <aside class="article-toc" aria-label="On this page">
     <div class="toc-inner">
       <div class="toc-label">On this page</div>

@@ -5,7 +5,7 @@
    ================================================================ */
 
 .article-outer {
-  max-width: 780px;
+  max-width: var(--max-width-article);
   margin: 0 auto;
   padding: 64px var(--page-gutter) 0;
   position: relative; /* establishes stacking context for TOC positioning */
@@ -29,7 +29,7 @@
 }
 
 .article-kicker::before {
-  content: '';
+  content: "";
   width: 24px;
   height: 1px;
   background: var(--accent);
@@ -78,7 +78,9 @@
   flex-shrink: 0;
 }
 
-.article-meta-tags { color: var(--accent); }
+.article-meta-tags {
+  color: var(--accent);
+}
 
 /* ---- Article body ---- */
 .article-body {
@@ -86,9 +88,15 @@
   margin-bottom: var(--space-20);
 }
 
-.article-body p        { margin-bottom: 1.4em; }
-.article-body strong   { font-weight: 600; }
-.article-body em       { font-style: italic; }
+.article-body p {
+  margin-bottom: 1.4em;
+}
+.article-body strong {
+  font-weight: 500;
+}
+.article-body em {
+  font-style: italic;
+}
 
 .article-body .lede {
   font-size: var(--text-lede);
@@ -133,12 +141,15 @@
   transition: text-decoration-color var(--transition-fast);
 }
 
-.article-body a:hover { text-decoration-color: var(--ink); }
+.article-body a:hover {
+  text-decoration-color: var(--ink);
+}
 
 .article-body blockquote {
   margin: 2em 0;
-  padding: 0 0 0 var(--space-7);
-  border-left: var(--border-accent);
+  padding: var(--space-5) 0;
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
   font-style: italic;
   color: var(--ink);
   font-size: 1.05rem;
@@ -177,14 +188,14 @@
 .article-body table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 600px;                 /* below this, the wrapper scrolls */
+  min-width: 600px; /* below this, the wrapper scrolls */
   font-size: 0.8rem;
   line-height: 1.35;
 }
 
 .article-body thead th {
   text-align: left;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
   background: rgba(212, 208, 200, 0.28);
   border-bottom: 2px solid var(--ink);
@@ -198,12 +209,14 @@
   border-bottom: 1px solid var(--rule);
 }
 
-.article-body tbody tr:last-child td { border-bottom: none; }
+.article-body tbody tr:last-child td {
+  border-bottom: none;
+}
 
 /* First column carries the row label — emphasize and divide it from the data. */
 .article-body thead th:first-child,
 .article-body tbody td:first-child {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
   border-right: 1px solid var(--rule);
 }
@@ -216,8 +229,8 @@
 .article-body .pullquote {
   margin: 2.5em calc(-1 * var(--page-gutter));
   padding: var(--space-8) var(--page-gutter);
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--night);
+  color: var(--night-ink);
 }
 
 .article-body .pullquote p {
@@ -263,7 +276,9 @@
   transition: color var(--transition-fast);
 }
 
-.corpus-nav-list li a:hover { color: var(--ink); }
+.corpus-nav-list li a:hover {
+  color: var(--ink);
+}
 
 .corpus-nav-list li.active a {
   color: var(--ink);
@@ -274,7 +289,8 @@
 .research-note-banner {
   margin-bottom: var(--space-10);
   padding: var(--space-5) var(--space-7);
-  border-left: var(--border-accent);
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
   background: rgba(212, 208, 200, 0.25);
   font-style: italic;
   font-size: 0.92rem;
@@ -287,100 +303,81 @@
   font-style: normal;
 }
 
-/* ================================================================
-   TABLE OF CONTENTS
-   Desktop: sticky aside in the right margin, outside the 780px column
-   Mobile: hidden entirely
-   ================================================================ */
-
+/* Contents stay within the reading layout on every screen. On wide displays,
+   a reserved grid column prevents the former absolutely positioned overflow. */
 .article-toc {
-  display: none;
+  padding: 0 0 var(--space-8);
+  margin-bottom: var(--space-8);
+  border-bottom: var(--border-light);
 }
-
+.toc-label {
+  font: 0.67rem/1.6 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.article-toc nav > ul {
+  display: grid;
+  gap: 0.5rem;
+}
+.article-toc nav ul ul {
+  margin: 0.4rem 0 0 1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.article-toc a {
+  display: inline-block;
+  font: 0.72rem/1.65 var(--font-mono);
+  color: var(--muted);
+  text-decoration: none;
+}
+.article-toc a:hover,
+.article-toc a.toc-active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.article-outer > * {
+  min-width: 0;
+}
+.article-body {
+  overflow-wrap: anywhere;
+}
+.article-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+}
 @media (min-width: 1200px) {
-  .article-toc {
-    display: block;
-    position: absolute;
-    top: 64px;
-    bottom: 0;
-    left: calc(100% + 56px);
-    width: 200px;
+  .article-outer:has(.article-toc) {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: minmax(0, 700px) minmax(180px, 1fr);
+    column-gap: clamp(32px, 4vw, 64px);
   }
-
+  .article-outer:has(.article-toc) > :not(.article-toc) {
+    grid-column: 1;
+  }
+  .article-outer:has(.article-toc) .article-header {
+    grid-row: 1;
+  }
+  .article-outer:has(.article-toc) .article-body {
+    grid-row: 2;
+  }
+  .article-outer:has(.article-toc) .article-toc {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    border: 0;
+    margin: 0;
+    padding: 0.5rem 0 0;
+  }
   .toc-inner {
     position: sticky;
-    top: 40px;
-  }
-
-  .toc-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: var(--space-4);
-    padding-bottom: var(--space-3);
-    border-bottom: var(--border-light);
-  }
-
-  .article-toc nav > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  /* H2 entries */
-  .article-toc nav > ul > li > a {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    text-decoration: none;
-    display: block;
-    padding: 5px var(--space-3);
-    line-height: 1.45;
-    border-left: 2px solid transparent;
-    transition: color var(--transition-fast), border-color var(--transition-fast);
-  }
-
-  .article-toc nav > ul > li > a:hover {
-    color: var(--ink);
-  }
-
-  /* H3 entries — indented */
-  .article-toc nav > ul > li > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .article-toc nav > ul > li > ul > li > a {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    text-decoration: none;
-    display: block;
-    padding: 4px var(--space-6);
-    line-height: 1.45;
-    border-left: 2px solid transparent;
-    transition: color var(--transition-fast);
-    opacity: 0.7;
-  }
-
-  .article-toc nav > ul > li > ul > li > a:hover {
-    color: var(--ink);
-    opacity: 1;
-  }
-
-  /* Active state — set by scroll spy JS */
-  .article-toc a.toc-active {
-    color: var(--ink) !important;
-    border-left-color: var(--accent) !important;
-    opacity: 1 !important;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 0.5rem;
   }
 }
 
@@ -397,8 +394,14 @@
   gap: var(--space-10);
 }
 
-.post-nav-prev, .post-nav-next { display: block; text-decoration: none; }
-.post-nav-next { text-align: right; }
+.post-nav-prev,
+.post-nav-next {
+  display: block;
+  text-decoration: none;
+}
+.post-nav-next {
+  text-align: right;
+}
 
 .post-nav-label {
   font-family: var(--font-mono);
@@ -420,7 +423,9 @@
 }
 
 .post-nav-prev:hover .post-nav-title,
-.post-nav-next:hover .post-nav-title { color: var(--accent); }
+.post-nav-next:hover .post-nav-title {
+  color: var(--accent);
+}
 
 /* ================================================================
    RESPONSIVE
@@ -431,7 +436,9 @@
     padding: var(--space-10) var(--space-5) 0;
   }
 
-  .article-title { font-size: 2rem; }
+  .article-title {
+    font-size: var(--text-article-title);
+  }
 
   .article-body .pullquote {
     margin: 2em calc(-1 * var(--space-5));
@@ -441,5 +448,7 @@
     grid-template-columns: 1fr;
   }
 
-  .post-nav-next { text-align: left; }
+  .post-nav-next {
+    text-align: left;
+  }
 }

@@ -23,7 +23,7 @@
 
 .section-page-title {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 500;
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-snug);
@@ -33,7 +33,7 @@
 .section-page-desc {
   font-size: var(--text-body-lg);
   color: var(--muted);
-  font-style: italic;
+  font-style: normal;
   line-height: var(--leading-body);
   max-width: 600px;
 }
@@ -62,7 +62,9 @@
   padding-top: 3px;
 }
 
-.archive-body { flex: 1; }
+.archive-body {
+  flex: 1;
+}
 
 .archive-title {
   font-family: var(--font-display);
@@ -77,12 +79,14 @@
   transition: color var(--transition-fast);
 }
 
-.archive-title a:hover { color: var(--accent); }
+.archive-title a:hover {
+  color: var(--accent);
+}
 
 .archive-desc {
   font-size: 0.88rem;
   color: var(--muted);
-  font-style: italic;
+  font-style: normal;
   line-height: var(--leading-normal);
 }
 
@@ -127,7 +131,7 @@
 .writing-section-desc {
   font-size: 0.88rem;
   color: var(--muted);
-  font-style: italic;
+  font-style: normal;
   line-height: var(--leading-normal);
 }
 
@@ -158,7 +162,9 @@
   transition: text-decoration-color var(--transition-fast);
 }
 
-.simple-page-body a:hover { text-decoration-color: var(--ink); }
+.simple-page-body a:hover {
+  text-decoration-color: var(--ink);
+}
 
 .simple-page-body h2 {
   font-family: var(--font-display);
@@ -176,14 +182,38 @@
   margin-bottom: 1.4em;
 }
 
-.simple-page-body li { margin-bottom: 0.4em; }
+.simple-page-body li {
+  margin-bottom: 0.4em;
+}
 
 @media (max-width: 768px) {
-  .section-index { padding: 0 var(--space-5); }
-  .section-page-header { padding: var(--space-10) 0; }
-  .section-page-title { font-size: 1.8rem; }
-  .archive-entry { grid-template-columns: 1fr; gap: var(--space-2); }
-  .writing-sections { grid-template-columns: 1fr; }
-  .simple-page { padding: 0 var(--space-5); }
-  .principles-intro { padding: 0 var(--space-5); }
+  .section-index {
+    padding: 0 var(--space-5);
+  }
+  .section-page-header {
+    padding: var(--space-10) 0;
+  }
+  .section-page-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+  .archive-entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .writing-sections {
+    grid-template-columns: 1fr;
+  }
+  .simple-page {
+    padding: 0 var(--space-5);
+  }
+  .principles-intro {
+    padding: 0 var(--space-5);
+  }
+}
+
+.section-index > .essay-lead {
+  padding-top: var(--space-12);
+}
+.section-page-header {
+  margin-bottom: var(--space-8);
 }

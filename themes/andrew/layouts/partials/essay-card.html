@@ -1,9 +1,9 @@
 {{/* Shared essay card. Context (.) is a Page. Used by the homepage feed and the Writing list. */}}
 <a href="{{ .RelPermalink }}" class="essay-card">
-  <span class="essay-date">{{ .Date.Format "January 2, 2006" }}{{ with .ReadingTime }} &middot; {{ . }} min read{{ end }}</span>
+  <span class="essay-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>{{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}</span>
   {{ with .Params.series }}<span class="essay-series">{{ index . 0 }} &middot; Part {{ $.Params.part }}</span>{{ end }}
-  <div class="essay-title">{{ .Title }}</div>
-  <div class="essay-excerpt">{{ .Summary | plainify | truncate 180 }}</div>
+  <h2 class="essay-title">{{ .Title }}</h2>
+  <div class="essay-excerpt">{{ (or .Description .Summary) | plainify | truncate 180 }}</div>
   {{ with .Params.tags }}
   <div class="essay-tags">
     {{ range . }}<span class="tag">{{ . }}</span>{{ end }}

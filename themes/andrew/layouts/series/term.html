@@ -5,7 +5,7 @@
   <header class="section-page-header">
     <span class="section-page-kicker">Series</span>
     <h1 class="section-page-title">{{ .Title }}</h1>
-    <div class="section-page-desc">{{ len $pages }} parts. Read in order.</div>
+    <div class="section-page-desc">{{ len $pages }} {{ if eq (len $pages) 1 }}part{{ else }}parts{{ end }}. Read in order.</div>
   </header>
 
   <div class="essay-grid">

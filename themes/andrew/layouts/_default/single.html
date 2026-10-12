@@ -6,7 +6,6 @@
     <div class="article-kicker">
       {{ .Section | title }}
       {{- with .Params.tags }} &nbsp;·&nbsp; {{ index . 0 }}{{ end }}
-      &nbsp;·&nbsp; {{ .Date.Format "January 2, 2006" }}
     </div>
     <h1 class="article-title">{{ .Title }}</h1>
     {{ with .Params.subtitle }}
@@ -25,10 +24,10 @@
     </div>
   </header>
 
-  {{/* ── TOC — desktop only, injected via CSS into right margin ── */}}
+  {{/* ── TOC — reserved desktop column; inline on smaller screens ── */}}
   {{ if ne .Params.toc false }}
   {{ $headings := .TableOfContents }}
-  {{ if $headings }}
+  {{ if findRE "<li>" $headings }}
   <aside class="article-toc" aria-label="On this page">
     <div class="toc-inner">
       <div class="toc-label">On this page</div>

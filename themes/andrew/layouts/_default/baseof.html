@@ -4,8 +4,9 @@
   {{ partial "head.html" . }}
 </head>
 <body class="{{ .Section }}{{ if .IsHome }} is-home{{ end }}">
+  <a class="skip-link" href="#main">Skip to content</a>
   {{ partial "masthead.html" . }}
-  <main>
+  <main id="main" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}

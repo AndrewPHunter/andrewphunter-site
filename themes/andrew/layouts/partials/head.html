@@ -4,11 +4,10 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{/* Self-hosted fonts via preload */}}
-<link rel="preload" href="/fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/playfair-display-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+{{/* Preload only the faces used immediately; all fonts are self-hosted. */}}
+<link rel="preload" href="/fonts/PlexSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/PlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0e1524">
 
 {{/* Bundle all CSS files in order, then minify and fingerprint */}}
 {{ $css := slice
@@ -59,7 +58,12 @@
 {{ $ogDesc := or .Description .Summary .Site.Params.description }}
 {{ $ogTitle := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) }}
 {{ $ogImage := absURL "/images/social-card.png" }}
-{{ with .Params.image }}{{ $ogImage = absURL . }}{{ end }}
+{{ with resources.Get "images/writing-desk-social.png" }}
+  {{ $social := .Resize "1200x630 jpg q88" }}
+  {{ $ogImage = $social.Permalink }}
+{{ end }}
+{{ $ogAlt := "Andrew Hunter — Systems architect & builder. A brass lamp lights an open notebook on a writing desk at night." }}
+{{ with .Params.image }}{{ $ogImage = absURL . }}{{ $ogAlt = $ogTitle }}{{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $ogTitle }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -67,16 +71,21 @@
 <meta property="og:description" content="{{ $ogDesc }}">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="{{ $ogImage }}">
-<meta property="og:image:alt" content="{{ $ogTitle }}">
+{{ if not .Params.image }}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+{{ end }}
+<meta property="og:image:alt" content="{{ $ogAlt }}">
 
 {{/* Twitter Card */}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $ogTitle }}">
 <meta name="twitter:description" content="{{ $ogDesc }}">
 <meta name="twitter:image" content="{{ $ogImage }}">
-<meta name="twitter:image:alt" content="{{ $ogTitle }}">
+<meta name="twitter:image:alt" content="{{ $ogAlt }}">
 
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?v=writing-desk" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/favicon-96x96.png?v=writing-desk" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=writing-desk" sizes="180x180">
 <link rel="manifest" href="/site.webmanifest">

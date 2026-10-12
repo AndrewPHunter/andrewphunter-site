@@ -3,7 +3,6 @@
 
 <div class="section-index">
   <header class="section-page-header">
-    <span class="section-page-kicker">Writing</span>
     <h1 class="section-page-title">{{ .Title }}</h1>
     {{ with .Content }}
     <div class="section-page-desc" data-pagefind-body>{{ . }}</div>
@@ -12,22 +11,21 @@
 
   {{ with index $essays 0 }}
   {{ $lead := . }}
-  <a href="{{ $lead.RelPermalink }}" class="essay-lead" style="display: grid;">
+  <a href="{{ $lead.RelPermalink }}" class="essay-lead" >
     <div>
-      <div class="essay-lead-number">{{ printf "%02d" (len $essays) }}</div>
       <span class="essay-lead-date">{{ $lead.Date.Format "January 2, 2006" }}</span>
-      <div class="essay-lead-title">{{ $lead.Title }}</div>
+      <h2 class="essay-lead-title">{{ $lead.Title }}</h2>
     </div>
     <div>
-      <div class="essay-lead-body">{{ $lead.Summary | plainify | truncate 180 }}</div>
+      <div class="essay-lead-body">{{ (or $lead.Description $lead.Summary) | plainify | truncate 240 }}</div>
       <span class="read-more">Read essay</span>
     </div>
   </a>
 
   <div class="section-header">
-    <span class="section-header-title">All Essays</span>
+    <h2 class="section-header-title">Earlier essays</h2>
     <div class="section-header-rule"></div>
-    <span class="section-header-count">{{ len $essays }} essays</span>
+    <span class="section-header-count">{{ sub (len $essays) 1 }} essays</span>
   </div>
 
   <div class="essay-grid">
