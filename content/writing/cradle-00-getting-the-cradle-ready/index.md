@@ -17,10 +17,10 @@
     "Let's Build a Transformer!"
   ],
   "part": 0,
-  "canonicalURL": "https://andrewphunter.com/writing/cradle-00-getting-the-cradle-ready/",
+  "canonicalURL": "https://cradle.plainsight-systems.com/lessons/00-getting-the-cradle-ready/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "f2588fb14c5a1e05fea737cb3ad613e3045f04ef",
+    "revision": "ca87baeb7a2921c6196412975843f1e9698f3839",
     "article": "articles/00-getting-the-cradle-ready/index.md"
   }
 }

@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
-<link rel="canonical" href="{{ .Permalink }}">
+{{ $canonical := .Params.canonicalURL | default .Permalink }}
+<link rel="canonical" href="{{ $canonical }}">
 
 {{/* Preload only the faces used immediately; all fonts are self-hosted. */}}
 <link rel="preload" href="/fonts/PlexSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -67,7 +68,7 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $ogTitle }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ $canonical }}">
 <meta property="og:description" content="{{ $ogDesc }}">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="{{ $ogImage }}">
