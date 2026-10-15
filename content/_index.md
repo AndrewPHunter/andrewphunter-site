@@ -9,5 +9,3 @@ This is where I think in public: essays on building and architecting systems, wr
 Start with the [writing](/writing/), or follow a [series](/series/) end to end.
 
 I publish active project work at [Plainsight Systems](https://plainsight-systems.com/): code, demos, and write-ups from building things to understand how they work.
-
-Advisory work with private equity firms and the companies they hold lives at [consulting.andrewphunter.com](https://consulting.andrewphunter.com).
