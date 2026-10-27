@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "source_article": "articles/03-matrix-multiplication/index.md",
+  "revision": "600500852d8c2ce741d2c3d78f0b95cef1731bdd",
+  "files": {
+    "index.md": "f59aeac4d6ab6655d959462ffda5ed461be083f08b7f683cd5d1b92638d713d8",
+    "images/matrix-product-reminder.svg": "6834067a7aed947713a0799f670f16cddb082d61de9811a4b01570b3cc0ff30e",
+    "images/cpu-loop-row.svg": "ffbaab06495620b34328b24a1d11dff19d06ca3524e2cfedc9be87fe923ba7f6",
+    "images/cpu-loop-column.svg": "6790023abbd633f4bf5c080df09074ef041e7b6cba860bdd2d435ffbc5a7463d",
+    "images/cpu-loop-dot-product.svg": "15fcaec894cf00629b5dae1741cc8d0374671c023aad1f05ac4224ca04517758",
+    "images/launch-invocations.svg": "4f89fccba20547425f239bd7e1f311415aaa5959d5f9f5d50e388dbe7151b920",
+    "images/selected-row-column.svg": "16e1f504491b5da1bcd43cfb6f4361ed9ae25c5df941ebf7e2812082d8af3cb3",
+    "images/invocation-loop.svg": "755d61e5d2e3810a0f7e35a36f88bfc19a94392d3989838dd39422f39c397289"
+  }
+}
