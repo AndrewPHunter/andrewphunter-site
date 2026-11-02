@@ -8,7 +8,7 @@ category: applications
 tags: ["LLM Inference", "GPU", "Hardware", "Dataflow", "Systems Thinking"]
 ---
 
-I could follow the claims about SambaNova's SN40L before I could explain waht it actually does. It is a Reconfigurable Dataflow Unit, or RDU, and I could follow the claims about inference performance before I could explain to myself what the machine was actually doing differently.
+I could follow the claims about SambaNova's SN40L before I could explain what it actually does. It is a Reconfigurable Dataflow Unit, or RDU, and I could follow the claims about inference performance before I could explain to myself what the machine was actually doing differently.
 
 I've been building inference engines and working on GPU kernels, so I had somewhere to start. But trying to understand the RDU as another kind of GPU kept getting in the way. I had to back up to field-programmable gate arrays, FPGAs, and work forward from there. The connection that finally helped was the idea of giving different parts of a computation their own places on the chip, with paths between them.
 
