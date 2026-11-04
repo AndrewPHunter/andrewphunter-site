@@ -20,7 +20,7 @@
   "canonicalURL": "https://cradle.plainsight-systems.com/lessons/02-buffers-and-shapes/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "0fcccfdc6911deb77a6a1f3bbb782c1fe11c8884",
+    "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
     "article": "articles/02-buffers-and-shapes/index.md"
   }
 }
@@ -856,7 +856,7 @@ The broader repository check remains the same command from the prologue:
 python3 scripts/check_dotnet.py
 ```
 
-It builds the backend variants and runs the CPU-side tests, then restores the platform’s default build. Run the application with your chosen backend afterward to exercise your actual GPU. The two generated-code warnings discussed in lesson 1 remain on the Metal path; we’ll return to them as planned.
+It builds the backend variants and runs the CPU-side tests, then restores the platform’s default build. Run the application with your chosen backend afterward to exercise your actual GPU. The two generated-code warnings discussed in lesson 1 remain on the Metal path; I’ll return to them as planned.
 
 ## Ready for a different operation
 

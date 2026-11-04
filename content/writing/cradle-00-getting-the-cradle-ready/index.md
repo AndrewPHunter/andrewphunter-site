@@ -20,7 +20,7 @@
   "canonicalURL": "https://cradle.plainsight-systems.com/lessons/00-getting-the-cradle-ready/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "ca87baeb7a2921c6196412975843f1e9698f3839",
+    "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
     "article": "articles/00-getting-the-cradle-ready/index.md"
   }
 }
@@ -29,7 +29,7 @@ Start with an empty program · [Completed code](https://github.com/plainsight-sy
 
 I want to build a transformer inference engine in C# and explain it as it grows. There is a lot of material that shows how to get a model to generate text. I’m interested in the work inside those calls: how the data gets to the GPU, what each kernel does to it, and how those operations eventually produce the next token.
 
-We’ll work through that a piece at a time, following the approach Jack Crenshaw used in [Let’s Build a Compiler!](https://compilers.iecc.com/crenshaw/). Each lesson adds something to the same running program. We’ll introduce the arithmetic when we need it to understand the code we’re writing, with small examples we can check for ourselves. You should be comfortable reading C#. You don’t need to arrive knowing how a transformer works.
+We’ll work through that a piece at a time, following the approach Jack Crenshaw used in [Let’s Build a Compiler!](https://compilers.iecc.com/crenshaw/). Each lesson adds something to the same running program. I’ll introduce the arithmetic when we need it to understand the code we’re writing, with small examples we can check for ourselves. You should be comfortable reading C#. You don’t need to arrive knowing how a transformer works.
 
 Crenshaw called his starting program a cradle. Ours starts here, with the project and tools the first lesson will build on.
 
@@ -75,9 +75,9 @@ The project targets .NET 10 and uses C# 13, the language version understood by t
 
 ## Why the GPU dependency takes an extra step
 
-I chose C# because I want this series to be useful to .NET developers. That includes people working on Windows, Linux, and Mac. Mac needs some additional care here: the native Metal support used in our experiments comes from a development version of ILGPU.
+I chose C# because I want this series to be useful to .NET developers. That includes people working on Windows, Linux, and Mac. Mac needs some additional care here: the native Metal support used in the feasibility experiments comes from a development version of ILGPU.
 
-For this starting point, we’re using [ILGPU revision `24cb87d`](https://github.com/m4rs-mt/ILGPU/commit/24cb87d6669c177428bd4ef1b8d05d9652b21c4b). The full revision is recorded in `eng/ILGPU.props`. Keeping that revision fixed lets us explain the behavior and workarounds of the compiler we have actually exercised.
+For this starting point, we’re using [ILGPU revision `24cb87d`](https://github.com/m4rs-mt/ILGPU/commit/24cb87d6669c177428bd4ef1b8d05d9652b21c4b). The full revision is recorded in `eng/ILGPU.props`. Keeping that revision fixed lets me explain the behavior and workarounds of the tested compiler.
 
 Run the setup command from the repository root:
 

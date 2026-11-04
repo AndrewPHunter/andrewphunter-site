@@ -20,7 +20,7 @@
   "canonicalURL": "https://cradle.plainsight-systems.com/lessons/03-matrix-multiplication/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "600500852d8c2ce741d2c3d78f0b95cef1731bdd",
+    "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
     "article": "articles/03-matrix-multiplication/index.md"
   }
 }
@@ -467,7 +467,7 @@ The cradle can now apply a matrix of weights to an input vector, with an answer 
 
 Keep this kernel around. We’ll use it as the transformer grows, then return to it in the performance installment. There is work waiting for us there: neighboring invocations read some of the same inputs, and we can look at sharing and reusing those reads once we have a working engine to measure.
 
-We’ll also have native library implementations to compare with. ILGPU’s [cuBLAS wrapper](https://github.com/m4rs-mt/ILGPU/blob/24cb87d6669c177428bd4ef1b8d05d9652b21c4b/Src/ILGPU/Runtime/Cuda/Libraries/CuBlas.cs) exposes NVIDIA’s GEMM (matrix-matrix) and GEMV (matrix-vector) operations, but requires CUDA. Our pin has no Metal equivalent or common native-BLAS API across backends. That’s a gap when we want Windows, Linux, and Mac readers to follow along. Our own kernel gives us an implementation we can understand and use across those backends.
+We’ll also have native library implementations to compare with. ILGPU’s [cuBLAS wrapper](https://github.com/m4rs-mt/ILGPU/blob/24cb87d6669c177428bd4ef1b8d05d9652b21c4b/Src/ILGPU/Runtime/Cuda/Libraries/CuBlas.cs) exposes NVIDIA’s GEMM (matrix-matrix) and GEMV (matrix-vector) operations, but requires CUDA. Our pin has no Metal equivalent or common native-BLAS API across backends. That’s a gap when I want Windows, Linux, and Mac readers to follow along. Our own kernel gives us an implementation we can understand and use across those backends.
 
 If you want to compare your version, the [completed lesson-03 snapshot](https://github.com/plainsight-systems/cradle/tree/lesson-03) has the code and tests. You can also run the same repository check we’ve used throughout:
 

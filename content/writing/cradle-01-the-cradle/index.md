@@ -20,7 +20,7 @@
   "canonicalURL": "https://cradle.plainsight-systems.com/lessons/01-the-cradle/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "ca87baeb7a2921c6196412975843f1e9698f3839",
+    "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
     "article": "articles/01-the-cradle/index.md"
   }
 }
@@ -29,9 +29,9 @@
 
 I learned top-down recursive-descent parsing from Jack Crenshaw’s [Let’s Build a Compiler!](https://compilers.iecc.com/crenshaw/). I’ve used it many times since, including for a custom color formatter I wrote for a C board that didn’t have one. His approach stayed with me: write a small piece, run it, understand what happened, and extend the same program.
 
-I want to do that here with transformer inference. We’ll build a program that takes a prompt, loads a model’s weights, and generates text. Along the way we’ll write the operations that turn those weights and our input into the next token. We’ll introduce the arithmetic needed to understand each piece as we write it. You don’t need a course in machine learning before starting.
+I want to do that here with transformer inference. We’ll build a program that takes a prompt, loads a model’s weights, and generates text. Along the way we’ll write the operations that turn those weights and our input into the next token. I’ll introduce the arithmetic needed to understand each piece as we write it. You don’t need a course in machine learning before starting.
 
-We’ll use C#, and we’ll use the GPU from the beginning. The .NET community includes developers on Windows, Linux, and Mac, so reaching that community means accounting for all three. As we covered in the [prologue](https://andrewphunter.com/writing/cradle-00-getting-the-cradle-ready/), native Metal support on Mac is the reason we’re using a pinned development revision of ILGPU. Keep that revision for this lesson; the examples depend on its API.
+We’ll use C#, and we’ll use the GPU from the beginning. The .NET community includes developers on Windows, Linux, and Mac, so reaching that community means accounting for all three. As I covered in the [prologue](https://andrewphunter.com/writing/cradle-00-getting-the-cradle-ready/), native Metal support on Mac is the reason we’re using a pinned development revision of ILGPU. Keep that revision for this lesson; the examples depend on its API.
 
 Today we’ll add two arrays. That gives us a small enough calculation to check by eye while we establish the whole path: choose a GPU, put data in its buffers, run our code there, and bring the result back. Element-by-element addition will also have a job later, when we connect parts of the transformer through residual connections.
 
@@ -260,7 +260,7 @@ Actual:   3.6, 6.2, 6.2
 Expected: 3.6, 6.2, 6.2
 ```
 
-Your locale may format decimal numbers differently. If you’re using Metal, this pinned compiler also emits warnings about embedded shader source and a generated member hiding an inherited member. Those don’t prevent this kernel from building and running. We’ll return to what produces them and how to address them in a later installment. The finished cradle should build without warnings; for now, these two come from the compiler’s generated code.
+Your locale may format decimal numbers differently. If you’re using Metal, this pinned compiler also emits warnings about embedded shader source and a generated member hiding an inherited member. Those don’t prevent this kernel from building and running. I’ll return to what produces them and how to address them in a later installment. The finished cradle should build without warnings; for now, these two come from the compiler’s generated code.
 
 ## Make the program check its answer
 

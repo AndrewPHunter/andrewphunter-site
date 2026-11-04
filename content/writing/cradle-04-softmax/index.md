@@ -20,7 +20,7 @@
   "canonicalURL": "https://cradle.plainsight-systems.com/lessons/04-softmax/",
   "cradle_source": {
     "repository": "https://github.com/plainsight-systems/cradle",
-    "revision": "c08ad6b051ba7db74a5f031472cbf58b2af8ce0f",
+    "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
     "article": "articles/04-softmax/index.md"
   }
 }
@@ -396,7 +396,7 @@ Actual:   0.09003058, 0.24472848, 0.66524094, 0.33333334, 0.33333334, 0.33333334
 Expected: 0.09003057, 0.24472848, 0.66524094, 0.33333334, 0.33333334, 0.33333334
 ```
 
-The last digits may differ with your GPU. That is why `CheckResults` uses a tolerance rather than exact equality. Keep your backend override on the command that builds; the following `--no-build` run uses that binary. The generated Metal warnings are the ones we discussed in lesson 1.
+The last digits may differ with your GPU. That is why `CheckResults` uses a tolerance rather than exact equality. Keep your backend override on the command that builds; the following `--no-build` run uses that binary. The generated Metal warnings are the ones I discussed in lesson 1.
 
 We now have probabilities coming back from the GPU, and each row agrees with the reference. Let’s give it a less friendly input.
 
@@ -501,7 +501,7 @@ The kernel now makes three passes over its row. Follow the large-score example t
 
 It’s tempting to combine the first two loops. Could we update a running maximum while calculating exponentials? Try `[1, 2, 3]`: if each score is compared with the largest value seen so far, we calculate `exp(1−1)`, then `exp(2−2)`, then `exp(3−3)`. All three become 1, which gives the wrong probabilities. The earlier values needed the final maximum too.
 
-There are algorithms that rescale earlier work as the maximum changes. We’ll keep that question for the optimization lesson, along with sharing a row across GPU threads. Three straightforward passes give us a version we can understand and measure against.
+There are algorithms that rescale earlier work as the maximum changes. I’ll keep that question for the optimization lesson, along with sharing a row across GPU threads. Three straightforward passes give us a version we can understand and measure against.
 
 Run the application again. Both sections should pass, and the large row should now print probabilities close to:
 
@@ -561,6 +561,6 @@ python3 scripts/check_dotnet.py
 
 Follow it with the application run to exercise your GPU. We haven’t added a new build setting or changed the dependency pin for this lesson.
 
-Keep both kernels. Attention will also need softmax, there to turn scores over input positions into weights for combining their information. Its rows will represent queries and its columns keys, with softmax running across each row. That is a separate use from the final vocabulary probabilities we used to explain the operation here, and we’ll build it in the attention lesson.
+Keep both kernels. Attention will also need softmax, there to turn scores over input positions into weights for combining their information. Its rows will represent queries and its columns keys, with softmax running across each row. That is a separate use from the final vocabulary probabilities I used to explain the operation here, and we’ll build it in the attention lesson.
 
 So far, we’ve supplied all the numbers ourselves. Next time we’ll give the cradle some text and build the tokenizer that turns it into token IDs. That gets us one step closer to replacing our little test matrices with a real prompt.

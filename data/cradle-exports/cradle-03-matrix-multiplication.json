@@ -1,9 +1,9 @@
 {
   "format": 1,
   "source_article": "articles/03-matrix-multiplication/index.md",
-  "revision": "600500852d8c2ce741d2c3d78f0b95cef1731bdd",
+  "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
   "files": {
-    "index.md": "f59aeac4d6ab6655d959462ffda5ed461be083f08b7f683cd5d1b92638d713d8",
+    "index.md": "33fd063ef3dd9f8d02c9be95cdc93d1156b2a962a1294c696d3687f3438c475c",
     "images/matrix-product-reminder.svg": "6834067a7aed947713a0799f670f16cddb082d61de9811a4b01570b3cc0ff30e",
     "images/cpu-loop-row.svg": "ffbaab06495620b34328b24a1d11dff19d06ca3524e2cfedc9be87fe923ba7f6",
     "images/cpu-loop-column.svg": "6790023abbd633f4bf5c080df09074ef041e7b6cba860bdd2d435ffbc5a7463d",

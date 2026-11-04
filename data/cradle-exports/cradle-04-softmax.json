@@ -1,9 +1,9 @@
 {
   "format": 1,
   "source_article": "articles/04-softmax/index.md",
-  "revision": "c08ad6b051ba7db74a5f031472cbf58b2af8ce0f",
+  "revision": "17e51fe10b0196a7aca8c0e920552fd867cbc62a",
   "files": {
-    "index.md": "bbed45bd5c0d2d97ac12f7e7f088be570f08ebac378560d3975954f1f847adae",
+    "index.md": "53ba1a6d9c32fa7c28d5dbbd66aa3a7a9bf06dd37ddd2191ae2d37b5b8c87191",
     "images/relative-shares.svg": "81825387945606a375d02a36f5903b1fc7ebaefa9f8473dca9fc2e46f3fabffe",
     "images/exponential-curve.svg": "536f8b65d75a6782d92549949e7d3b100d5dd3a98bdf72d7cf1e9206cac41f18",
     "images/scores-to-probabilities.svg": "41ca66c6df97378b6cfe8626dda8b4c79046dd935ae715c7d83aa365d05a3c08",
