@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="title desc"><title id="title">Two rows, two independent GPU jobs</title><desc id="desc">A one-dimensional launch of size 2 gives one invocation per row. The first row reads input positions 0,1,2 and the second reads 3,4,5. Each computes its own sum and normalizes its own row. The two output ranges do not overlap; invocation scheduling order is unspecified.</desc>
+<rect width="900" height="700" rx="8" fill="#fbf8f0"/>
+<g font-family="IBM Plex Sans, Arial, sans-serif">
+<text x="32" y="44" font-size="28" fill="#172f46" text-anchor="start" font-weight="700">Two rows, two independent GPU jobs</text>
+<rect x="185" y="79" width="530" height="62" rx="7" fill="#172f46" stroke="#172f46" stroke-width="1.5"/>
+<text x="450" y="119" font-size="25" fill="#fbf8f0" text-anchor="middle" font-weight="700">CPU: Launch(new Index1D(2), …)</text>
+<path d="M450,141 L450,160" stroke="#c7cdd0" stroke-width="2" fill="none"/>
+<path d="M235,160 L665,160" stroke="#c7cdd0" stroke-width="2" fill="none"/>
+<path d="M235,160 L235,187" stroke="#536475" stroke-width="2" fill="none"/>
+<path d="M230,179 L235,187 L240,179" fill="none" stroke="#536475" stroke-width="2"/>
+<path d="M665,160 L665,187" stroke="#536475" stroke-width="2" fill="none"/>
+<path d="M660,179 L665,187 L670,179" fill="none" stroke="#536475" stroke-width="2"/>
+<rect x="32" y="194" width="400" height="426" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<text x="52" y="230" font-size="24" fill="#167779" text-anchor="start" font-weight="700">Invocation: row = 0</text>
+<text x="52" y="263" font-size="21" fill="#536475" text-anchor="start" font-weight="400">offset = 0 × 3 = 0</text>
+<text x="104" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 0</text>
+<text x="222" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 1</text>
+<text x="340" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 2</text>
+<rect x="54" y="314" width="108" height="54" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="108.0" y="349.84" font-size="26" fill="#167779" text-anchor="middle" font-weight="700">1</text>
+<rect x="172" y="314" width="108" height="54" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="226.0" y="349.84" font-size="26" fill="#167779" text-anchor="middle" font-weight="700">2</text>
+<rect x="290" y="314" width="108" height="54" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="344.0" y="349.84" font-size="26" fill="#167779" text-anchor="middle" font-weight="700">3</text>
+<text x="52" y="407" font-size="21" fill="#172f46" text-anchor="start" font-weight="700">Pass 1: exponentiate and add</text>
+<rect x="54" y="425" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="108.0" y="454.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">2.718</text>
+<rect x="172" y="425" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="226.0" y="454.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">7.389</text>
+<rect x="290" y="425" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="344.0" y="454.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">20.086</text>
+<text x="52" y="502" font-size="22" fill="#167779" text-anchor="start" font-weight="700">This row’s sum ≈ 30.1929</text>
+<text x="52" y="540" font-size="21" fill="#172f46" text-anchor="start" font-weight="700">Pass 2: divide by this sum</text>
+<rect x="54" y="555" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="108.0" y="584.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">.0900</text>
+<rect x="172" y="555" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="226.0" y="584.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">.2447</text>
+<rect x="290" y="555" width="108" height="44" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="344.0" y="584.48" font-size="22" fill="#167779" text-anchor="middle" font-weight="700">.6652</text>
+<rect x="468" y="194" width="400" height="426" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<text x="488" y="230" font-size="24" fill="#9b7028" text-anchor="start" font-weight="700">Invocation: row = 1</text>
+<text x="488" y="263" font-size="21" fill="#536475" text-anchor="start" font-weight="400">offset = 1 × 3 = 3</text>
+<text x="540" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 3</text>
+<text x="658" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 4</text>
+<text x="776" y="301" font-size="18" fill="#536475" text-anchor="middle" font-weight="400">index 5</text>
+<rect x="490" y="314" width="108" height="54" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="544.0" y="349.84" font-size="26" fill="#9b7028" text-anchor="middle" font-weight="700">0</text>
+<rect x="608" y="314" width="108" height="54" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="662.0" y="349.84" font-size="26" fill="#9b7028" text-anchor="middle" font-weight="700">0</text>
+<rect x="726" y="314" width="108" height="54" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="780.0" y="349.84" font-size="26" fill="#9b7028" text-anchor="middle" font-weight="700">0</text>
+<text x="488" y="407" font-size="21" fill="#172f46" text-anchor="start" font-weight="700">Pass 1: exponentiate and add</text>
+<rect x="490" y="425" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="544.0" y="454.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">1</text>
+<rect x="608" y="425" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="662.0" y="454.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">1</text>
+<rect x="726" y="425" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="780.0" y="454.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">1</text>
+<text x="488" y="502" font-size="22" fill="#9b7028" text-anchor="start" font-weight="700">This row’s sum ≈ 3</text>
+<text x="488" y="540" font-size="21" fill="#172f46" text-anchor="start" font-weight="700">Pass 2: divide by this sum</text>
+<rect x="490" y="555" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="544.0" y="584.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">⅓</text>
+<rect x="608" y="555" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="662.0" y="584.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">⅓</text>
+<rect x="726" y="555" width="108" height="44" rx="7" fill="#efe1ba" stroke="#9b7028" stroke-width="1.5"/>
+<text x="780.0" y="584.48" font-size="22" fill="#9b7028" text-anchor="middle" font-weight="700">⅓</text>
+<text x="450" y="657" font-size="22" fill="#172f46" text-anchor="middle" font-weight="400">Each job writes back to its own three output positions.</text>
+<text x="450" y="685" font-size="19" fill="#536475" text-anchor="middle" font-weight="400">The GPU schedules these jobs; their execution order does not matter.</text>
+</g></svg>

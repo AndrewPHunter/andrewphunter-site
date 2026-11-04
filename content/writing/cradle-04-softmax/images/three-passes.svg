@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 615" role="img" aria-labelledby="title desc"><title id="title">Three passes inside one invocation</title><desc id="desc">One invocation processes the whole row. It first finds the maximum 1002, then calculates and stores exp(score minus maximum) while adding to sum, then divides the stored exponentials by the sum. Each pass completes before the next begins.</desc>
+<rect width="900" height="615" rx="8" fill="#fbf8f0"/>
+<g font-family="IBM Plex Sans, Arial, sans-serif">
+<text x="32" y="44" font-size="28" fill="#172f46" text-anchor="start" font-weight="700">Three passes inside one invocation</text>
+<text x="34" y="82" font-size="21" fill="#536475" text-anchor="start" font-weight="400">Follow row [1000, 1001, 1002]. Values shown are rounded.</text>
+<rect x="34" y="111" width="828" height="137" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<rect x="51" y="128" width="42" height="42" rx="7" fill="#172f46" stroke="#172f46" stroke-width="1.5"/>
+<text x="72" y="157" font-size="24" fill="#fbf8f0" text-anchor="middle" font-weight="700">1</text>
+<text x="108" y="155" font-size="24" fill="#172f46" text-anchor="start" font-weight="700">Find the maximum</text>
+<text x="51" y="202" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Read every input value.</text>
+<rect x="481" y="129" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="536.0" y="161.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">1000</text>
+<rect x="601" y="129" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="656.0" y="161.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">1001</text>
+<rect x="721" y="129" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="776.0" y="161.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">1002</text>
+<text x="656" y="215" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">maximum = 1002</text>
+<path d="M450,248 L450,274" stroke="#536475" stroke-width="2" fill="none"/>
+<path d="M445,266 L450,274 L455,266" fill="none" stroke="#536475" stroke-width="2"/>
+<rect x="34" y="277" width="828" height="137" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<rect x="51" y="294" width="42" height="42" rx="7" fill="#172f46" stroke="#172f46" stroke-width="1.5"/>
+<text x="72" y="323" font-size="24" fill="#fbf8f0" text-anchor="middle" font-weight="700">2</text>
+<text x="108" y="321" font-size="24" fill="#172f46" text-anchor="start" font-weight="700">Exponentiate and add</text>
+<text x="51" y="368" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Store exp(value − maximum).</text>
+<rect x="481" y="295" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="536.0" y="327.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">.1353</text>
+<rect x="601" y="295" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="656.0" y="327.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">.3679</text>
+<rect x="721" y="295" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="776.0" y="327.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">1</text>
+<text x="656" y="381" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">sum ≈ 1.5032</text>
+<path d="M450,414 L450,440" stroke="#536475" stroke-width="2" fill="none"/>
+<path d="M445,432 L450,440 L455,432" fill="none" stroke="#536475" stroke-width="2"/>
+<rect x="34" y="443" width="828" height="137" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<rect x="51" y="460" width="42" height="42" rx="7" fill="#172f46" stroke="#172f46" stroke-width="1.5"/>
+<text x="72" y="489" font-size="24" fill="#fbf8f0" text-anchor="middle" font-weight="700">3</text>
+<text x="108" y="487" font-size="24" fill="#172f46" text-anchor="start" font-weight="700">Normalize</text>
+<text x="51" y="534" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Divide each stored value by sum.</text>
+<rect x="481" y="461" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="536.0" y="493.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">.0900</text>
+<rect x="601" y="461" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="656.0" y="493.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">.2447</text>
+<rect x="721" y="461" width="110" height="49" rx="7" fill="#d9eeeb" stroke="#167779" stroke-width="1.5"/>
+<text x="776.0" y="493.32" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">.6652</text>
+<text x="656" y="547" font-size="23" fill="#167779" text-anchor="middle" font-weight="700">row sum ≈ 1</text>
+</g></svg>

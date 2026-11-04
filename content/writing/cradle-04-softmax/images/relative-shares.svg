@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 585" role="img" aria-labelledby="title desc"><title id="title">Same leader, different probabilities</title><desc id="desc">C has logit 3 in the first two rows. Softmax of 1,2,3 assigns C about 66.5 percent, while the close scores 2.8,2.9,3 give C only 36.7 percent. Adding 100 to all original logits preserves the probability distribution. Percentages are rounded.</desc>
+<rect width="900" height="585" rx="8" fill="#fbf8f0"/>
+<g font-family="IBM Plex Sans, Arial, sans-serif">
+<text x="32" y="44" font-size="28" fill="#172f46" text-anchor="start" font-weight="700">Same leader, different probabilities</text>
+<text x="34" y="83" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Each full bar is 100% of the probability, divided among A, B, and C.</text>
+<rect x="34" y="110" width="828" height="123" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<text x="52" y="147" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Logits: A, B, C</text>
+<text x="52" y="184" font-size="23" fill="#172f46" text-anchor="start" font-weight="700">[1, 2, 3]</text>
+<text x="290" y="141" font-size="22" fill="#172f46" text-anchor="start" font-weight="700">C has a larger lead</text>
+<rect x="290" y="158" width="49.51681524370925" height="30" fill="#9b7028"/>
+<rect x="339.51681524370923" y="158" width="134.6006590801387" height="30" fill="#167779"/>
+<rect x="474.11747432384794" y="158" width="365.882525676152" height="30" fill="#a74d34"/>
+<text x="290" y="216" font-size="21" fill="#9b7028" text-anchor="start" font-weight="700">A: 9.0%</text>
+<text x="475" y="216" font-size="21" fill="#167779" text-anchor="start" font-weight="700">B: 24.5%</text>
+<text x="660" y="216" font-size="21" fill="#a74d34" text-anchor="start" font-weight="700">C: 66.5%</text>
+<rect x="34" y="250" width="828" height="123" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<text x="52" y="287" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Logits: A, B, C</text>
+<text x="52" y="324" font-size="23" fill="#172f46" text-anchor="start" font-weight="700">[2.8, 2.9, 3]</text>
+<text x="290" y="281" font-size="22" fill="#172f46" text-anchor="start" font-weight="700">The candidates are nearly tied</text>
+<rect x="290" y="298" width="165.33528294565" height="30" fill="#9b7028"/>
+<rect x="455.33528294564996" y="298" width="182.723746443341" height="30" fill="#167779"/>
+<rect x="638.059029388991" y="298" width="201.94097061100905" height="30" fill="#a74d34"/>
+<text x="290" y="356" font-size="21" fill="#9b7028" text-anchor="start" font-weight="700">A: 30.1%</text>
+<text x="475" y="356" font-size="21" fill="#167779" text-anchor="start" font-weight="700">B: 33.2%</text>
+<text x="660" y="356" font-size="21" fill="#a74d34" text-anchor="start" font-weight="700">C: 36.7%</text>
+<rect x="34" y="390" width="828" height="123" rx="7" fill="white" stroke="#c7cdd0" stroke-width="1.5"/>
+<text x="52" y="427" font-size="20" fill="#536475" text-anchor="start" font-weight="400">Logits: A, B, C</text>
+<text x="52" y="464" font-size="23" fill="#172f46" text-anchor="start" font-weight="700">[101, 102, 103]</text>
+<text x="290" y="421" font-size="22" fill="#172f46" text-anchor="start" font-weight="700">Add 100 to every original logit</text>
+<rect x="290" y="438" width="49.51681524370925" height="30" fill="#9b7028"/>
+<rect x="339.51681524370923" y="438" width="134.6006590801387" height="30" fill="#167779"/>
+<rect x="474.11747432384794" y="438" width="365.882525676152" height="30" fill="#a74d34"/>
+<text x="290" y="496" font-size="21" fill="#9b7028" text-anchor="start" font-weight="700">A: 9.0%</text>
+<text x="475" y="496" font-size="21" fill="#167779" text-anchor="start" font-weight="700">B: 24.5%</text>
+<text x="660" y="496" font-size="21" fill="#a74d34" text-anchor="start" font-weight="700">C: 66.5%</text>
+<text x="450" y="557" font-size="21" fill="#172f46" text-anchor="middle" font-weight="400">The gaps between logits matter; a candidate’s score alone is not enough.</text>
+</g></svg>
