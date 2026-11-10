@@ -1,7 +1,7 @@
 ---
 title: "How AI Became Something We Talk To"
 date: 2026-11-09
-draft: true
+draft: false
 image: "/images/how-ai-became-something-we-talk-to/cover.jpg"
 description: "From early rules and learning machines, through the AI winters, to attention and language models: how a broad research ambition became an interface we can use in our own language."
 type: application
