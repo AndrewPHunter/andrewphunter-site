@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img" aria-labelledby="title desc">
+  <title id="title">One name, three meanings of AI</title>
+  <desc id="desc">A map of selected AI research approaches contains search, expert systems, and machine learning. Deep learning sits inside machine learning, with large language models inside deep learning. An arrow connects the language model to a natural language interface. Outside the map, a fictional thinking machine is linked to the interface by a dotted line labeled shared name, borrowed expectations.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10" fill="none" stroke="#98752e" stroke-width="2"/></marker>
+    <style>
+      text { font-family: 'IBM Plex Sans', Arial, sans-serif; fill: #182333; }
+      .title { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 44px; }
+      .label { font-family: 'IBM Plex Mono', monospace; font-size: 18px; letter-spacing: 1.5px; fill: #685c43; }
+      .head { font-size: 29px; font-weight: 600; }
+      .body { font-size: 22px; }
+      .note { font-size: 20px; fill: #536170; }
+      .light { fill: #fafaf5; }
+    </style>
+  </defs>
+  <rect width="1200" height="1040" fill="#fafaf5"/>
+  <text class="title" x="40" y="65">One name, three meanings</text>
+  <text class="body" x="42" y="106" fill="#536170">Where language models fit, and what the name brings with them.</text>
+  <path d="M40 130H1160" stroke="#d5cbb6"/>
+
+  <text class="label" x="42" y="172">01 / THE FIELD</text>
+  <rect x="40" y="190" width="720" height="650" rx="8" fill="#f1ebdc" stroke="#aaa08a" stroke-width="2"/>
+  <text class="head" x="72" y="240">Artificial intelligence</text>
+  <text class="note" x="72" y="275">A broad field of research</text>
+
+  <rect x="72" y="313" width="190" height="110" rx="5" fill="#fafaf5" stroke="#b7af9e"/>
+  <text class="body" x="94" y="353">Search</text>
+  <path d="M112 373V387H97V403M112 387H142V403M112 387V403" fill="none" stroke="#98752e" stroke-width="2"/>
+  <circle cx="112" cy="373" r="4" fill="#98752e"/><circle cx="97" cy="403" r="4" fill="#98752e"/><circle cx="112" cy="403" r="4" fill="#98752e"/><circle cx="142" cy="403" r="4" fill="#98752e"/>
+
+  <rect x="72" y="447" width="190" height="130" rx="5" fill="#fafaf5" stroke="#b7af9e"/>
+  <text class="body" x="94" y="486">Expert</text><text class="body" x="94" y="514">systems</text>
+  <path d="M96 539H106M116 539H155M96 553H106M116 553H171" stroke="#98752e" stroke-width="3"/>
+
+  <rect x="290" y="313" width="438" height="491" rx="6" fill="#e1e6df" stroke="#829487" stroke-width="2"/>
+  <text class="head" x="316" y="358">Machine learning</text>
+  <text class="note" x="316" y="389">Learning from examples</text>
+
+  <rect x="316" y="422" width="386" height="351" rx="5" fill="#c8d7d0" stroke="#708e80" stroke-width="2"/>
+  <text class="head" x="342" y="466">Deep learning</text>
+  <text class="note" x="342" y="497">Neural networks with many layers</text>
+
+  <rect x="342" y="535" width="334" height="182" rx="5" fill="#182333"/>
+  <text class="head light" x="369" y="583">Large language</text>
+  <text class="head light" x="369" y="620">models</text>
+  <path d="M369 641H649" stroke="#d4ad5a" stroke-width="2"/>
+  <text class="body light" x="369" y="679">One family within the field</text>
+
+  <text class="note" x="72" y="879">Selected approaches, not a complete taxonomy.</text>
+
+  <text class="label" x="820" y="172">03 / WHAT WE IMAGINE</text>
+  <rect x="820" y="190" width="340" height="310" rx="6" fill="#f1ebdc" stroke="#aaa08a" stroke-width="2"/>
+  <text class="head" x="850" y="237">The thinking machine</text>
+  <g transform="translate(990 347)" stroke="#182333" stroke-width="3" stroke-linejoin="round">
+    <path d="M-86 126V107Q-83 76-46 65H46Q83 76 86 107V126" fill="#c7b78e"/>
+    <path d="M-24 48V77H24V48" fill="#d4ad5a"/>
+    <rect x="-61" y="-62" width="122" height="124" rx="25" fill="#d4ad5a"/>
+    <path d="M-61-16H-73V20H-61M61-16H73V20H61" fill="#c7b78e"/>
+    <rect x="-45" y="-33" width="90" height="35" rx="13" fill="#182333"/>
+    <circle cx="-23" cy="-15" r="8" fill="#fafaf5" stroke="none"/><circle cx="23" cy="-15" r="8" fill="#fafaf5" stroke="none"/>
+    <path d="M-24 28Q0 39 24 28" fill="none"/>
+    <path d="M0-62V-80"/><circle cy="-88" r="8" fill="#d4ad5a"/>
+  </g>
+
+  <path d="M990 505V680" fill="none" stroke="#98752e" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/>
+  <rect x="854" y="539" width="272" height="68" fill="#fafaf5"/>
+  <text class="note" x="990" y="561" text-anchor="middle">Shared name.</text>
+  <text class="note" x="990" y="589" text-anchor="middle">Borrowed expectations.</text>
+
+  <rect x="810" y="634" width="350" height="28" fill="#fafaf5"/>
+  <text class="label" x="820" y="655">02 / WHAT WE USE</text>
+  <path d="M676 626H782V775H829" fill="none" stroke="#98752e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="754" y="683" width="58" height="28" fill="#fafaf5"/>
+  <text x="783" y="702" text-anchor="middle" style="font-size:17px;fill:#685c43">powers</text>
+  <rect x="834" y="682" width="310" height="182" rx="13" fill="#dfd3b8" stroke="#182333" stroke-width="3"/>
+  <rect x="853" y="701" width="272" height="132" rx="5" fill="#182333"/>
+  <text x="873" y="739" style="font-family:monospace;font-size:20px;fill:#e8dfc8">&gt; Explain this.</text>
+  <text x="873" y="777" style="font-family:monospace;font-size:20px;fill:#d4ad5a">Let's work</text>
+  <text x="873" y="804" style="font-family:monospace;font-size:20px;fill:#d4ad5a">through it.</text>
+  <path d="M958 865V882H1022V865M932 883H1048" fill="none" stroke="#182333" stroke-width="4"/>
+  <text class="head" x="990" y="924" text-anchor="middle">Natural language</text>
+  <text class="head" x="990" y="959" text-anchor="middle">interface</text>
+  <path d="M40 987H1160" stroke="#d5cbb6"/>
+  <text class="note" x="40" y="1021">Solid arrow: a model powers an interface. Dotted line: a connection in how we talk about AI.</text>
+</svg>
