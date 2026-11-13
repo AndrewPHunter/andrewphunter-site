@@ -2,6 +2,7 @@
 title: "Architecting with Claude"
 date: 2026-11-13
 draft: false
+image: "/images/architecting-with-claude/cover.jpg"
 description: "Applying Claude Code's practices to architectural work: planning the design, expressing contracts, verifying behavior, and assigning models to the work they need to do."
 type: application
 category: applications
